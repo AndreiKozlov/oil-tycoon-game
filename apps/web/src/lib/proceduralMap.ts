@@ -87,8 +87,9 @@ export function biomeAt(x: number, y: number, cfg: MapConfig): Biome {
   // Горы — высокие зоны.
   if (elevation > 0.78) return 'mountain';
 
-  // Прибрежная полоса — узкая зона у воды.
-  if (elevation < 0.06) return 'shore';
+  // Прибрежная полоса — узкая равнина у воды (раньше был отдельный биом shore,
+  // теперь не нужен — wang-переходы рендерятся автоматически).
+  if (elevation < 0.06) return 'plain';
 
   // Температура от широты (y=0 — северный полюс, y=height — южный).
   // На широте 0 и height: cold. На height/2: hot.

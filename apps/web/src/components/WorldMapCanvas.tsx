@@ -2,16 +2,18 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   BIOME_INFO,
   getAllUniqueTilePaths,
-  pickTileForBiome,
+  pickBiomeTile,
+  pickShoreTile,
   type Biome,
+  type ShoreCode,
 } from '../lib/biomeMap';
 import { DEFAULT_MAP, generateMap, biomeAtIndex, type MapConfig } from '../lib/proceduralMap';
 
-// Базовый размер тайла на карте (пиксели на экране в 1× zoom).
-// Реальные PNG 32×32, но при zoom можем растягивать.
 const TILE_PX = 32;
 const MIN_ZOOM = 0.4;
 const MAX_ZOOM = 3.0;
+
+const CYAN_KEY = { r: 0, g: 255, b: 255 };
 
 export interface TileSelection {
   x: number;
@@ -24,51 +26,127 @@ interface Props {
   onTileClick?: (sel: TileSelection) => void;
 }
 
+function isLand(b: Biome | null): boolean {
+  if (b === null) return false;
+  return b !== 'water';
+}
+
+function cornerCode(
+  map: Biome[],
+  cfg: MapConfig,
+  x: number,
+  y: number,
+  corner: 'TL' | 'TR' | 'BL' | 'BR',
+): 'L' | 'W' {
+  const dx = corner === 'TR' || corner === 'BR' ? 1 : -1;
+  const dy = corner === 'BL' || corner === 'BR' ? 1 : -1;
+  const n1 = biomeAtIndex(map, cfg, x + dx, y);
+  const n2 = biomeAtIndex(map, cfg, x, y + dy);
+  const n3 = biomeAtIndex(map, cfg, x + dx, y + dy);
+  return isLand(n1) || isLand(n2) || isLand(n3) ? 'L' : 'W';
+}
+
+const KNOWN_SHORE_CODES: ShoreCode[] = [
+  'LLLW', 'LLWL', 'WLLL', 'LWLL',
+  'LLWW', 'WWLL', 'LWLW', 'WLWL', 'LWWL', 'WLLW',
+  'WWLW', 'WWWL',
+];
+
+function waterWangCode(
+  map: Biome[],
+  cfg: MapConfig,
+  x: number,
+  y: number,
+): ShoreCode | null {
+  const tl = cornerCode(map, cfg, x, y, 'TL');
+  const tr = cornerCode(map, cfg, x, y, 'TR');
+  const bl = cornerCode(map, cfg, x, y, 'BL');
+  const br = cornerCode(map, cfg, x, y, 'BR');
+  const code = `${tl}${tr}${bl}${br}`;
+  if (code === 'WWWW') return null;
+  return KNOWN_SHORE_CODES.includes(code as ShoreCode) ? (code as ShoreCode) : null;
+}
+
+async function loadTileImage(path: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          resolve(img);
+          return;
+        }
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const px = data.data;
+        for (let i = 0; i < px.length; i += 4) {
+          if (px[i] === CYAN_KEY.r && px[i + 1] === CYAN_KEY.g && px[i + 2] === CYAN_KEY.b) {
+            px[i + 3] = 0;
+          }
+        }
+        ctx.putImageData(data, 0, 0);
+        const converted = new Image();
+        converted.onload = () => resolve(converted);
+        converted.onerror = () => resolve(img);
+        converted.src = canvas.toDataURL();
+      } catch {
+        resolve(img);
+      }
+    };
+    img.onerror = () => reject(new Error(`Failed to load ${path}`));
+    img.src = path;
+  });
+}
+
 export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
-  // Кэш картинок тайлов.
   const spriteCacheRef = useRef<Map<string, HTMLImageElement>>(new Map());
   const [spritesLoaded, setSpritesLoaded] = useState(false);
 
-  // Карта биомов (Memo, чтобы не пересчитывать на каждом рендере).
   const map = useMemo(() => generateMap(config), [config]);
 
-  // Состояние камеры: смещение в пикселях + zoom.
-  const camRef = useRef({ x: -50, y: -20, zoom: 1 });
-  const [, forceRender] = useState(0); // тригер перерисовки
-
-  // Выбранный тайл (для подсветки).
+  const camRef = useRef({ x: 0, y: 0, zoom: 1 });
+  const [, forceRender] = useState(0);
   const [hovered, setHovered] = useState<{ x: number; y: number } | null>(null);
 
-  // ===== Загрузка спрайтов =====
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const tileSize = TILE_PX;
+    const mapPxW = config.width * tileSize;
+    const mapPxH = config.height * tileSize;
+    camRef.current.x = Math.max(-mapPxW, (wrap.clientWidth - mapPxW) / 2);
+    camRef.current.y = Math.max(-mapPxH, (wrap.clientHeight - mapPxH) / 2);
+    forceRender((n) => n + 1);
+  }, [config.width, config.height]);
 
   useEffect(() => {
     let cancelled = false;
     const paths = getAllUniqueTilePaths();
     let loaded = 0;
     paths.forEach((path) => {
-      const img = new Image();
-      img.onload = () => {
-        if (cancelled) return;
-        spriteCacheRef.current.set(path, img);
-        loaded += 1;
-        if (loaded === paths.length) setSpritesLoaded(true);
-      };
-      img.onerror = () => {
-        loaded += 1;
-        // Даже если не загрузилось — продолжим. Не блокируем картину.
-        if (loaded === paths.length) setSpritesLoaded(true);
-      };
-      img.src = path;
+      loadTileImage(path)
+        .then((img) => {
+          if (cancelled) return;
+          spriteCacheRef.current.set(path, img);
+        })
+        .catch(() => {})
+        .finally(() => {
+          loaded += 1;
+          if (loaded === paths.length && !cancelled) setSpritesLoaded(true);
+        });
     });
     return () => {
       cancelled = true;
     };
   }, []);
-
-  // ===== Рендер =====
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -89,42 +167,49 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.imageSmoothingEnabled = false;
 
-    // Фон — глубокий синий (океан под потерянными плитками).
-    ctx.fillStyle = '#0a1018';
+    ctx.fillStyle = BIOME_INFO.water.hexColor;
     ctx.fillRect(0, 0, w, h);
 
     const cam = camRef.current;
     const tileSize = TILE_PX * cam.zoom;
 
-    // Какой диапазон тайлов виден?
     const startX = Math.max(0, Math.floor(-cam.x / tileSize));
     const startY = Math.max(0, Math.floor(-cam.y / tileSize));
     const endX = Math.min(config.width, Math.ceil((w - cam.x) / tileSize) + 1);
     const endY = Math.min(config.height, Math.ceil((h - cam.y) / tileSize) + 1);
 
-    // Рендер тайлов.
     for (let y = startY; y < endY; y++) {
       for (let x = startX; x < endX; x++) {
         const biome = biomeAtIndex(map, config, x, y);
         if (!biome) continue;
         const px = Math.floor(cam.x + x * tileSize);
         const py = Math.floor(cam.y + y * tileSize);
+        const size = Math.ceil(tileSize);
 
-        const sprite = spritesLoaded
-          ? spriteCacheRef.current.get(pickTileForBiome(biome, x, y))
-          : null;
+        let basePath: string;
+        if (biome === 'water') {
+          const code = waterWangCode(map, config, x, y);
+          basePath = code ? pickShoreTile(code, x, y) : pickBiomeTile('water', x, y);
+        } else {
+          basePath = pickBiomeTile(biome, x, y);
+        }
+        const sprite = spriteCacheRef.current.get(basePath);
+
+        // Под прозрачные части тайлов (cyan-keyed) подкладываем чистую воду.
+        if (biome === 'water') {
+          ctx.fillStyle = BIOME_INFO.water.hexColor;
+          ctx.fillRect(px, py, size, size);
+        }
 
         if (sprite && sprite.complete && sprite.naturalWidth > 0) {
-          ctx.drawImage(sprite, px, py, Math.ceil(tileSize), Math.ceil(tileSize));
+          ctx.drawImage(sprite, px, py, size, size);
         } else {
-          // fallback — заливка hexColor биома.
           ctx.fillStyle = BIOME_INFO[biome].hexColor;
-          ctx.fillRect(px, py, Math.ceil(tileSize), Math.ceil(tileSize));
+          ctx.fillRect(px, py, size, size);
         }
       }
     }
 
-    // Подсветка под курсором.
     if (hovered) {
       const px = Math.floor(cam.x + hovered.x * tileSize);
       const py = Math.floor(cam.y + hovered.y * tileSize);
@@ -134,7 +219,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     }
   }, [config, map, spritesLoaded, hovered]);
 
-  // Перерисовка при изменениях.
   useEffect(() => {
     draw();
   }, [draw]);
@@ -145,21 +229,17 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     return () => window.removeEventListener('resize', onResize);
   }, [draw]);
 
-  // ===== Взаимодействие =====
-
   const dragRef = useRef<{ x: number; y: number; cx: number; cy: number } | null>(null);
   const pinchRef = useRef<{ dist: number; zoom: number } | null>(null);
 
-  const screenToTile = useCallback(
-    (sx: number, sy: number) => {
-      const cam = camRef.current;
-      const tileSize = TILE_PX * cam.zoom;
-      const tx = Math.floor((sx - cam.x) / tileSize);
-      const ty = Math.floor((sy - cam.y) / tileSize);
-      return { x: tx, y: ty };
-    },
-    [],
-  );
+  const screenToTile = useCallback((sx: number, sy: number) => {
+    const cam = camRef.current;
+    const tileSize = TILE_PX * cam.zoom;
+    return {
+      x: Math.floor((sx - cam.x) / tileSize),
+      y: Math.floor((sy - cam.y) / tileSize),
+    };
+  }, []);
 
   const onPointerDown = (e: React.PointerEvent) => {
     (e.target as Element).setPointerCapture(e.pointerId);
@@ -193,7 +273,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     const wasDrag = dragRef.current;
     dragRef.current = null;
 
-    // Если палец почти не двигался — считаем кликом.
     if (wasDrag) {
       const dx = e.clientX - wasDrag.x;
       const dy = e.clientY - wasDrag.y;
@@ -219,7 +298,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     const factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
     const newZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, oldZoom * factor));
     if (newZoom === oldZoom) return;
-    // Zoom в точку курсора.
     cam.x = cx - ((cx - cam.x) / oldZoom) * newZoom;
     cam.y = cy - ((cy - cam.y) / oldZoom) * newZoom;
     cam.zoom = newZoom;
@@ -227,7 +305,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     forceRender((n) => n + 1);
   };
 
-  // Двупальцевый pinch на тач-экранах.
   const onTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length === 2) {
       const t1 = e.touches[0]!;
@@ -245,8 +322,7 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
       const newDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
       const ratio = newDist / pinchRef.current.dist;
       const cam = camRef.current;
-      const newZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, pinchRef.current.zoom * ratio));
-      cam.zoom = newZoom;
+      cam.zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, pinchRef.current.zoom * ratio));
       draw();
     }
   };
@@ -254,7 +330,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     pinchRef.current = null;
   };
 
-  // Кнопки зума (для accessibility).
   const zoomBy = (factor: number) => {
     const wrap = wrapRef.current;
     if (!wrap) return;
@@ -273,7 +348,7 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
   return (
     <div
       ref={wrapRef}
-      className="relative h-full w-full overflow-hidden bg-[#0a1018] touch-none"
+      className="relative h-full w-full overflow-hidden bg-[#3a5060] touch-none"
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
@@ -285,7 +360,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     >
       <canvas ref={canvasRef} className="block" />
 
-      {/* Кнопки зума снизу справа карты */}
       <div className="absolute bottom-20 right-3 z-10 flex flex-col gap-1">
         <button
           type="button"
@@ -303,7 +377,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
         </button>
       </div>
 
-      {/* Подсказка с координатой и биомом hovered тайла */}
       {hovered && (
         <div className="pointer-events-none absolute left-3 top-16 z-10 rounded-md bg-slate-900/85 px-3 py-1.5 text-xs text-slate-200 shadow-lg backdrop-blur">
           {(() => {
@@ -311,11 +384,15 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
             const info = biome ? BIOME_INFO[biome] : null;
             return (
               <>
-                <span className="font-mono">({hovered.x}, {hovered.y})</span>
+                <span className="font-mono">
+                  ({hovered.x}, {hovered.y})
+                </span>
                 {info && (
                   <>
                     {' · '}
-                    <span>{info.emoji} {info.name}</span>
+                    <span>
+                      {info.emoji} {info.name}
+                    </span>
                   </>
                 )}
               </>
