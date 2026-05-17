@@ -1,6 +1,12 @@
-import { Clock, Droplet, Gauge, TrendingUp } from 'lucide-react';
+import { Clock, Droplet, Gauge, TrendingUp, Zap } from 'lucide-react';
 import type { PlotState } from '../data/mockData';
-import { useGameStore } from '../store/gameStore';
+import { powerRatio, useGameStore } from '../store/gameStore';
+import {
+  plotExtractionRate,
+  plotPowerDraw,
+  plotPowerProduced,
+  plotTankCapacity,
+} from '../lib/gameFormulas';
 import { formatBarrels, formatMoney } from '../lib/format';
 import { PriceTicker } from './PriceTicker';
 
@@ -10,21 +16,48 @@ interface Props {
 
 export function StatusStrip({ plot }: Props) {
   const oilPrice = useGameStore((s) => s.market.oilPrice);
+  const extractionRate = plotExtractionRate(plot);
+  const tankCapacity = plotTankCapacity(plot);
+  const produced = plotPowerProduced(plot);
+  const draw = plotPowerDraw(plot);
+  const ratio = powerRatio(plot);
+  const effectiveRate = extractionRate * ratio;
+  const powerShortage = ratio < 1;
+
   const reservesPercent = Math.round((plot.reservesRemaining / plot.reservesTotal) * 100);
-  const tankPercent = Math.round((plot.tankFill / plot.tankCapacity) * 100);
-  const tankFull = tankPercent >= 100;
+  const tankPercent = tankCapacity > 0 ? Math.round((plot.tankFill / tankCapacity) * 100) : 0;
+  const tankFull = tankCapacity > 0 && tankPercent >= 100;
+  const noTank = tankCapacity === 0;
   const exhausted = plot.reservesRemaining <= 0;
   const tankValueUsd = plot.tankFill * oilPrice;
 
   return (
     <div className="space-y-2 border-t border-slate-800 bg-slate-900/60 px-3 py-2 text-xs">
-      {/* Цена нефти */}
+      {/* Цена нефти + поток дохода */}
       <div className="flex items-center justify-between">
         <PriceTicker />
         <span className="flex items-center gap-1 font-mono text-emerald-400">
-          <TrendingUp className="h-3.5 w-3.5" />+{formatMoney(plot.extractionRatePerHour * oilPrice)}
-          /час
+          <TrendingUp className="h-3.5 w-3.5" />+{formatMoney(effectiveRate * oilPrice)}/час
         </span>
+      </div>
+
+      {/* Энергобаланс */}
+      <div className="flex items-center justify-between">
+        <span
+          className={`flex items-center gap-1 ${
+            powerShortage ? 'text-rose-400' : 'text-slate-300'
+          }`}
+        >
+          <Zap className="h-3.5 w-3.5" />
+          <span className="font-mono">
+            {produced} / {draw} кВт
+          </span>
+        </span>
+        {powerShortage && (
+          <span className="text-[11px] text-rose-400">
+            Не хватает энергии — добыча {Math.round(ratio * 100)}%
+          </span>
+        )}
       </div>
 
       {/* Запасы в недрах */}
@@ -54,7 +87,7 @@ export function StatusStrip({ plot }: Props) {
             <Gauge className={`h-3.5 w-3.5 ${tankFull ? 'text-rose-400' : 'text-sky-400'}`} />
             Резервуар:{' '}
             <span className="font-mono">
-              {formatBarrels(plot.tankFill)} / {formatBarrels(plot.tankCapacity)} бар
+              {formatBarrels(plot.tankFill)} / {formatBarrels(tankCapacity)} бар
             </span>
           </span>
           {plot.tankFill > 0 && (
@@ -67,9 +100,14 @@ export function StatusStrip({ plot }: Props) {
             style={{ width: `${tankPercent}%` }}
           />
         </div>
-        {tankFull && (
+        {noTank && (
           <p className="mt-1 text-[11px] text-rose-400">
-            Резервуар полон. Добыча остановлена — продай нефть.
+            Нет резервуаров — нефть некуда складывать. Построй бак.
+          </p>
+        )}
+        {tankFull && !noTank && (
+          <p className="mt-1 text-[11px] text-rose-400">
+            Резервуар полон. Добыча остановлена — продай нефть или построй ещё бак.
           </p>
         )}
         {!tankFull && exhausted && (

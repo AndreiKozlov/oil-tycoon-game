@@ -1,17 +1,22 @@
-import type { Building } from '../data/mockData';
+import type { Building, BuildingType } from '../data/mockData';
 import { useGameStore } from '../store/gameStore';
+import { plotExtractionRate, plotTankCapacity } from '../lib/gameFormulas';
 
 interface Props {
   buildings: Building[];
   onSelect?: (id: string) => void;
 }
 
-const HIT_ZONES: { cx: number; cy: number; r: number }[] = [
-  { cx: 155, cy: 145, r: 30 }, // derrick
-  { cx: 242, cy: 185, r: 22 }, // well
-  { cx: 109, cy: 192, r: 22 }, // tank
-  { cx: 276, cy: 212, r: 18 }, // generator
-];
+// Координаты «слотов» на изометрической карте, по типу постройки.
+// На участке может быть несколько вышек — все рисуем в одной зоне, но
+// показываем бейджик «×N» с количеством. Pixi.js с реальной раскладкой
+// придёт на этапе D.4.
+const SLOT_BY_TYPE: Record<BuildingType, { cx: number; cy: number; r: number }> = {
+  derrick: { cx: 155, cy: 145, r: 30 },
+  well: { cx: 242, cy: 185, r: 22 },
+  tank: { cx: 109, cy: 192, r: 22 },
+  generator: { cx: 276, cy: 212, r: 18 },
+};
 
 // SVG-сцена участка. Минимальная анимация средствами SMIL + CSS keyframes:
 // - балансир скважины качается
@@ -20,12 +25,22 @@ const HIT_ZONES: { cx: number; cy: number; r: number }[] = [
 // Заменим на Pixi.js с настоящими спрайтами на этапе D.
 export function CenterStage({ buildings, onSelect }: Props) {
   const tankFill = useGameStore((s) => s.plot.tankFill);
-  const tankCapacity = useGameStore((s) => s.plot.tankCapacity);
-  const extracting = useGameStore(
-    (s) => s.plot.extractionRatePerHour > 0 && s.plot.tankFill < s.plot.tankCapacity,
-  );
+  const plot = useGameStore((s) => s.plot);
+  const tankCapacity = plotTankCapacity(plot);
+  const extractionRate = plotExtractionRate(plot);
+  const extracting = extractionRate > 0 && (tankCapacity === 0 || tankFill < tankCapacity);
 
-  const tankPercent = Math.max(0, Math.min(1, tankFill / tankCapacity));
+  // Группируем постройки по типу, чтобы знать сколько каждой и взять «представителя»
+  // для тапа (открываем модалку самой первой; модалка построек с разными уровнями
+  // придёт в D.4).
+  const byType = new Map<BuildingType, Building[]>();
+  for (const b of buildings) {
+    const arr = byType.get(b.type) ?? [];
+    arr.push(b);
+    byType.set(b.type, arr);
+  }
+
+  const tankPercent = tankCapacity > 0 ? Math.max(0, Math.min(1, tankFill / tankCapacity)) : 0;
   // Геометрия резервуара (в координатах SVG, см. ниже).
   const TANK_TOP = 6;
   const TANK_BOTTOM = 28;
@@ -135,35 +150,61 @@ export function CenterStage({ buildings, onSelect }: Props) {
           </rect>
         </g>
 
-        {/* Статус-точки */}
-        {buildings.map((b, i) => {
-          const x = [155, 242, 109, 276][i] ?? 200;
-          const y = [110, 165, 165, 195][i] ?? 90;
+        {/* Для каждого типа: статус-точка (берём худший статус из группы) +
+            бейджик «×N» если построек >1 + кликабельная hit-зона. */}
+        {(Object.keys(SLOT_BY_TYPE) as BuildingType[]).map((type) => {
+          const group = byType.get(type);
+          if (!group || group.length === 0) return null;
+          const slot = SLOT_BY_TYPE[type];
+          const representative = group[0]!;
+
+          // «Худший» статус из группы для индикатора.
+          const worst = group.some((b) => b.status === 'needs_repair')
+            ? 'needs_repair'
+            : group.some((b) => b.status === 'full')
+              ? 'full'
+              : group.some((b) => b.status === 'building')
+                ? 'building'
+                : 'ok';
           const color =
-            b.status === 'ok'
+            worst === 'ok'
               ? '#10b981'
-              : b.status === 'needs_repair'
+              : worst === 'needs_repair'
                 ? '#ef4444'
-                : b.status === 'full'
+                : worst === 'full'
                   ? '#eab308'
                   : '#94a3b8';
-          return <circle key={`s-${b.id}`} cx={x} cy={y} r="3" fill={color} />;
-        })}
 
-        {/* Кликабельные hit-зоны */}
-        {buildings.map((b, i) => {
-          const zone = HIT_ZONES[i];
-          if (!zone) return null;
+          // Положения статус-точки немного выше hit-зоны.
+          const dotY = slot.cy - slot.r - 5;
+
           return (
-            <circle
-              key={`hit-${b.id}`}
-              cx={zone.cx}
-              cy={zone.cy}
-              r={zone.r}
-              fill="transparent"
-              className="cursor-pointer transition hover:fill-amber-400/10"
-              onClick={() => onSelect?.(b.id)}
-            />
+            <g key={`slot-${type}`}>
+              <circle cx={slot.cx} cy={dotY} r="3" fill={color} />
+              {group.length > 1 && (
+                <g transform={`translate(${slot.cx + 6}, ${dotY - 6})`}>
+                  <rect width="18" height="12" rx="6" fill="#1e293b" stroke="#475569" />
+                  <text
+                    x="9"
+                    y="9"
+                    textAnchor="middle"
+                    fill="#e2e8f0"
+                    fontSize="9"
+                    fontFamily="monospace"
+                  >
+                    ×{group.length}
+                  </text>
+                </g>
+              )}
+              <circle
+                cx={slot.cx}
+                cy={slot.cy}
+                r={slot.r}
+                fill="transparent"
+                className="cursor-pointer transition hover:fill-amber-400/10"
+                onClick={() => onSelect?.(representative.id)}
+              />
+            </g>
           );
         })}
       </svg>

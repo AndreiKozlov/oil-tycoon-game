@@ -1,5 +1,5 @@
-// Заглушки до появления реального state-менеджера и сохранения в localStorage.
-// Все числа из oil_game_balance.md / GDD — соответствуют середине прогрессии (~уровень 8).
+// Стартовое состояние игры (мок). Реальная инициализация — через стор.
+// Числа берутся примерно из oil_game_balance.md (середина прогрессии).
 
 export interface PlayerState {
   name: string;
@@ -10,9 +10,11 @@ export interface PlayerState {
   xpToNextLevel: number;
 }
 
+export type BuildingType = 'derrick' | 'well' | 'tank' | 'generator';
+
 export interface Building {
   id: string;
-  type: 'derrick' | 'well' | 'tank' | 'generator';
+  type: BuildingType;
   level: number;
   status: 'ok' | 'needs_repair' | 'full' | 'building';
   fillPercent?: number;
@@ -24,14 +26,12 @@ export interface PlotState {
   // Запасы в недрах (баррели) — иссякают по мере добычи.
   reservesRemaining: number;
   reservesTotal: number;
-  // Дней до истощения при текущем темпе.
+  // Дней до истощения при текущем темпе (вычисляется в сторе).
   daysRemaining: number;
-  // Темп добычи в баррелях в час. Зависит от уровней вышки/скважин.
-  extractionRatePerHour: number;
-  // Резервуар: вместимость и текущее заполнение, тоже в баррелях.
-  tankCapacity: number;
+  // Текущее заполнение резервуара (всех баков суммарно), баррелей.
   tankFill: number;
-  powerDraw: number;
+  // Лимит количества построек на участке. Растёт с уровнем HQ позже.
+  maxSlots: number;
   buildings: Building[];
 }
 
@@ -44,19 +44,15 @@ export const mockPlayer: PlayerState = {
   xpToNextLevel: 2200,
 };
 
-// Базовый темп добычи: ~247 бар/час (при $60/бар это ~$14.8k/час, как раньше).
-// Резервуар: 1000 бар — чуть больше 4 часов добычи, чтобы было что продавать
-// каждый сеанс. Заполнен на 78% при старте.
+// Стартовое состояние: 1 вышка, 1 скважина, 1 бак, 1 генератор. 8 слотов всего.
 export const mockPlot: PlotState = {
   id: 'tyumen-3',
   name: 'Тюменская-3',
   reservesRemaining: 234_000,
   reservesTotal: 500_000,
   daysRemaining: 18,
-  extractionRatePerHour: 247,
-  tankCapacity: 1000,
   tankFill: 780,
-  powerDraw: 42,
+  maxSlots: 8,
   buildings: [
     { id: 'b1', type: 'derrick', level: 5, status: 'ok' },
     { id: 'b2', type: 'well', level: 3, status: 'ok' },

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { BottomNav } from '../components/BottomNav';
 import { BuildingModal } from '../components/BuildingModal';
+import { BuildSheet } from '../components/BuildSheet';
 import { CenterStage } from '../components/CenterStage';
+import { LevelUpBanner } from '../components/LevelUpBanner';
 import { PlotHeader } from '../components/PlotHeader';
 import { QuickActions } from '../components/QuickActions';
 import { SaleToast } from '../components/SaleToast';
@@ -19,6 +21,7 @@ export function PlotScreen() {
     'build' | 'world' | 'market' | 'leaderboard' | 'settings'
   >('build');
   const [selectedBuildingId, setSelectedBuildingId] = useState<string | null>(null);
+  const [buildSheetOpen, setBuildSheetOpen] = useState(false);
   const [lastSale, setLastSale] = useState<number | null>(null);
 
   return (
@@ -27,13 +30,15 @@ export function PlotScreen() {
       <PlotHeader plotName={plot.name} />
       <CenterStage buildings={plot.buildings} onSelect={setSelectedBuildingId} />
       <StatusStrip plot={plot} />
-      <QuickActions onSold={setLastSale} />
+      <QuickActions onSold={setLastSale} onOpenBuild={() => setBuildSheetOpen(true)} />
       <BottomNav active={activeTab} onChange={setActiveTab} />
       <BuildingModal
         buildingId={selectedBuildingId}
         onClose={() => setSelectedBuildingId(null)}
       />
+      <BuildSheet open={buildSheetOpen} onClose={() => setBuildSheetOpen(false)} />
       <SaleToast amount={lastSale} onDone={() => setLastSale(null)} />
+      <LevelUpBanner />
     </div>
   );
 }

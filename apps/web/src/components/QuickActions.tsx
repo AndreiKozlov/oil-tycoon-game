@@ -1,4 +1,4 @@
-import { DollarSign, ShoppingBag, Wrench, type LucideIcon } from 'lucide-react';
+import { DollarSign, Hammer, ShoppingBag, type LucideIcon } from 'lucide-react';
 import { useGameStore } from '../store/gameStore';
 import { formatMoney } from '../lib/format';
 
@@ -35,19 +35,30 @@ function ActionButton({ icon: Icon, label, hint, tone, disabled, onClick }: Acti
 
 interface Props {
   onSold?: (revenue: number) => void;
+  onOpenBuild?: () => void;
 }
 
-export function QuickActions({ onSold }: Props) {
+export function QuickActions({ onSold, onOpenBuild }: Props) {
   const tankFill = useGameStore((s) => s.plot.tankFill);
   const oilPrice = useGameStore((s) => s.market.oilPrice);
+  const slotsUsed = useGameStore((s) => s.plot.buildings.length);
+  const maxSlots = useGameStore((s) => s.plot.maxSlots);
   const sellOil = useGameStore((s) => s.sellOil);
 
   const tankValue = Math.round(tankFill * oilPrice);
   const canSell = tankFill > 0;
+  const slotsHint = `${slotsUsed}/${maxSlots}`;
 
   return (
     <div className="flex gap-2 border-t border-slate-800 bg-slate-900/40 px-3 py-2">
-      <ActionButton icon={ShoppingBag} label="Магазин" tone="primary" />
+      <ActionButton
+        icon={Hammer}
+        label="Построить"
+        hint={slotsHint}
+        tone="primary"
+        onClick={onOpenBuild}
+        disabled={slotsUsed >= maxSlots}
+      />
       <ActionButton
         icon={DollarSign}
         label="Продать"
@@ -59,7 +70,7 @@ export function QuickActions({ onSold }: Props) {
           if (revenue > 0) onSold?.(revenue);
         }}
       />
-      <ActionButton icon={Wrench} label="Ремонт" tone="muted" />
+      <ActionButton icon={ShoppingBag} label="Магазин" tone="muted" />
     </div>
   );
 }
