@@ -4,6 +4,7 @@ import { BuildingModal } from '../components/BuildingModal';
 import { CenterStage } from '../components/CenterStage';
 import { PlotHeader } from '../components/PlotHeader';
 import { QuickActions } from '../components/QuickActions';
+import { SaleToast } from '../components/SaleToast';
 import { StatusStrip } from '../components/StatusStrip';
 import { TopBar } from '../components/TopBar';
 import { useGameStore } from '../store/gameStore';
@@ -18,6 +19,7 @@ export function PlotScreen() {
     'build' | 'world' | 'market' | 'leaderboard' | 'settings'
   >('build');
   const [selectedBuildingId, setSelectedBuildingId] = useState<string | null>(null);
+  const [lastSale, setLastSale] = useState<number | null>(null);
 
   return (
     <div className="relative flex h-full flex-col">
@@ -25,12 +27,13 @@ export function PlotScreen() {
       <PlotHeader plotName={plot.name} />
       <CenterStage buildings={plot.buildings} onSelect={setSelectedBuildingId} />
       <StatusStrip plot={plot} />
-      <QuickActions />
+      <QuickActions onSold={setLastSale} />
       <BottomNav active={activeTab} onChange={setActiveTab} />
       <BuildingModal
         buildingId={selectedBuildingId}
         onClose={() => setSelectedBuildingId(null)}
       />
+      <SaleToast amount={lastSale} onDone={() => setLastSale(null)} />
     </div>
   );
 }

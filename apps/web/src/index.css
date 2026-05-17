@@ -7,3 +7,31 @@ body,
 #root {
   height: 100%;
 }
+
+@keyframes pumpjack {
+  0%,
+  100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+.pumpjack {
+  animation: pumpjack 1.5s ease-in-out infinite;
+}
+
+@keyframes pumpjack {
+  0%,
+  100% {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+.pumpjack {
+  animation: pumpjack 1.5s ease-in-out infinite;
+}

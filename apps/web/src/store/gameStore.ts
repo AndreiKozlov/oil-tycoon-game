@@ -1,6 +1,12 @@
-// Глобальное состояние игры. Zustand — минимальный стор, без бойлерплейта.
-// На этапе B держим только данные одного участка + игрока. Сохранения в
-// localStorage добавлю отдельным тикетом (B.5).
+// Глобальное состояние игры. Zustand + persist (localStorage).
+// Модель добычи (после C.1):
+//   недра (reservesRemaining) → насос/вышка качает с темпом extractionRatePerHour →
+//   нефть копится в резервуаре (tankFill, ограничено tankCapacity) →
+//   игрок жмёт «Продать» → tankFill превращается в деньги по market.oilPrice.
+// Если резервуар полон, добыча останавливается (нужно продавать или строить ещё бак).
+//
+// C.2: цена нефти не константа, а дрейфующий ряд (геометрическое броуновское движение
+// в коридоре $50..$70 вокруг базы $60). История последних 30 точек в priceHistory.
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import {
@@ -11,28 +17,34 @@ import {
   type PlotState,
 } from '../data/mockData';
 
-// Грубая константа цены нефти (Brent ~$60/бар). Будет заменена биржевой
-// логикой на этапе 2. Используется тиком, чтобы пересчитать сколько баррелей
-// уходит за реальный поток дохода.
-export const OIL_USD_PER_BARREL = 60;
+// Базовая цена нефти, целевой центр коридора.
+export const OIL_PRICE_BASE = 60;
+export const OIL_PRICE_MIN = 50;
+export const OIL_PRICE_MAX = 70;
+// Длина истории для sparkline (точки = тики, 1 тик = 1 сек).
+export const PRICE_HISTORY_SIZE = 30;
+// Сила реверсии к среднему: чем больше — тем сильнее цена возвращается к базе.
+const MEAN_REVERSION = 0.02;
+// Волатильность за тик (стандартное отклонение лог-доходности).
+const VOLATILITY = 0.004;
+
+export interface MarketState {
+  oilPrice: number;
+  priceHistory: number[];
+}
 
 interface GameState {
   player: PlayerState;
   plot: PlotState;
-  // Локальный таймстамп последнего тика — устойчиво к скачкам requestAnimationFrame.
+  market: MarketState;
   lastTickAt: number;
 
-  // Прибавить deltaSec секунд игрового времени. Дробное число — ок.
   tick: (deltaSec: number) => void;
-  // Апгрейд постройки: списать деньги, повысить уровень, поднять incomePerHour.
-  // Возвращает true если апгрейд прошёл, false если денег не хватило.
   upgradeBuilding: (buildingId: string) => boolean;
-  // Сбросить в исходное состояние (для отладки).
+  sellOil: () => number;
   reset: () => void;
 }
 
-// Стоимость следующего апгрейда: базовая цена * 1.5^current_level.
-// Бaза зависит от типа постройки — вышка дорогая, генератор дешёвый.
 const UPGRADE_BASE: Record<Building['type'], number> = {
   derrick: 50_000,
   well: 30_000,
@@ -40,54 +52,95 @@ const UPGRADE_BASE: Record<Building['type'], number> = {
   generator: 15_000,
 };
 
-// Каждый апгрейд даёт +20% к общему доходу участка. На этапе B упрощённо —
-// потом заменю расчётом «доход вышки * множитель × оборудование».
-const INCOME_BONUS_PER_UPGRADE = 0.2;
+const EXTRACTION_BOOST_PER_LEVEL = 0.15;
+const TANK_CAPACITY_MULT_PER_LEVEL = 1.25;
+const POWER_REDUCTION_PER_LEVEL = 0.9;
 
 export function upgradeCost(building: Building): number {
   return Math.round(UPGRADE_BASE[building.type] * 1.5 ** building.level);
 }
 
 function recomputeDays(plot: PlotState): number {
-  if (plot.incomePerHour <= 0) return Infinity;
-  const barrelsPerHour = plot.incomePerHour / OIL_USD_PER_BARREL;
-  const hoursLeft = plot.reservesRemaining / barrelsPerHour;
+  if (plot.extractionRatePerHour <= 0) return Infinity;
+  const hoursLeft = plot.reservesRemaining / plot.extractionRatePerHour;
   return Math.max(0, Math.ceil(hoursLeft / 24));
 }
+
+function findBuildingStatus(building: Building, plot: PlotState): Building['status'] {
+  if (building.type === 'tank') {
+    return plot.tankFill >= plot.tankCapacity ? 'full' : 'ok';
+  }
+  return 'ok';
+}
+
+// Шаг цены: GBM с реверсией к среднему. На каждый Δсек делаем deltaSec шагов
+// в линейной аппроксимации — этого достаточно для секундного тика.
+function stepPrice(current: number, deltaSec: number): number {
+  // Лог-отклонение от базы → возврат к среднему.
+  const logDev = Math.log(current / OIL_PRICE_BASE);
+  // Box-Muller — но проще: сумма двух uniform - 1 ~ N(0, 1/√6). Достаточно.
+  const noise = (Math.random() - 0.5) * 2;
+  const drift = -MEAN_REVERSION * logDev * deltaSec;
+  const shock = VOLATILITY * noise * Math.sqrt(deltaSec);
+  const next = current * Math.exp(drift + shock);
+  return Math.max(OIL_PRICE_MIN, Math.min(OIL_PRICE_MAX, next));
+}
+
+const initialMarket: MarketState = {
+  oilPrice: OIL_PRICE_BASE,
+  priceHistory: Array(PRICE_HISTORY_SIZE).fill(OIL_PRICE_BASE),
+};
 
 export const useGameStore = create<GameState>()(
   persist(
     (set) => ({
       player: { ...mockPlayer },
       plot: { ...mockPlot, buildings: mockPlot.buildings.map((b: Building) => ({ ...b })) },
+      market: { ...initialMarket, priceHistory: [...initialMarket.priceHistory] },
       lastTickAt: Date.now(),
 
       tick: (deltaSec) =>
         set((state) => {
           if (deltaSec <= 0) return state;
 
-          const incomePerSec = state.plot.incomePerHour / 3600;
-          const barrelsPerSec = incomePerSec / OIL_USD_PER_BARREL;
+          // 1. Дрейф цены.
+          const newPrice = stepPrice(state.market.oilPrice, deltaSec);
+          const nextHistory = [...state.market.priceHistory.slice(1), newPrice];
 
-          const earned = incomePerSec * deltaSec;
-          const consumedBarrels = barrelsPerSec * deltaSec;
+          // 2. Добыча.
+          const ratePerSec = state.plot.extractionRatePerHour / 3600;
+          const wantBarrels = ratePerSec * deltaSec;
+          const freeTankSpace = Math.max(0, state.plot.tankCapacity - state.plot.tankFill);
+          const extractable = Math.max(
+            0,
+            Math.min(wantBarrels, state.plot.reservesRemaining, freeTankSpace),
+          );
 
-          const nextReserves = Math.max(0, state.plot.reservesRemaining - consumedBarrels);
-          // Если запас иссяк — обнуляем доход (вышка ничего не качает).
+          const nextReserves = state.plot.reservesRemaining - extractable;
+          const nextTankFill = state.plot.tankFill + extractable;
           const exhausted = nextReserves <= 0;
-          const nextIncome = exhausted ? 0 : state.plot.incomePerHour;
+          const nextRate = exhausted ? 0 : state.plot.extractionRatePerHour;
 
           const nextPlot: PlotState = {
             ...state.plot,
             reservesRemaining: nextReserves,
-            incomePerHour: nextIncome,
+            tankFill: nextTankFill,
+            extractionRatePerHour: nextRate,
             daysRemaining: 0,
           };
           nextPlot.daysRemaining = recomputeDays(nextPlot);
+          nextPlot.buildings = nextPlot.buildings.map((b) => ({
+            ...b,
+            status: findBuildingStatus(b, nextPlot),
+            fillPercent:
+              b.type === 'tank'
+                ? Math.round((nextPlot.tankFill / nextPlot.tankCapacity) * 100)
+                : b.fillPercent,
+          }));
 
           return {
-            player: { ...state.player, money: state.player.money + earned },
             plot: nextPlot,
+            market: { oilPrice: newPrice, priceHistory: nextHistory },
             lastTickAt: Date.now(),
           };
         }),
@@ -104,38 +157,112 @@ export const useGameStore = create<GameState>()(
           const nextBuildings = state.plot.buildings.slice();
           nextBuildings[idx] = { ...building, level: building.level + 1 };
 
+          const nextPlot: PlotState = { ...state.plot, buildings: nextBuildings };
+
+          switch (building.type) {
+            case 'derrick':
+            case 'well':
+              nextPlot.extractionRatePerHour = Math.round(
+                state.plot.extractionRatePerHour * (1 + EXTRACTION_BOOST_PER_LEVEL),
+              );
+              break;
+            case 'tank':
+              nextPlot.tankCapacity = Math.round(
+                state.plot.tankCapacity * TANK_CAPACITY_MULT_PER_LEVEL,
+              );
+              break;
+            case 'generator':
+              nextPlot.powerDraw = Math.max(
+                1,
+                Math.round(state.plot.powerDraw * POWER_REDUCTION_PER_LEVEL),
+              );
+              break;
+          }
+
+          nextPlot.daysRemaining = recomputeDays(nextPlot);
+
           ok = true;
           return {
             player: { ...state.player, money: state.player.money - cost },
-            plot: {
-              ...state.plot,
-              buildings: nextBuildings,
-              incomePerHour: Math.round(state.plot.incomePerHour * (1 + INCOME_BONUS_PER_UPGRADE)),
-            },
+            plot: nextPlot,
           };
         });
         return ok;
+      },
+
+      sellOil: () => {
+        let revenue = 0;
+        set((state) => {
+          if (state.plot.tankFill <= 0) return state;
+          revenue = Math.round(state.plot.tankFill * state.market.oilPrice);
+          const nextPlot: PlotState = {
+            ...state.plot,
+            tankFill: 0,
+            buildings: state.plot.buildings.map((b) =>
+              b.type === 'tank' ? { ...b, status: 'ok', fillPercent: 0 } : b,
+            ),
+          };
+          return {
+            player: { ...state.player, money: state.player.money + revenue },
+            plot: nextPlot,
+          };
+        });
+        return revenue;
       },
 
       reset: () =>
         set({
           player: { ...mockPlayer },
           plot: { ...mockPlot, buildings: mockPlot.buildings.map((b) => ({ ...b })) },
+          market: { ...initialMarket, priceHistory: [...initialMarket.priceHistory] },
           lastTickAt: Date.now(),
         }),
     }),
     {
       name: 'oil-tycoon-save',
-      version: 1,
+      version: 3,
       storage: createJSONStorage(() => localStorage),
-      // Сохраняем только игровое состояние, не функции.
       partialize: (state) => ({
         player: state.player,
         plot: state.plot,
+        market: state.market,
         lastTickAt: state.lastTickAt,
       }),
-      // При загрузке — начислим оффлайн-прибыль (макс 8 часов, чтобы не было
-      // эксплойта «оставил вкладку на месяц → +миллион»).
+      // C.1 → C.2: добавилось поле market. Старым сейвам подкладываем initialMarket.
+      migrate: (persistedState, version) => {
+        type RawSave = {
+          player?: PlayerState;
+          plot?: Partial<PlotState> & { incomePerHour?: number };
+          market?: MarketState;
+          lastTickAt?: number;
+        };
+        const old = persistedState as RawSave;
+
+        let plot: PlotState;
+        if (version < 2) {
+          // B.5 формат: incomePerHour без extractionRatePerHour и резервуара.
+          const incomeOld = old.plot?.incomePerHour ?? mockPlot.extractionRatePerHour * OIL_PRICE_BASE;
+          plot = {
+            ...mockPlot,
+            ...(old.plot as Partial<PlotState>),
+            extractionRatePerHour: Math.round(incomeOld / OIL_PRICE_BASE),
+            tankCapacity: mockPlot.tankCapacity,
+            tankFill: 0,
+          };
+        } else {
+          plot = {
+            ...mockPlot,
+            ...(old.plot as Partial<PlotState>),
+          };
+        }
+
+        return {
+          player: old.player ?? mockPlayer,
+          plot,
+          market: old.market ?? { ...initialMarket, priceHistory: [...initialMarket.priceHistory] },
+          lastTickAt: old.lastTickAt ?? Date.now(),
+        } as GameState;
+      },
       onRehydrateStorage: () => (state) => {
         if (!state) return;
         const offlineSec = Math.min(8 * 3600, Math.max(0, (Date.now() - state.lastTickAt) / 1000));
