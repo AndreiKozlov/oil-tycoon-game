@@ -1,8 +1,10 @@
-import { BarChart3, Globe2, Hammer, Settings, Trophy } from 'lucide-react';
+import { BarChart3, FlaskConical, Globe2, Hammer, Trophy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
+export type NavTabId = 'build' | 'world' | 'market' | 'leaderboard' | 'research';
+
 interface NavItem {
-  id: 'build' | 'world' | 'market' | 'leaderboard' | 'settings';
+  id: NavTabId;
   icon: LucideIcon;
   label: string;
 }
@@ -12,12 +14,12 @@ const items: NavItem[] = [
   { id: 'world', icon: Globe2, label: 'Мир' },
   { id: 'market', icon: BarChart3, label: 'Биржа' },
   { id: 'leaderboard', icon: Trophy, label: 'Рейтинг' },
-  { id: 'settings', icon: Settings, label: 'Опции' },
+  { id: 'research', icon: FlaskConical, label: 'Наука' },
 ];
 
 interface Props {
-  active?: NavItem['id'];
-  onChange?: (id: NavItem['id']) => void;
+  active?: NavTabId;
+  onChange?: (id: NavTabId) => void;
 }
 
 export function BottomNav({ active = 'build', onChange }: Props) {

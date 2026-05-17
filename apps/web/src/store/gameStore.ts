@@ -24,14 +24,53 @@ import {
   plotTankCapacity,
   upgradeCost,
 } from '../lib/gameFormulas';
+import { type TechEffects, type TechId, getTechById } from '../data/technologies';
+
+// Состояние науки.
+export interface ResearchState {
+  // Запущенное в данный момент исследование (или null).
+  inProgress: { techId: TechId; startedAt: number } | null;
+  // Завершённые технологии — даём кумулятивные эффекты.
+  completed: TechId[];
+}
+
+// Свернуть список завершённых технологий в единый объект множителей.
+// Перемножаем мультипликаторы, складываем аддитивные (если будут).
+export function aggregateTechEffects(completed: TechId[]): Required<TechEffects> {
+  const base: Required<TechEffects> = {
+    reserveMult: 1,
+    extractionMult: 1,
+    tankCapacityMult: 1,
+    powerDrawMult: 1,
+  };
+  for (const id of completed) {
+    const tech = getTechById(id);
+    if (!tech) continue;
+    if (tech.effects.reserveMult) base.reserveMult *= tech.effects.reserveMult;
+    if (tech.effects.extractionMult) base.extractionMult *= tech.effects.extractionMult;
+    if (tech.effects.tankCapacityMult) base.tankCapacityMult *= tech.effects.tankCapacityMult;
+    if (tech.effects.powerDrawMult) base.powerDrawMult *= tech.effects.powerDrawMult;
+  }
+  return base;
+}
 
 // Если мощности производят меньше чем требуется — добыча идёт с понижающим
 // коэффициентом. Это связывает все 4 типа построек.
-export function powerRatio(plot: PlotState): number {
+// Учитывает technology powerDrawMult (меньше draw = больше ratio).
+export function powerRatio(plot: PlotState, effects?: Required<TechEffects>): number {
   const produced = plotPowerProduced(plot);
-  const draw = plotPowerDraw(plot);
+  const draw = plotPowerDraw(plot) * (effects?.powerDrawMult ?? 1);
   if (draw <= 0) return 1;
   return Math.max(0, Math.min(1, produced / draw));
+}
+
+// Effective значения с учётом technology effects.
+export function effectiveExtractionRate(plot: PlotState, effects: Required<TechEffects>): number {
+  return plotExtractionRate(plot) * effects.extractionMult;
+}
+
+export function effectiveTankCapacity(plot: PlotState, effects: Required<TechEffects>): number {
+  return plotTankCapacity(plot) * effects.tankCapacityMult;
 }
 
 // База цены нефти и коридор. Подробнее см. C.2 в PROGRESS_LOG.
@@ -51,16 +90,19 @@ interface GameState {
   player: PlayerState;
   plot: PlotState;
   market: MarketState;
+  research: ResearchState;
   lastTickAt: number;
-  // Один-раз-флаг: после каждого level up выставляется в новый уровень.
-  // PlotScreen читает его и показывает баннер, потом обнуляет.
   pendingLevelUp: number | null;
+  // Уведомление о завершившейся технологии (TechId | null).
+  pendingResearchDone: TechId | null;
 
   tick: (deltaSec: number) => void;
   upgradeBuilding: (buildingId: string) => boolean;
   buildBuilding: (type: BuildingType) => boolean;
   sellOil: () => number;
+  startResearch: (techId: TechId) => boolean;
   acknowledgeLevelUp: () => void;
+  acknowledgeResearchDone: () => void;
   setPlayerName: (name: string) => void;
   reset: () => void;
 }
@@ -70,8 +112,9 @@ const XP_PER_USD = 1 / 100;
 // Стоимость следующего уровня растёт ×1.5 от предыдущего.
 const XP_GROWTH = 1.5;
 
-function recomputeDays(plot: PlotState): number {
-  const rate = plotExtractionRate(plot) * powerRatio(plot);
+function recomputeDays(plot: PlotState, effects?: Required<TechEffects>): number {
+  const eff = effects ?? aggregateTechEffects([]);
+  const rate = effectiveExtractionRate(plot, eff) * powerRatio(plot, eff);
   if (rate <= 0) return Infinity;
   const hoursLeft = plot.reservesRemaining / rate;
   return Math.max(0, Math.ceil(hoursLeft / 24));
@@ -120,22 +163,27 @@ export const useGameStore = create<GameState>()(
       player: { ...mockPlayer },
       plot: { ...mockPlot, buildings: mockPlot.buildings.map((b) => ({ ...b })) },
       market: { ...initialMarket, priceHistory: [...initialMarket.priceHistory] },
+      research: { inProgress: null, completed: [] },
       lastTickAt: Date.now(),
       pendingLevelUp: null,
+      pendingResearchDone: null,
 
       tick: (deltaSec) =>
         set((state) => {
           if (deltaSec <= 0) return state;
 
+          // Эффекты от завершённых технологий — применяются ко всему тику.
+          const effects = aggregateTechEffects(state.research.completed);
+
           // 1. Цена.
           const newPrice = stepPrice(state.market.oilPrice, deltaSec);
           const nextHistory = [...state.market.priceHistory.slice(1), newPrice];
 
-          // 2. Добыча — с учётом нехватки энергии.
-          const baseRate = plotExtractionRate(state.plot);
-          const ratio = powerRatio(state.plot);
+          // 2. Добыча — с учётом нехватки энергии и технологий.
+          const baseRate = effectiveExtractionRate(state.plot, effects);
+          const ratio = powerRatio(state.plot, effects);
           const rate = baseRate * ratio;
-          const capacity = plotTankCapacity(state.plot);
+          const capacity = effectiveTankCapacity(state.plot, effects);
           const ratePerSec = rate / 3600;
           const wantBarrels = ratePerSec * deltaSec;
           const freeTankSpace = Math.max(0, capacity - state.plot.tankFill);
@@ -154,12 +202,31 @@ export const useGameStore = create<GameState>()(
             daysRemaining: 0,
           };
           const tankFull = capacity > 0 && nextTankFill >= capacity;
-          nextPlot.daysRemaining = recomputeDays(nextPlot);
+          nextPlot.daysRemaining = recomputeDays(nextPlot, effects);
           nextPlot.buildings = updateBuildingDerivedStatus(nextPlot, tankFull);
+
+          // 3. Прогресс исследования.
+          let nextResearch = state.research;
+          let researchDone: TechId | null = null;
+          if (state.research.inProgress) {
+            const tech = getTechById(state.research.inProgress.techId);
+            if (tech) {
+              const elapsed = (Date.now() - state.research.inProgress.startedAt) / 1000;
+              if (elapsed >= tech.durationSec) {
+                researchDone = state.research.inProgress.techId;
+                nextResearch = {
+                  inProgress: null,
+                  completed: [...state.research.completed, researchDone],
+                };
+              }
+            }
+          }
 
           return {
             plot: nextPlot,
             market: { oilPrice: newPrice, priceHistory: nextHistory },
+            research: nextResearch,
+            pendingResearchDone: researchDone ?? state.pendingResearchDone,
             lastTickAt: Date.now(),
           };
         }),
@@ -260,6 +327,29 @@ export const useGameStore = create<GameState>()(
 
       acknowledgeLevelUp: () => set({ pendingLevelUp: null }),
 
+      startResearch: (techId) => {
+        let ok = false;
+        set((state) => {
+          if (state.research.inProgress) return state;
+          if (state.research.completed.includes(techId)) return state;
+          const tech = getTechById(techId);
+          if (!tech) return state;
+          // Все пререквизиты должны быть в completed.
+          const haveAllPrereqs = tech.prereqIds.every((p) => state.research.completed.includes(p));
+          if (!haveAllPrereqs) return state;
+          if (state.player.money < tech.costMoney) return state;
+
+          ok = true;
+          return {
+            player: { ...state.player, money: state.player.money - tech.costMoney },
+            research: { ...state.research, inProgress: { techId, startedAt: Date.now() } },
+          };
+        });
+        return ok;
+      },
+
+      acknowledgeResearchDone: () => set({ pendingResearchDone: null }),
+
       setPlayerName: (name) =>
         set((state) => ({ player: { ...state.player, name: name || state.player.name } })),
 
@@ -268,18 +358,21 @@ export const useGameStore = create<GameState>()(
           player: { ...mockPlayer },
           plot: { ...mockPlot, buildings: mockPlot.buildings.map((b) => ({ ...b })) },
           market: { ...initialMarket, priceHistory: [...initialMarket.priceHistory] },
+          research: { inProgress: null, completed: [] },
           lastTickAt: Date.now(),
           pendingLevelUp: null,
+          pendingResearchDone: null,
         }),
     }),
     {
       name: 'oil-tycoon-save',
-      version: 4,
+      version: 5,
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         player: state.player,
         plot: state.plot,
         market: state.market,
+        research: state.research,
         lastTickAt: state.lastTickAt,
       }),
       // Миграции:
@@ -288,6 +381,8 @@ export const useGameStore = create<GameState>()(
       //   v3 (C.2): добавилось market.
       //   v4 (D.1): убраны extractionRatePerHour/tankCapacity/powerDraw (производные).
       //             Добавилось maxSlots.
+      //   v5 (F.1): добавилось research (inProgress + completed).
+      //   v5 (F.1): добавилось research (inProgress + completed).
       migrate: (persistedState, version) => {
         type RawSave = {
           player?: PlayerState;
@@ -321,6 +416,9 @@ export const useGameStore = create<GameState>()(
         };
         plot.daysRemaining = recomputeDays(plot);
 
+        const research =
+          (old as { research?: ResearchState }).research ?? { inProgress: null, completed: [] };
+
         return {
           player: old.player ?? mockPlayer,
           plot,
@@ -328,6 +426,7 @@ export const useGameStore = create<GameState>()(
             ...initialMarket,
             priceHistory: [...initialMarket.priceHistory],
           },
+          research,
           lastTickAt: old.lastTickAt ?? Date.now(),
         } as GameState;
       },
