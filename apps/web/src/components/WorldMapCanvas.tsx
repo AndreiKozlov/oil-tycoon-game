@@ -10,7 +10,9 @@ import {
 import { DEFAULT_MAP, generateMap, biomeAtIndex, type MapConfig } from '../lib/proceduralMap';
 
 const TILE_PX = 32;
-const MIN_ZOOM = 0.4;
+// MIN_ZOOM достаточно мал, чтобы увидеть всю карту 452×227 на экране.
+// На FullHD: 1920 / (452*32) ≈ 0.13, поэтому 0.1 даёт «вид с орбиты».
+const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 3.0;
 
 const CYAN_KEY = { r: 0, g: 255, b: 255 };
@@ -46,11 +48,7 @@ function cornerCode(
   return isLand(n1) || isLand(n2) || isLand(n3) ? 'L' : 'W';
 }
 
-const KNOWN_SHORE_CODES: ShoreCode[] = [
-  'LLLW', 'LLWL', 'WLLL', 'LWLL',
-  'LLWW', 'WWLL', 'LWLW', 'WLWL', 'LWWL', 'WLLW',
-  'WWLW', 'WWWL',
-];
+const KNOWN_SHORE_CODES: ShoreCode[] = ['LLLW', 'LLWW', 'LWLW', 'WWWL'];
 
 function waterWangCode(
   map: Biome[],
@@ -119,11 +117,16 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) return;
-    const tileSize = TILE_PX;
-    const mapPxW = config.width * tileSize;
-    const mapPxH = config.height * tileSize;
-    camRef.current.x = Math.max(-mapPxW, (wrap.clientWidth - mapPxW) / 2);
-    camRef.current.y = Math.max(-mapPxH, (wrap.clientHeight - mapPxH) / 2);
+    // Стартовый zoom — такой, чтобы вся карта влезала по высоте
+    // с небольшим запасом (90%).
+    const fitZoomW = wrap.clientWidth / (config.width * TILE_PX);
+    const fitZoomH = wrap.clientHeight / (config.height * TILE_PX);
+    const startZoom = Math.max(MIN_ZOOM, Math.min(fitZoomW, fitZoomH) * 0.95);
+    camRef.current.zoom = startZoom;
+    // Центруем карту.
+    const tileSize = TILE_PX * startZoom;
+    camRef.current.x = (wrap.clientWidth - config.width * tileSize) / 2;
+    camRef.current.y = (wrap.clientHeight - config.height * tileSize) / 2;
     forceRender((n) => n + 1);
   }, [config.width, config.height]);
 
@@ -211,9 +214,11 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     }
 
     if (hovered) {
+      const hoveredBiome = biomeAtIndex(map, config, hovered.x, hovered.y);
       const px = Math.floor(cam.x + hovered.x * tileSize);
       const py = Math.floor(cam.y + hovered.y * tileSize);
-      ctx.strokeStyle = '#fbbf24';
+      // Жёлтая рамка для суши (кликабельно), серая полупрозрачная для воды.
+      ctx.strokeStyle = hoveredBiome === 'water' ? 'rgba(148,163,184,0.5)' : '#fbbf24';
       ctx.lineWidth = 2;
       ctx.strokeRect(px + 1, py + 1, tileSize - 2, tileSize - 2);
     }
@@ -280,7 +285,10 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
         const t = screenToTile(e.clientX - rect.left, e.clientY - rect.top);
         if (t.x >= 0 && t.x < config.width && t.y >= 0 && t.y < config.height) {
           const biome = biomeAtIndex(map, config, t.x, t.y);
-          if (biome && onTileClick) onTileClick({ x: t.x, y: t.y, biome });
+          // Вода не кликабельна — её нельзя купить.
+          if (biome && biome !== 'water' && onTileClick) {
+            onTileClick({ x: t.x, y: t.y, biome });
+          }
         }
       }
     }

@@ -22,8 +22,10 @@ const BASE = '/game/tiles/raw';
 
 // ===== Чистые биомные тайлы (LLLLL) =====
 
+// Маппинг подобран после визуального пиксельного аудита всех LLLLL-тайлов.
+// Группы: см. /tmp/audit_land.py.
 export const BIOME_TILES: Record<Biome, string[]> = {
-  // Лес = тёмная-зелёная палитра (tswb с lush green). Берём только LLLLL.
+  // Лес = насыщенный тёмно-зелёный (tswb base, #2a4e2f).
   forest: [
     `${BASE}/bg/tswb000.png`,
     `${BASE}/bg/tswb001.png`,
@@ -34,61 +36,82 @@ export const BIOME_TILES: Record<Biome, string[]> = {
     `${BASE}/bg/tswb010.png`,
     `${BASE}/bg/tswb011.png`,
   ],
-  // Степь — желто-зелёная трава (tgrs base).
+  // Поле/степь = ярко-зелёная трава (tilemap/tgrb, #30491d). 24 файла.
   grassland: [
-    `${BASE}/bg/tgrs000.png`,
-    `${BASE}/bg/tgrs001.png`,
-    `${BASE}/bg/tgrs002.png`,
-    `${BASE}/bg/tgrs003.png`,
-    `${BASE}/bg/tgrs010.png`,
+    `${BASE}/tilemap/tgrb000.png`,
+    `${BASE}/tilemap/tgrb001.png`,
+    `${BASE}/tilemap/tgrb002.png`,
+    `${BASE}/tilemap/tgrb003.png`,
+    `${BASE}/tilemap/tgrb010.png`,
+    `${BASE}/tilemap/tgrb011.png`,
+    `${BASE}/tilemap/tgrb012.png`,
+    `${BASE}/tilemap/tgrb013.png`,
+    `${BASE}/tilemap/tgrb020.png`,
+    `${BASE}/tilemap/tgrb021.png`,
   ],
-  // Горы — trom (тёмный коричнево-серый).
+  // Горы = тёмные скалы (trom + rocktl). 63 файла суммарно.
   mountain: [
     `${BASE}/bg/trom000.png`,
     `${BASE}/bg/trom001.png`,
     `${BASE}/bg/trom002.png`,
     `${BASE}/bg/trom010.png`,
     `${BASE}/bg/trom011.png`,
+    `${BASE}/bg/trom012.png`,
+    `${BASE}/tilemap/rocktl01.png`,
+    `${BASE}/tilemap/rocktl02.png`,
+    `${BASE}/tilemap/rocktl03.png`,
+    `${BASE}/tilemap/rocktl04.png`,
+    `${BASE}/tilemap/rocktl05.png`,
   ],
-  // Тундра — снег (tsnb).
+  // Тундра = снег (tsnb, #e8eaef). Самый светлый.
   tundra: [
     `${BASE}/bg/tsnb000.png`,
     `${BASE}/bg/tsnb001.png`,
     `${BASE}/bg/tsnb002.png`,
     `${BASE}/bg/tsnb003.png`,
     `${BASE}/bg/tsnb004.png`,
+    `${BASE}/bg/tsnb005.png`,
+    `${BASE}/bg/tsnb010.png`,
+    `${BASE}/bg/tsnb011.png`,
   ],
-  // Пустыня — песок (tsab).
+  // Пустыня = песок (tsab, #b69374). Тёплый светло-коричневый.
   desert: [
     `${BASE}/bg/tsab000.png`,
     `${BASE}/bg/tsab001.png`,
     `${BASE}/bg/tsab002.png`,
     `${BASE}/bg/tsab003.png`,
     `${BASE}/bg/tsab004.png`,
+    `${BASE}/bg/tsab005.png`,
+    `${BASE}/bg/tsab010.png`,
+    `${BASE}/bg/tsab011.png`,
   ],
-  // Болото — tswd (грязно-зелёный).
+  // Болото = желто-зелёная грязь (tswd + tsws, #445232).
   swamp: [
     `${BASE}/bg/tswd000.png`,
     `${BASE}/bg/tswd001.png`,
     `${BASE}/bg/tswd002.png`,
     `${BASE}/bg/tswd010.png`,
+    `${BASE}/bg/tsws000.png`,
+    `${BASE}/bg/tsws001.png`,
   ],
-  // Равнина (бесресурсная инфраструктурная) — обычная земля (tdtb).
+  // Равнина = обычная земля/дёрн (tdtb, #6b4d2e). Бесресурсная.
   plain: [
-    `${BASE}/bg/tdtb000.png`,
-    `${BASE}/bg/tdtb001.png`,
-    `${BASE}/bg/tdtb002.png`,
-    `${BASE}/bg/tdtb003.png`,
-    `${BASE}/bg/tdtb010.png`,
+    `${BASE}/tilemap/tdtb000.png`,
+    `${BASE}/tilemap/tdtb001.png`,
+    `${BASE}/tilemap/tdtb002.png`,
+    `${BASE}/tilemap/tdtb003.png`,
+    `${BASE}/tilemap/tdtb010.png`,
+    `${BASE}/tilemap/tdtb011.png`,
   ],
-  // Вулканическая пустошь — tvlb.
+  // Сухая степь / прерия (бывшая grassland, теперь второй вариант) = tgrs (#6e6743).
+  // Используется как «выжженное поле»: оставлен в типе biome для будущего.
   volcanic: [
     `${BASE}/bg/tvlb000.png`,
     `${BASE}/bg/tvlb001.png`,
     `${BASE}/bg/tvlb002.png`,
     `${BASE}/bg/tvld000.png`,
   ],
-  // Чистая глубокая вода — только WWWWW.
+  // Чистая глубокая вода (watrtl21-26, WWWWW).
   water: [
     `${BASE}/bg/watrtl21.png`,
     `${BASE}/bg/watrtl22.png`,
@@ -99,30 +122,18 @@ export const BIOME_TILES: Record<Biome, string[]> = {
   ],
 };
 
-// ===== Wang-таблица берегов (вода с островками-сушей по углам) =====
-// Код угла: TL TR BL BR. L = в этом углу есть сушесосед, W = чистая вода.
-// Применяется ТОЛЬКО к водным тайлам у берега.
+// ===== Wang-таблица берегов =====
+// Tshrc/Tshre удалены пользователем как несовместимые. Используем только
+// watrtl, поэтому покрыты 4 wang-кода. Недостающие коды рисуются как чистая
+// вода (fallback в WorldMapCanvas).
+//
+// Код угла: TL TR BL BR. L = есть сушесосед, W = чистая вода.
 
-export type ShoreCode =
-  | 'LLLW'
-  | 'LLWL'
-  | 'WLLL'
-  | 'LWLL'
-  | 'LLWW'
-  | 'WWLL'
-  | 'LWLW'
-  | 'WLWL'
-  | 'LWWL'
-  | 'WLLW'
-  | 'WWLW'
-  | 'WWWL';
+export type ShoreCode = 'LLLW' | 'LLWW' | 'LWLW' | 'WWWL';
 
 export const SHORE_TILES: Record<ShoreCode, string[]> = {
-  // 1 угол вода (LLLW = вода в BR, остальные суша)
+  // Суша в 3 углах, вода в BR.
   LLLW: [
-    `${BASE}/bg/Tshre01.png`,
-    `${BASE}/bg/Tshre21.png`,
-    `${BASE}/bg/Tshre24.png`,
     `${BASE}/bg/watrtl01.png`,
     `${BASE}/bg/watrtl02.png`,
     `${BASE}/bg/watrtl03.png`,
@@ -130,62 +141,21 @@ export const SHORE_TILES: Record<ShoreCode, string[]> = {
     `${BASE}/bg/watrtl17.png`,
     `${BASE}/bg/watrtl18.png`,
   ],
-  LLWL: [
-    `${BASE}/bg/Tshrc03.png`,
-    `${BASE}/bg/Tshre00.png`,
-    `${BASE}/bg/Tshre16.png`,
-    `${BASE}/bg/Tshre18.png`,
-    `${BASE}/bg/Tshre19.png`,
-  ],
-  WLLL: [
-    `${BASE}/bg/Tshre20.png`,
-    `${BASE}/bg/Tshre25.png`,
-  ],
-  LWLL: [`${BASE}/bg/Tshre30.png`],
-
-  // 2 угла вода (диагональ)
-  LWLW: [
-    `${BASE}/bg/Tshrc04.png`,
-    `${BASE}/bg/watrtl05.png`,
-    `${BASE}/bg/watrtl06.png`,
-    `${BASE}/bg/watrtl07.png`,
-    `${BASE}/bg/watrtl08.png`,
-  ],
-  WLWL: [
-    `${BASE}/bg/Tshre02.png`,
-    `${BASE}/bg/Tshre03.png`,
-    `${BASE}/bg/Tshre26.png`,
-  ],
-  // 2 угла вода (сторона)
+  // Суша сверху (TL, TR), вода снизу.
   LLWW: [
-    `${BASE}/bg/Tshrc01.png`,
-    `${BASE}/bg/Tshre23.png`,
     `${BASE}/bg/watrtl09.png`,
     `${BASE}/bg/watrtl10.png`,
     `${BASE}/bg/watrtl11.png`,
     `${BASE}/bg/watrtl12.png`,
   ],
-  WWLL: [
-    `${BASE}/bg/Tshre04.png`,
-    `${BASE}/bg/Tshre05.png`,
-    `${BASE}/bg/Tshre22.png`,
+  // Суша слева (TL, BL), вода справа.
+  LWLW: [
+    `${BASE}/bg/watrtl05.png`,
+    `${BASE}/bg/watrtl06.png`,
+    `${BASE}/bg/watrtl07.png`,
+    `${BASE}/bg/watrtl08.png`,
   ],
-  LWWL: [
-    `${BASE}/bg/Tshre11.png`,
-    `${BASE}/bg/Tshre13.png`,
-    `${BASE}/bg/Tshre27.png`,
-  ],
-  WLLW: [
-    `${BASE}/bg/Tshre12.png`,
-    `${BASE}/bg/Tshre17.png`,
-    `${BASE}/bg/Tshre28.png`,
-  ],
-
-  // 3 угла вода
-  WWLW: [
-    `${BASE}/bg/Tshrc02.png`,
-    `${BASE}/bg/Tshre15.png`,
-  ],
+  // Вода в 3 углах, суша только в BR.
   WWWL: [
     `${BASE}/bg/watrtl13.png`,
     `${BASE}/bg/watrtl14.png`,

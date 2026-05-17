@@ -20,8 +20,8 @@ export function WorldMapScreen() {
     <div className="relative h-full w-full">
       <WorldMapCanvas onTileClick={setLastTile} />
 
-      {/* Временный sheet с инфой о выбранном тайле. Заменим на полноценный
-          компонент когда будет дизайн UI. */}
+      {/* Sheet с инфой о выбранном тайле. Вода неактивна — sheet не показывается
+          (фильтр в WorldMapCanvas onTileClick). */}
       {lastTile && (
         <div className="pointer-events-auto absolute bottom-20 left-3 right-3 z-20 mx-auto max-w-md rounded-2xl border border-slate-700 bg-slate-900/95 p-3 text-sm shadow-2xl backdrop-blur">
           <div className="flex items-start justify-between">
@@ -33,9 +33,7 @@ export function WorldMapScreen() {
                 {BIOME_INFO[lastTile.biome].emoji} {BIOME_INFO[lastTile.biome].name}
               </p>
               <p className="mt-0.5 text-[11px] text-slate-400">
-                {lastTile.biome === 'water'
-                  ? 'Вода — нельзя купить (нужна морская платформа на берегу).'
-                  : 'Свободен. Можно разведать или купить (доступно после G.5).'}
+                Свободен. Можно разведать или купить (доступно после G.5).
               </p>
             </div>
             <button
