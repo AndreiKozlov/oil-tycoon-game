@@ -23,6 +23,13 @@ export interface Building {
 export interface PlotState {
   id: string;
   name: string;
+  // Регион — отображается в подзаголовке. Не влияет на механику.
+  region?: string;
+  // Эмодзи-иконка участка для списка/карты.
+  emoji?: string;
+  // Тип нефти. Влияет на цену продажи (см. OIL_GRADE_INFO.priceMult).
+  // На v6-миграции старые участки получают 'urals' по умолчанию.
+  oilGrade?: import('./worldPlots').OilGrade;
   // Запасы в недрах (баррели) — иссякают по мере добычи.
   reservesRemaining: number;
   reservesTotal: number;
@@ -48,6 +55,9 @@ export const mockPlayer: PlayerState = {
 export const mockPlot: PlotState = {
   id: 'tyumen-3',
   name: 'Тюменская-3',
+  region: 'Западная Сибирь',
+  emoji: '🌲',
+  oilGrade: 'urals',
   reservesRemaining: 234_000,
   reservesTotal: 500_000,
   daysRemaining: 18,

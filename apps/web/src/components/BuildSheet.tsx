@@ -1,6 +1,6 @@
 import { Battery, Droplet, Gauge, Hammer, X, type LucideIcon } from 'lucide-react';
 import type { BuildingType } from '../data/mockData';
-import { buildCost, useGameStore } from '../store/gameStore';
+import { buildCost, selectActivePlot, useGameStore } from '../store/gameStore';
 import { formatMoney } from '../lib/format';
 
 interface Props {
@@ -16,8 +16,9 @@ const TYPES: { type: BuildingType; label: string; hint: string; icon: LucideIcon
 ];
 
 export function BuildSheet({ open, onClose }: Props) {
-  const buildings = useGameStore((s) => s.plot.buildings);
-  const maxSlots = useGameStore((s) => s.plot.maxSlots);
+  const plot = useGameStore(selectActivePlot);
+  const buildings = plot.buildings;
+  const maxSlots = plot.maxSlots;
   const money = useGameStore((s) => s.player.money);
   const buildBuilding = useGameStore((s) => s.buildBuilding);
 

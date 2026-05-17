@@ -10,19 +10,20 @@ import { ResearchDoneToast } from '../components/ResearchDoneToast';
 import { SaleToast } from '../components/SaleToast';
 import { StatusStrip } from '../components/StatusStrip';
 import { TopBar } from '../components/TopBar';
-import { useGameStore } from '../store/gameStore';
+import { plotSellPrice, selectActivePlot, useGameStore } from '../store/gameStore';
 import { useGameTick } from '../store/useGameTick';
 import { formatMoney } from '../lib/format';
 import { getTelegramUserFirstName, haptic } from '../lib/telegram';
 import { useTelegramMainButton } from '../lib/useTelegramMainButton';
 import { ResearchScreen } from './ResearchScreen';
+import { WorldMapScreen } from './WorldMapScreen';
 
 // Оболочка вокруг главного экрана. TopBar + BottomNav остаются всегда,
 // центральная зона меняется по табу.
 export function GameShell() {
   useGameTick();
   const player = useGameStore((s) => s.player);
-  const plot = useGameStore((s) => s.plot);
+  const plot = useGameStore(selectActivePlot);
   const oilPrice = useGameStore((s) => s.market.oilPrice);
   const sellOil = useGameStore((s) => s.sellOil);
   const setPlayerName = useGameStore((s) => s.setPlayerName);
@@ -49,7 +50,7 @@ export function GameShell() {
   }, [pendingResearchDone]);
 
   // Telegram MainButton: видна только на вкладке Участок.
-  const tankValue = Math.round(plot.tankFill * oilPrice);
+  const tankValue = Math.round(plot.tankFill * plotSellPrice(plot, oilPrice));
   const mainBtnText = plot.tankFill > 0 ? `Продать ${formatMoney(tankValue)}` : '';
   const mainBtnVisible = activeTab === 'build' && plot.tankFill > 0;
   const mainBtnOpts = useMemo(
@@ -74,7 +75,7 @@ export function GameShell() {
 
       {activeTab === 'build' && (
         <>
-          <PlotHeader plotName={plot.name} />
+          <PlotHeader onOpenWorld={() => setActiveTab('world')} />
           <CenterStage buildings={plot.buildings} onSelect={setSelectedBuildingId} />
           <StatusStrip plot={plot} />
           <QuickActions
@@ -87,17 +88,17 @@ export function GameShell() {
         </>
       )}
 
+      {activeTab === 'world' && <WorldMapScreen />}
       {activeTab === 'research' && <ResearchScreen />}
 
-      {(activeTab === 'world' || activeTab === 'market' || activeTab === 'leaderboard') && (
+      {(activeTab === 'market' || activeTab === 'leaderboard') && (
         <div className="flex flex-1 items-center justify-center px-8 text-center text-slate-500">
           <div>
             <p className="mb-1 text-sm font-semibold text-slate-300">
-              {activeTab === 'world' && 'Карта мира'}
               {activeTab === 'market' && 'Биржа'}
               {activeTab === 'leaderboard' && 'Рейтинг'}
             </p>
-            <p className="text-xs">Скоро. Сейчас идёт работа над технологиями (вкладка «Наука»).</p>
+            <p className="text-xs">Скоро. Биржа и лидерборд появятся на этапе 2.</p>
           </div>
         </div>
       )}

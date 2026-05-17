@@ -1,6 +1,7 @@
 import { Clock, Droplet, Gauge, TrendingUp, Zap } from 'lucide-react';
 import type { PlotState } from '../data/mockData';
-import { powerRatio, useGameStore } from '../store/gameStore';
+import { plotSellPrice, powerRatio, useGameStore } from '../store/gameStore';
+import { OIL_GRADE_INFO } from '../data/worldPlots';
 import {
   plotExtractionRate,
   plotPowerDraw,
@@ -29,16 +30,27 @@ export function StatusStrip({ plot }: Props) {
   const tankFull = tankCapacity > 0 && tankPercent >= 100;
   const noTank = tankCapacity === 0;
   const exhausted = plot.reservesRemaining <= 0;
-  const tankValueUsd = plot.tankFill * oilPrice;
+  const sellPrice = plotSellPrice(plot, oilPrice);
+  const tankValueUsd = plot.tankFill * sellPrice;
+  const gradeInfo = OIL_GRADE_INFO[plot.oilGrade ?? 'urals'];
 
   return (
     <div className="space-y-2 border-t border-slate-800 bg-slate-900/60 px-3 py-2 text-xs">
-      {/* Цена нефти + поток дохода */}
+      {/* Цена нефти + поток дохода (с учётом oilGrade этого участка) */}
       <div className="flex items-center justify-between">
         <PriceTicker />
-        <span className="flex items-center gap-1 font-mono text-emerald-400">
-          <TrendingUp className="h-3.5 w-3.5" />+{formatMoney(effectiveRate * oilPrice)}/час
-        </span>
+        <div className="flex flex-col items-end gap-0.5">
+          <span className="flex items-center gap-1 font-mono text-emerald-400">
+            <TrendingUp className="h-3.5 w-3.5" />+{formatMoney(effectiveRate * sellPrice)}/час
+          </span>
+          <span
+            className="rounded px-1 py-0 text-[9px] font-mono"
+            style={{ color: gradeInfo.color, backgroundColor: `${gradeInfo.color}22` }}
+            title={`${gradeInfo.name}: ×${gradeInfo.priceMult.toFixed(2)} к базовой цене`}
+          >
+            {gradeInfo.name} ×{gradeInfo.priceMult.toFixed(2)}
+          </span>
+        </div>
       </div>
 
       {/* Энергобаланс */}

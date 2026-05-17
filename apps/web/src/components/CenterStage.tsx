@@ -1,5 +1,5 @@
 import type { Building, BuildingType } from '../data/mockData';
-import { useGameStore } from '../store/gameStore';
+import { selectActivePlot, useGameStore } from '../store/gameStore';
 import { plotExtractionRate, plotTankCapacity } from '../lib/gameFormulas';
 
 interface Props {
@@ -24,8 +24,8 @@ const SLOT_BY_TYPE: Record<BuildingType, { cx: number; cy: number; r: number }> 
 // - жидкость в резервуаре растёт согласно tankFill/tankCapacity
 // Заменим на Pixi.js с настоящими спрайтами на этапе D.
 export function CenterStage({ buildings, onSelect }: Props) {
-  const tankFill = useGameStore((s) => s.plot.tankFill);
-  const plot = useGameStore((s) => s.plot);
+  const plot = useGameStore(selectActivePlot);
+  const tankFill = plot.tankFill;
   const tankCapacity = plotTankCapacity(plot);
   const extractionRate = plotExtractionRate(plot);
   const extracting = extractionRate > 0 && (tankCapacity === 0 || tankFill < tankCapacity);

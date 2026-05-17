@@ -1,7 +1,7 @@
 import { ArrowUp, Battery, Droplet, Hammer, X, type LucideIcon } from 'lucide-react';
 import type { Building } from '../data/mockData';
 import { formatMoney } from '../lib/format';
-import { upgradeCost, useGameStore } from '../store/gameStore';
+import { selectActivePlot, upgradeCost, useGameStore } from '../store/gameStore';
 
 interface Props {
   buildingId: string | null;
@@ -30,9 +30,8 @@ const STATUS_LABEL: Record<Building['status'], { text: string; color: string }> 
 };
 
 export function BuildingModal({ buildingId, onClose }: Props) {
-  const building = useGameStore((s) =>
-    buildingId ? s.plot.buildings.find((b) => b.id === buildingId) ?? null : null,
-  );
+  const plot = useGameStore(selectActivePlot);
+  const building = buildingId ? plot.buildings.find((b) => b.id === buildingId) ?? null : null;
   const money = useGameStore((s) => s.player.money);
   const upgrade = useGameStore((s) => s.upgradeBuilding);
 

@@ -1,5 +1,5 @@
 import { DollarSign, Hammer, ShoppingBag, type LucideIcon } from 'lucide-react';
-import { useGameStore } from '../store/gameStore';
+import { selectActivePlot, useGameStore, plotSellPrice } from '../store/gameStore';
 import { formatMoney } from '../lib/format';
 
 interface ActionButtonProps {
@@ -39,13 +39,14 @@ interface Props {
 }
 
 export function QuickActions({ onSold, onOpenBuild }: Props) {
-  const tankFill = useGameStore((s) => s.plot.tankFill);
+  const plot = useGameStore(selectActivePlot);
   const oilPrice = useGameStore((s) => s.market.oilPrice);
-  const slotsUsed = useGameStore((s) => s.plot.buildings.length);
-  const maxSlots = useGameStore((s) => s.plot.maxSlots);
   const sellOil = useGameStore((s) => s.sellOil);
 
-  const tankValue = Math.round(tankFill * oilPrice);
+  const tankFill = plot.tankFill;
+  const slotsUsed = plot.buildings.length;
+  const maxSlots = plot.maxSlots;
+  const tankValue = Math.round(tankFill * plotSellPrice(plot, oilPrice));
   const canSell = tankFill > 0;
   const slotsHint = `${slotsUsed}/${maxSlots}`;
 
