@@ -61,6 +61,7 @@ interface GameState {
   buildBuilding: (type: BuildingType) => boolean;
   sellOil: () => number;
   acknowledgeLevelUp: () => void;
+  setPlayerName: (name: string) => void;
   reset: () => void;
 }
 
@@ -258,6 +259,9 @@ export const useGameStore = create<GameState>()(
       },
 
       acknowledgeLevelUp: () => set({ pendingLevelUp: null }),
+
+      setPlayerName: (name) =>
+        set((state) => ({ player: { ...state.player, name: name || state.player.name } })),
 
       reset: () =>
         set({
