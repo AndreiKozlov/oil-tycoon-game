@@ -1,0 +1,15 @@
+{
+  "name": "@oil-tycoon/web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'web dev — будет настроено в тикете B.1'",
+    "build": "echo 'web build — будет настроено в тикете B.1'",
+    "typecheck": "echo 'web typecheck — после B.1, когда появятся .ts/.tsx файлы'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

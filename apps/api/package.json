@@ -1,0 +1,15 @@
+{
+  "name": "@oil-tycoon/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'api dev — этап 2'",
+    "build": "echo 'api build — этап 2'",
+    "typecheck": "echo 'api typecheck — этап 2, когда появятся .ts файлы'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
