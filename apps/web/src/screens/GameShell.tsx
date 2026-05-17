@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import { BottomNav, type NavTabId } from '../components/BottomNav';
 import { BuildingModal } from '../components/BuildingModal';
 import { BuildSheet } from '../components/BuildSheet';
 import { CenterStage } from '../components/CenterStage';
+import { LeftRail, type NavTabId } from '../components/LeftRail';
 import { LevelUpBanner } from '../components/LevelUpBanner';
 import { PlotHeader } from '../components/PlotHeader';
 import { QuickActions } from '../components/QuickActions';
 import { ResearchDoneToast } from '../components/ResearchDoneToast';
+import { ResourceBar } from '../components/ResourceBar';
+import { RightPanel } from '../components/RightPanel';
 import { SaleToast } from '../components/SaleToast';
 import { StatusStrip } from '../components/StatusStrip';
 import { TopBar } from '../components/TopBar';
@@ -18,8 +20,15 @@ import { useTelegramMainButton } from '../lib/useTelegramMainButton';
 import { ResearchScreen } from './ResearchScreen';
 import { WorldMapScreen } from './WorldMapScreen';
 
-// Оболочка вокруг главного экрана. TopBar + BottomNav остаются всегда,
-// центральная зона меняется по табу.
+// Landscape-каркас.
+//   ┌───────────────────────────────────────────────────────┐
+//   │ TopBar (имя/деньги/кристаллы/уровень)                 │
+//   ├──────┬─────────────────────────────────┬──────────────┤
+//   │ Left │ Центр: PlotScreen/World/Research│ RightPanel   │
+//   │ Rail │                                 │ (details)    │
+//   ├──────┴─────────────────────────────────┴──────────────┤
+//   │ ResourceBar                                           │
+//   └───────────────────────────────────────────────────────┘
 export function GameShell() {
   useGameTick();
   const player = useGameStore((s) => s.player);
@@ -35,7 +44,6 @@ export function GameShell() {
   const [buildSheetOpen, setBuildSheetOpen] = useState(false);
   const [lastSale, setLastSale] = useState<number | null>(null);
 
-  // Подхватить имя из Telegram один раз при монтировании.
   useEffect(() => {
     const tgName = getTelegramUserFirstName();
     if (tgName) setPlayerName(tgName);
@@ -49,7 +57,6 @@ export function GameShell() {
     if (pendingResearchDone !== null) haptic('success');
   }, [pendingResearchDone]);
 
-  // Telegram MainButton: видна только на вкладке Участок.
   const tankValue = Math.round(plot.tankFill * plotSellPrice(plot, oilPrice));
   const mainBtnText = plot.tankFill > 0 ? `Продать ${formatMoney(tankValue)}` : '';
   const mainBtnVisible = activeTab === 'build' && plot.tankFill > 0;
@@ -73,37 +80,49 @@ export function GameShell() {
     <div className="relative flex h-full flex-col">
       <TopBar player={player} />
 
-      {activeTab === 'build' && (
-        <>
-          <PlotHeader onOpenWorld={() => setActiveTab('world')} />
-          <CenterStage buildings={plot.buildings} onSelect={setSelectedBuildingId} />
-          <StatusStrip plot={plot} />
-          <QuickActions
-            onSold={(rev) => {
-              setLastSale(rev);
-              haptic('success');
-            }}
-            onOpenBuild={() => setBuildSheetOpen(true)}
-          />
-        </>
-      )}
+      <div className="flex flex-1 overflow-hidden">
+        <LeftRail active={activeTab} onChange={setActiveTab} />
 
-      {activeTab === 'world' && <WorldMapScreen />}
-      {activeTab === 'research' && <ResearchScreen />}
+        <main className="relative flex min-w-0 flex-1 flex-col">
+          {activeTab === 'build' && (
+            <>
+              <PlotHeader onOpenWorld={() => setActiveTab('world')} />
+              <CenterStage buildings={plot.buildings} onSelect={setSelectedBuildingId} />
+              <StatusStrip plot={plot} />
+              <QuickActions
+                onSold={(rev) => {
+                  setLastSale(rev);
+                  haptic('success');
+                }}
+                onOpenBuild={() => setBuildSheetOpen(true)}
+              />
+            </>
+          )}
 
-      {(activeTab === 'market' || activeTab === 'leaderboard') && (
-        <div className="flex flex-1 items-center justify-center px-8 text-center text-slate-500">
-          <div>
-            <p className="mb-1 text-sm font-semibold text-slate-300">
-              {activeTab === 'market' && 'Биржа'}
-              {activeTab === 'leaderboard' && 'Рейтинг'}
-            </p>
-            <p className="text-xs">Скоро. Биржа и лидерборд появятся на этапе 2.</p>
-          </div>
-        </div>
-      )}
+          {activeTab === 'world' && <WorldMapScreen />}
+          {activeTab === 'research' && <ResearchScreen />}
 
-      <BottomNav active={activeTab} onChange={setActiveTab} />
+          {(activeTab === 'market' || activeTab === 'leaderboard') && (
+            <div className="flex flex-1 items-center justify-center px-8 text-center text-slate-500">
+              <div>
+                <p className="mb-1 text-sm font-semibold text-slate-300">
+                  {activeTab === 'market' && 'Биржа'}
+                  {activeTab === 'leaderboard' && 'Рейтинг'}
+                </p>
+                <p className="text-xs">Скоро. Биржа и лидерборд — этап 2 (G.4+).</p>
+              </div>
+            </div>
+          )}
+        </main>
+
+        <RightPanel
+          title="Детали"
+          emptyHint="Кликни по тайлу карты или постройке — здесь появится информация и действия."
+        />
+      </div>
+
+      <ResourceBar />
+
       <BuildingModal
         buildingId={selectedBuildingId}
         onClose={() => setSelectedBuildingId(null)}
