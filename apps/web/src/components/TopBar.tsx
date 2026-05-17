@@ -1,6 +1,6 @@
 import { Gem, User, Zap } from 'lucide-react';
 import type { PlayerState } from '../data/mockData';
-import { formatMoney } from '../lib/format';
+import { formatMoneyFull } from '../lib/format';
 
 interface Props {
   player: PlayerState;
@@ -19,8 +19,8 @@ export function TopBar({ player }: Props) {
         </div>
 
         <div className="ml-auto flex items-center gap-3">
-          <span className="font-mono font-semibold text-emerald-400">
-            {formatMoney(player.money)}
+          <span className="font-mono text-sm font-semibold tabular-nums text-emerald-400">
+            {formatMoneyFull(player.money)}
           </span>
           <span className="flex items-center gap-1 font-mono font-semibold text-sky-400">
             <Gem className="h-3.5 w-3.5" />
