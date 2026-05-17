@@ -14,16 +14,31 @@ module.exports = {
       cwd: '/root/oil_tycoon_project/oil-tycoon-game',
       script: 'pnpm',
       args: '--filter @oil-tycoon/web dev',
-      interpreter: 'none', // pnpm — это shell-скрипт, node-интерпретатор не нужен.
+      interpreter: 'none',
       autorestart: true,
       max_restarts: 10,
       restart_delay: 3000,
-      // Vite слушает только 127.0.0.1:5173 — снаружи приходит через nginx /game/.
-      env: {
-        NODE_ENV: 'development',
-      },
+      env: { NODE_ENV: 'development' },
       out_file: '/var/log/oil-tycoon/web-out.log',
       error_file: '/var/log/oil-tycoon/web-err.log',
+      merge_logs: true,
+      time: true,
+    },
+    {
+      // Cloudflare Tunnel — даёт HTTPS-URL вида *.trycloudflare.com,
+      // через который Telegram открывает Mini App.
+      // ВАЖНО: URL меняется при каждом перезапуске процесса. Если cloudflared
+      // упал и перезапустился — надо обновить адрес в BotFather.
+      // На прод заменим на named tunnel с фиксированным subdomain.
+      name: 'oil-tycoon-tunnel',
+      script: '/usr/local/bin/cloudflared',
+      args: 'tunnel --url http://127.0.0.1:5173 --no-autoupdate',
+      interpreter: 'none',
+      autorestart: true,
+      max_restarts: 5,
+      restart_delay: 10000,
+      out_file: '/var/log/oil-tycoon/cloudflared-out.log',
+      error_file: '/var/log/oil-tycoon/cloudflared-err.log',
       merge_logs: true,
       time: true,
     },
