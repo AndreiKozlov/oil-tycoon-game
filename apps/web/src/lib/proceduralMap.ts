@@ -79,7 +79,8 @@ export const DEFAULT_MAP: MapConfig = {
   width: 452,
   height: 227,
   seed: 42,
-  seaLevel: 0.42,
+  // 30 023 сухопутных тайла при 0.56 — точно цель GDD (~30k).
+  seaLevel: 0.56,
 };
 
 export function biomeAt(x: number, y: number, cfg: MapConfig): Biome {
@@ -88,42 +89,65 @@ export function biomeAt(x: number, y: number, cfg: MapConfig): Biome {
   // Морской уровень.
   if (h < cfg.seaLevel) return 'water';
 
-  // Сколько высоко над уровнем моря.
-  const elevation = (h - cfg.seaLevel) / (1 - cfg.seaLevel); // [0, 1]
+  // Высота над уровнем моря [0, 1].
+  const elevation = (h - cfg.seaLevel) / (1 - cfg.seaLevel);
 
-  // Горы — высокие зоны.
-  if (elevation > 0.78) return 'mountain';
+  // Отдельный noise для горных хребтов — концентрирует горы в полосы
+  // (не равномерно по всей суше).
+  const ridge = fbm(x, y, 60, 3, cfg.seed + 11111);
 
-  // Прибрежная полоса — узкая равнина у воды (раньше был отдельный биом shore,
-  // теперь не нужен — wang-переходы рендерятся автоматически).
-  if (elevation < 0.06) return 'plain';
+  // Горы — комбинация высоты и горного noise. Так получаем "хребты" вдоль
+  // континентов вместо редких отдельных пиков.
+  if (elevation > 0.35 && ridge > 0.5) return 'mountain';
+  if (elevation > 0.55) return 'mountain';
 
-  // Температура от широты (y=0 — северный полюс, y=height — южный).
-  // На широте 0 и height: cold. На height/2: hot.
-  const latNorm = (y / cfg.height) * 2 - 1; // [-1, 1]
-  const temperature = 1 - Math.abs(latNorm); // 0 на полюсах, 1 на экваторе
+  // Температура от широты.
+  const latNorm = (y / cfg.height) * 2 - 1;
+  const temperature = 1 - Math.abs(latNorm);
 
   // Влажность — отдельный noise.
   const moisture = fbm(x, y, 40, 3, cfg.seed + 5000);
 
-  // Логика биомов:
+  // На экваторе при высокой влажности — джунгли (лес), не пустыня.
+  // Пустыни — это широты ~20-40° (саванна-пустыня), не экватор.
+  const isEquator = temperature > 0.85;
+  const isSubtropic = temperature > 0.55 && temperature < 0.85;
+
   if (temperature < 0.25) {
-    // Близко к полюсам → тундра.
     return 'tundra';
   }
-  if (temperature > 0.78 && moisture < 0.35) {
-    // Экваториальная сушь → пустыня.
-    return 'desert';
-  }
-  if (moisture > 0.62) {
-    // Влажно → лес или болото.
-    if (elevation < 0.18 && temperature > 0.5) return 'swamp';
+
+  // Тропические леса на экваторе.
+  if (isEquator && moisture > 0.45) {
     return 'forest';
   }
-  if (moisture > 0.4) {
+
+  // Пустыни в субтропиках с низкой влажностью (Сахара, Аравия, Австралия).
+  if (isSubtropic && moisture < 0.38) {
+    return 'desert';
+  }
+
+  // Экваториальные саванны/пустыни при сухости.
+  if (isEquator && moisture < 0.3) {
+    return 'desert';
+  }
+
+  // Низменные влажные участки — болота.
+  if (elevation < 0.15 && moisture > 0.65 && temperature > 0.45) {
+    return 'swamp';
+  }
+
+  // Влажные не-экваториальные — умеренные леса (тайга/смешанный лес).
+  if (moisture > 0.55) {
+    return 'forest';
+  }
+
+  // Травянистые степи.
+  if (moisture > 0.35) {
     return 'grassland';
   }
-  // Остальное — равнина (мало плодородия, инфраструктурный потенциал).
+
+  // Остальное — равнина.
   return 'plain';
 }
 

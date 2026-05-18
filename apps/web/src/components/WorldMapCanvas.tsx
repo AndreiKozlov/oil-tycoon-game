@@ -2,10 +2,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   BIOME_INFO,
   getAllUniqueTilePaths,
+  KNOWN_SHORE_CODES,
   pickBiomeTile,
-  pickShoreTile,
+  pickShoreTileTx,
   type Biome,
   type ShoreCode,
+  type TileTransform,
 } from '../lib/biomeMap';
 import { DEFAULT_MAP, generateMap, biomeAtIndex, type MapConfig } from '../lib/proceduralMap';
 
@@ -48,7 +50,7 @@ function cornerCode(
   return isLand(n1) || isLand(n2) || isLand(n3) ? 'L' : 'W';
 }
 
-const KNOWN_SHORE_CODES: ShoreCode[] = ['LLLW', 'LLWW', 'LWLW', 'WWWL'];
+// KNOWN_SHORE_CODES импортирован из biomeMap (теперь покрывает все 15).
 
 function waterWangCode(
   map: Biome[],
@@ -62,7 +64,7 @@ function waterWangCode(
   const br = cornerCode(map, cfg, x, y, 'BR');
   const code = `${tl}${tr}${bl}${br}`;
   if (code === 'WWWW') return null;
-  return KNOWN_SHORE_CODES.includes(code as ShoreCode) ? (code as ShoreCode) : null;
+  return (KNOWN_SHORE_CODES as readonly string[]).includes(code) ? (code as ShoreCode) : null;
 }
 
 async function loadTileImage(path: string): Promise<HTMLImageElement> {
@@ -190,9 +192,16 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
         const size = Math.ceil(tileSize);
 
         let basePath: string;
+        let transform: TileTransform = 'none';
         if (biome === 'water') {
           const code = waterWangCode(map, config, x, y);
-          basePath = code ? pickShoreTile(code, x, y) : pickBiomeTile('water', x, y);
+          if (code) {
+            const sel = pickShoreTileTx(code, x, y);
+            basePath = sel.path;
+            transform = sel.transform;
+          } else {
+            basePath = pickBiomeTile('water', x, y);
+          }
         } else {
           basePath = pickBiomeTile(biome, x, y);
         }
@@ -205,7 +214,18 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
         }
 
         if (sprite && sprite.complete && sprite.naturalWidth > 0) {
-          ctx.drawImage(sprite, px, py, size, size);
+          if (transform === 'none') {
+            ctx.drawImage(sprite, px, py, size, size);
+          } else {
+            // Применяем flip/rotate относительно центра тайла.
+            ctx.save();
+            ctx.translate(px + size / 2, py + size / 2);
+            if (transform === 'flipH') ctx.scale(-1, 1);
+            else if (transform === 'flipV') ctx.scale(1, -1);
+            else if (transform === 'rotate180') ctx.scale(-1, -1);
+            ctx.drawImage(sprite, -size / 2, -size / 2, size, size);
+            ctx.restore();
+          }
         } else {
           ctx.fillStyle = BIOME_INFO[biome].hexColor;
           ctx.fillRect(px, py, size, size);
