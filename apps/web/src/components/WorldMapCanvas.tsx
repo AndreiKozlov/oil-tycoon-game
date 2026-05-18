@@ -217,7 +217,6 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
           if (transform === 'none') {
             ctx.drawImage(sprite, px, py, size, size);
           } else {
-            // Применяем flip/rotate относительно центра тайла.
             ctx.save();
             ctx.translate(px + size / 2, py + size / 2);
             if (transform === 'flipH') ctx.scale(-1, 1);
@@ -230,6 +229,7 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
           ctx.fillStyle = BIOME_INFO[biome].hexColor;
           ctx.fillRect(px, py, size, size);
         }
+
       }
     }
 

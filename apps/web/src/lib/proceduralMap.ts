@@ -89,8 +89,14 @@ export function biomeAt(x: number, y: number, cfg: MapConfig): Biome {
   // Морской уровень.
   if (h < cfg.seaLevel) return 'water';
 
+  // Добавляем мелкий jitter-noise к параметрам biome-выбора. Это делает
+  // границы между биомами не прямыми ровными линиями, а зубчатыми с
+  // вкраплениями соседних биомов — выглядит как настоящая природа,
+  // а не лоскутное одеяло. Очень мощно для прототипа без полного wang.
+  const jitter = (valueNoise(x, y, 3, cfg.seed + 22222) - 0.5) * 0.08;
+
   // Высота над уровнем моря [0, 1].
-  const elevation = (h - cfg.seaLevel) / (1 - cfg.seaLevel);
+  const elevation = (h - cfg.seaLevel) / (1 - cfg.seaLevel) + jitter;
 
   // Отдельный noise для горных хребтов — концентрирует горы в полосы
   // (не равномерно по всей суше).
@@ -105,8 +111,9 @@ export function biomeAt(x: number, y: number, cfg: MapConfig): Biome {
   const latNorm = (y / cfg.height) * 2 - 1;
   const temperature = 1 - Math.abs(latNorm);
 
-  // Влажность — отдельный noise.
-  const moisture = fbm(x, y, 40, 3, cfg.seed + 5000);
+  // Влажность — отдельный noise. К ней тоже добавляем мелкий jitter
+  // для зубчатости границ лес/степь/пустыня.
+  const moisture = fbm(x, y, 40, 3, cfg.seed + 5000) + jitter;
 
   // На экваторе при высокой влажности — джунгли (лес), не пустыня.
   // Пустыни — это широты ~20-40° (саванна-пустыня), не экватор.
