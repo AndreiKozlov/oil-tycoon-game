@@ -49,7 +49,7 @@ export const BIOME_TILES: Record<Biome, string[]> = {
     `${BASE}/tilemap/tgrb020.png`,
     `${BASE}/tilemap/tgrb021.png`,
   ],
-  // Горы = тёмные скалы (trom + rocktl). 63 файла суммарно.
+  // Горы = тёмные скалы (trom). rocktl удалён пользователем.
   mountain: [
     `${BASE}/bg/trom000.png`,
     `${BASE}/bg/trom001.png`,
@@ -57,11 +57,6 @@ export const BIOME_TILES: Record<Biome, string[]> = {
     `${BASE}/bg/trom010.png`,
     `${BASE}/bg/trom011.png`,
     `${BASE}/bg/trom012.png`,
-    `${BASE}/tilemap/rocktl01.png`,
-    `${BASE}/tilemap/rocktl02.png`,
-    `${BASE}/tilemap/rocktl03.png`,
-    `${BASE}/tilemap/rocktl04.png`,
-    `${BASE}/tilemap/rocktl05.png`,
   ],
   // Тундра = снег (tsnb, #e8eaef). Самый светлый.
   tundra: [
