@@ -186,6 +186,8 @@ interface GameState {
   acknowledgeLevelUp: () => void;
   acknowledgeResearchDone: () => void;
   setPlayerName: (name: string) => void;
+  /** Универсальная трата. Возвращает true если деньги были и списались. */
+  spendMoney: (amount: number) => boolean;
   reset: () => void;
 }
 
@@ -421,6 +423,16 @@ export const useGameStore = create<GameState>()(
 
       setPlayerName: (name) =>
         set((state) => ({ player: { ...state.player, name: name || state.player.name } })),
+
+      spendMoney: (amount) => {
+        let ok = false;
+        set((state) => {
+          if (state.player.money < amount) return state;
+          ok = true;
+          return { player: { ...state.player, money: state.player.money - amount } };
+        });
+        return ok;
+      },
 
       reset: () =>
         set({

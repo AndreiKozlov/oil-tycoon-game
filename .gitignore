@@ -45,3 +45,36 @@ tmp/
 *.sqlite
 *.sqlite3
 local-storage/
+
+# Большие сгенерированные карты — лежат в public/tiles, но в git не нужны.
+# Регенерируются скриптами из apps/web/scripts/ при необходимости.
+apps/web/public/tiles/earth_test.png
+apps/web/public/tiles/earth_newtile.png
+apps/web/public/tiles/global_earth_map*.png
+apps/web/public/tiles/global_earth_map_small_thumb.png
+apps/web/public/tiles/iso_earth_test.png
+apps/web/public/tiles/iso_preview.png
+apps/web/public/tiles/iso_grid_*.png
+apps/web/public/tiles/atlas_*.png
+apps/web/public/tiles/wang_*.png
+apps/web/public/tiles/water_*.png
+apps/web/public/tiles/earth_crops.png
+apps/web/public/tiles/earth_iconic*.png
+apps/web/public/tiles/earth_flat*.png
+apps/web/public/tiles/iso_18_preview.png
+apps/web/public/tiles/iso2_18_preview.png
+
+# Сгенерированные newtile-кропы (нарезаются скриптом slice_newtile_3x6.py)
+apps/web/public/tiles/newtile_crops/
+
+# Заброшенные классификации
+apps/web/public/tiles/grass_classified.png
+apps/web/public/tiles/water_classified.png
+apps/web/public/tiles/labeled_sheet.png
+apps/web/public/tiles/preview_world.png
+
+# Uploads — пользовательские загрузки через uploader
+/root/oil_tycoon_project/uploads/
+
+# Python __pycache__
+apps/web/scripts/__pycache__/

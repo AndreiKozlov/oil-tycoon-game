@@ -1,7 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { BIOME_INFO, type Biome } from '../lib/biomeMap';
 import { DEFAULT_MAP, generateMap, biomeAtIndex, type MapConfig } from '../lib/proceduralMap';
-import { TILE_SIZE, getOrRenderTile } from '../lib/proceduralTiles';
+import { TILE_SIZE } from '../lib/proceduralTiles';
+import {
+  BIOME_TO_HBIOME,
+  loadAtlas,
+  isAtlasReady,
+  getAtlasImage,
+  getAtlasMeta,
+  pickTileForMask,
+  computeCornerMask,
+  type HBiome,
+} from '../lib/wangAtlas';
 
 const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 4.0;
@@ -52,6 +62,22 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     }
   }, []);
 
+  // Загрузка wang-атласа (PNG + JSON). После загрузки форсим перерисовку.
+  useEffect(() => {
+    let cancelled = false;
+    loadAtlas()
+      .then(() => {
+        if (!cancelled) forceRender((n) => n + 1);
+      })
+      .catch((e) => {
+        // eslint-disable-next-line no-console
+        console.warn('[WorldMap] atlas load failed, falling back to procedural', e);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
     const wrap = wrapRef.current;
@@ -73,6 +99,10 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.imageSmoothingEnabled = false;
 
+    // Полная очистка кадра — без неё PNG-тайлы с RGBA-границами наслаиваются
+    // на предыдущий кадр при пане/зуме, и старая Bayer-карта (или просто
+    // прошлый кадр) просвечивает через прозрачные кромки атласа.
+    ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = BIOME_INFO.water.hexColor;
     ctx.fillRect(0, 0, w, h);
 
@@ -84,24 +114,70 @@ export function WorldMapCanvas({ config = DEFAULT_MAP, onTileClick }: Props) {
     const endX = Math.min(config.width, Math.ceil((w - cam.x) / tileSize) + 1);
     const endY = Math.min(config.height, Math.ceil((h - cam.y) / tileSize) + 1);
 
+    const atlasReady = isAtlasReady();
+    const atlasImg = atlasReady ? getAtlasImage() : null;
+    const atlasMeta = atlasReady ? getAtlasMeta() : null;
+
+    // sample: возвращает Heroes 3 biome для клетки (или null для воды/вне карты).
+    const sampleHBiome = (sx: number, sy: number): HBiome | null => {
+      const b = biomeAtIndex(map, config, sx, sy);
+      if (!b) return null;
+      return BIOME_TO_HBIOME[b];
+    };
+
     for (let y = startY; y < endY; y++) {
       for (let x = startX; x < endX; x++) {
         const biome = biomeAtIndex(map, config, x, y);
         if (!biome) continue;
+        // Тайлы стыкуются ПИКСЕЛЬ-В-ПИКСЕЛЬ: каждый тайл занимает место
+        // от floor(cam + x*size) до floor(cam + (x+1)*size). Это убирает
+        // 1px-зазоры/перекрытия, которые при zoom<1 создают визуальный
+        // «второй слой».
         const px = Math.floor(cam.x + x * tileSize);
         const py = Math.floor(cam.y + y * tileSize);
-        const size = Math.ceil(tileSize);
+        const pxNext = Math.floor(cam.x + (x + 1) * tileSize);
+        const pyNext = Math.floor(cam.y + (y + 1) * tileSize);
+        const size = pxNext - px;
+        const sizeY = pyNext - py;
 
-        const neighbors = {
-          N: biomeAtIndex(map, config, x, y - 1),
-          S: biomeAtIndex(map, config, x, y + 1),
-          E: biomeAtIndex(map, config, x + 1, y),
-          W: biomeAtIndex(map, config, x - 1, y),
-        };
+        // Атлас ещё не готов — пока заглушка цветом биома (не Bayer-dither,
+        // он даёт 8-пиксельный кант который потом не перекрывается PNG-тайлами
+        // и создаёт визуальный «второй слой»).
+        const hbiome = BIOME_TO_HBIOME[biome];
+        if (!atlasImg || !atlasMeta) {
+          ctx.fillStyle = BIOME_INFO[biome].hexColor;
+          ctx.fillRect(px, py, size, sizeY);
+          continue;
+        }
+        // Вода — рисуется чистым цветом (без dither), стыковка берег↔вода
+        // делается через PNG-тайл наземного биома, у которого свой край.
+        if (!hbiome) {
+          ctx.fillStyle = BIOME_INFO.water.hexColor;
+          ctx.fillRect(px, py, size, sizeY);
+          continue;
+        }
 
-        const imgData = getOrRenderTile(ctx, biome, neighbors, x, y);
-        tileCtx.putImageData(imgData, 0, 0);
-        ctx.drawImage(tileCanvas, px, py, size, size);
+        // Wang: считаем 4-угловую маску для собственного hbiome.
+        const mask = computeCornerMask(x, y, hbiome, sampleHBiome);
+        const srcCoords = pickTileForMask(hbiome, mask, x, y);
+        if (!srcCoords) {
+          // Атлас не содержит бакета даже после fallback'ов — рисуем плоским
+          // цветом биома, не Bayer-dither, чтобы не создавать «второй слой».
+          ctx.fillStyle = BIOME_INFO[biome].hexColor;
+          ctx.fillRect(px, py, size, sizeY);
+          continue;
+        }
+        ctx.drawImage(
+          atlasImg,
+          srcCoords.sx,
+          srcCoords.sy,
+          atlasMeta.tile_size,
+          atlasMeta.tile_size,
+          px,
+          py,
+          size,
+          sizeY,
+        );
       }
     }
 
