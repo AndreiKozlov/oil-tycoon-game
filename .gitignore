@@ -78,3 +78,4 @@ apps/web/public/tiles/preview_world.png
 
 # Python __pycache__
 apps/web/scripts/__pycache__/
+apps/web/public/tiles/uploaded_new.png
