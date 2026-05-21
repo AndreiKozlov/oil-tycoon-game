@@ -1,0 +1,1085 @@
+{
+  "DDDD": [
+    {
+      "name": "tgrd022.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd040.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd041.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm040.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "DDDG": [
+    {
+      "name": "tgrd000.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd003.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "DDDS": [
+    {
+      "name": "tgrm013.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm043.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "DDGD": [
+    {
+      "name": "tgrd000.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd003.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "DDGG": [
+    {
+      "name": "tgrd020.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd021.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd043.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd043.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "DDGS": [
+    {
+      "name": "tgrm011.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm020.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "DDSD": [
+    {
+      "name": "tgrm013.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm043.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "DDSG": [
+    {
+      "name": "tgrm011.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm020.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "DDSS": [
+    {
+      "name": "tgrs002.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs002.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "DGDD": [
+    {
+      "name": "tgrd000.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd003.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "DGDG": [
+    {
+      "name": "tgrd010.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd011.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd012.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd013.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd023.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "DGDS": [
+    {
+      "name": "tgrm010.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm021.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "DGGD": [
+    {
+      "name": "tgrd032.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm000.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "DGGG": [
+    {
+      "name": "tgrd001.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd002.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd030.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd031.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd033.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd042.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "DGGS": [
+    {
+      "name": "tgrm002.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "DGSD": [
+    {
+      "name": "tgrm031.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "DGSG": [
+    {
+      "name": "tgrs031.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "DGSS": [
+    {
+      "name": "tgrs020.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs023.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "DSDD": [
+    {
+      "name": "tgrm013.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm043.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "DSDG": [
+    {
+      "name": "tgrm010.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm021.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "DSGD": [
+    {
+      "name": "tgrm031.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "DSGG": [
+    {
+      "name": "tgrs032.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs033.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "DSGS": [
+    {
+      "name": "tgrm012.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "DSSG": [
+    {
+      "name": "tgrm030.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "DSSS": [
+    {
+      "name": "tgrs040.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm042.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "GDDD": [
+    {
+      "name": "tgrd000.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd003.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "GDDG": [
+    {
+      "name": "tgrd032.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd032.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm000.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm000.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "GDDS": [
+    {
+      "name": "tgrm031.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GDGD": [
+    {
+      "name": "tgrd010.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd010.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd011.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd011.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd012.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd012.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd013.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd013.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd023.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd023.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "GDGG": [
+    {
+      "name": "tgrd001.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd002.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd030.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd031.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd033.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd042.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "GDGS": [
+    {
+      "name": "tgrs031.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GDSD": [
+    {
+      "name": "tgrm010.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm021.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "GDSG": [
+    {
+      "name": "tgrm002.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "GDSS": [
+    {
+      "name": "tgrs020.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs023.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "GGDD": [
+    {
+      "name": "tgrd020.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd020.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd021.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd021.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd043.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "GGDG": [
+    {
+      "name": "tgrd001.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd002.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd030.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd031.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd033.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd042.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "GGDS": [
+    {
+      "name": "tgrs032.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs033.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GGGD": [
+    {
+      "name": "tgrd001.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd002.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd030.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd031.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd033.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrd042.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "GGGS": [
+    {
+      "name": "tgrs042.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs043.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GGSD": [
+    {
+      "name": "tgrs032.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs033.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "GGSG": [
+    {
+      "name": "tgrs042.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs043.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "GGSS": [
+    {
+      "name": "tgrs021.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs021.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs022.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs022.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs030.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GSDD": [
+    {
+      "name": "tgrm011.png",
+      "transform": "none",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm020.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "GSDG": [
+    {
+      "name": "tgrm002.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "GSDS": [
+    {
+      "name": "tgrm012.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "GSGD": [
+    {
+      "name": "tgrs031.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "GSGG": [
+    {
+      "name": "tgrs042.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs043.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "GSGS": [
+    {
+      "name": "tgrs010.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs010.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs011.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs011.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs012.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs012.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs013.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs013.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "GSSD": [
+    {
+      "name": "tgrm030.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "GSSS": [
+    {
+      "name": "tgrs000.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs001.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs003.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs041.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm001.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "SDDD": [
+    {
+      "name": "tgrm013.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm043.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SDDG": [
+    {
+      "name": "tgrm031.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SDGD": [
+    {
+      "name": "tgrm010.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm021.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SDGG": [
+    {
+      "name": "tgrs032.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs033.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SDGS": [
+    {
+      "name": "tgrm030.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "SDSG": [
+    {
+      "name": "tgrm012.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "SDSS": [
+    {
+      "name": "tgrs040.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm042.png",
+      "transform": "flipV",
+      "src": "bg"
+    }
+  ],
+  "SGDD": [
+    {
+      "name": "tgrm011.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    },
+    {
+      "name": "tgrm020.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "SGDG": [
+    {
+      "name": "tgrs031.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SGDS": [
+    {
+      "name": "tgrm030.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "SGGD": [
+    {
+      "name": "tgrm002.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "SGGG": [
+    {
+      "name": "tgrs042.png",
+      "transform": "rotate180",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs043.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SGSD": [
+    {
+      "name": "tgrm012.png",
+      "transform": "flipH",
+      "src": "tilemap"
+    }
+  ],
+  "SGSG": [
+    {
+      "name": "tgrs010.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs011.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs012.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs013.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "SGSS": [
+    {
+      "name": "tgrs000.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs001.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs003.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs041.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm001.png",
+      "transform": "none",
+      "src": "tilemap"
+    }
+  ],
+  "SSDD": [
+    {
+      "name": "tgrs002.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "SSDG": [
+    {
+      "name": "tgrs020.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs023.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "SSDS": [
+    {
+      "name": "tgrs040.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm042.png",
+      "transform": "flipH",
+      "src": "bg"
+    }
+  ],
+  "SSGD": [
+    {
+      "name": "tgrs020.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs023.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "SSGG": [
+    {
+      "name": "tgrs021.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs022.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs030.png",
+      "transform": "flipV",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs030.png",
+      "transform": "rotate180",
+      "src": "bg"
+    }
+  ],
+  "SSGS": [
+    {
+      "name": "tgrs000.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs001.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs003.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs041.png",
+      "transform": "flipH",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm001.png",
+      "transform": "rotate180",
+      "src": "tilemap"
+    }
+  ],
+  "SSSD": [
+    {
+      "name": "tgrs040.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm042.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ],
+  "SSSG": [
+    {
+      "name": "tgrs000.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs001.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs003.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrs041.png",
+      "transform": "none",
+      "src": "bg"
+    },
+    {
+      "name": "tgrm001.png",
+      "transform": "flipV",
+      "src": "tilemap"
+    }
+  ],
+  "SSSS": [
+    {
+      "name": "tgrm041.png",
+      "transform": "none",
+      "src": "bg"
+    }
+  ]
+}

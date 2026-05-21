@@ -1,0 +1,13 @@
+Map size: 452×227 = 102604 cells
+Image: (14464, 7264)
+
+=== Cell distribution ===
+  water: 70030
+  grass: 17274
+  sand: 6317
+  coast_ws: 5102
+  coast_sg: 3877
+  WSG: 0
+  miss: 4
+  total drawn: 102604 / 102604
+  missing: 0

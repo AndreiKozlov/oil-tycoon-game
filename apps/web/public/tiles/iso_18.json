@@ -1,0 +1,392 @@
+{
+  "source": "/root/oil_tycoon_project/newtile.png",
+  "grid": {
+    "cols": 3,
+    "rows": 6
+  },
+  "cell": {
+    "w": 341.333,
+    "h": 256.0
+  },
+  "pivot": "bottom-center",
+  "tiles": [
+    {
+      "name": "snow",
+      "biome": "snow",
+      "row": 0,
+      "col": 0,
+      "x": 0,
+      "y": 0,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/snow.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "grass_1",
+      "biome": "grass",
+      "row": 0,
+      "col": 1,
+      "x": 341,
+      "y": 0,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/grass_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "grass_2",
+      "biome": "grass",
+      "row": 0,
+      "col": 2,
+      "x": 683,
+      "y": 0,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/grass_2.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "grass_3",
+      "biome": "grass",
+      "row": 1,
+      "col": 0,
+      "x": 0,
+      "y": 256,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/grass_3.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "grass_4",
+      "biome": "grass",
+      "row": 1,
+      "col": 1,
+      "x": 341,
+      "y": 256,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/grass_4.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "grass_5",
+      "biome": "grass",
+      "row": 1,
+      "col": 2,
+      "x": 683,
+      "y": 256,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/grass_5.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "sand_1",
+      "biome": "sand",
+      "row": 2,
+      "col": 0,
+      "x": 0,
+      "y": 512,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/sand_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "sand_2",
+      "biome": "sand",
+      "row": 2,
+      "col": 1,
+      "x": 341,
+      "y": 512,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/sand_2.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "dirt_1",
+      "biome": "dirt",
+      "row": 2,
+      "col": 2,
+      "x": 683,
+      "y": 512,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/dirt_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "dirt_2",
+      "biome": "dirt",
+      "row": 3,
+      "col": 0,
+      "x": 0,
+      "y": 768,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/dirt_2.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "dirt_3",
+      "biome": "dirt",
+      "row": 3,
+      "col": 1,
+      "x": 341,
+      "y": 768,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/dirt_3.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "dirt_4",
+      "biome": "dirt",
+      "row": 3,
+      "col": 2,
+      "x": 683,
+      "y": 768,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/dirt_4.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "deep_water_1",
+      "biome": "deep_water",
+      "row": 4,
+      "col": 0,
+      "x": 0,
+      "y": 1024,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/deep_water_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "deep_water_2",
+      "biome": "deep_water",
+      "row": 4,
+      "col": 1,
+      "x": 341,
+      "y": 1024,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/deep_water_2.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "deep_water_3",
+      "biome": "deep_water",
+      "row": 4,
+      "col": 2,
+      "x": 683,
+      "y": 1024,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/deep_water_3.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "shallow_water_1",
+      "biome": "shallow_water",
+      "row": 5,
+      "col": 0,
+      "x": 0,
+      "y": 1280,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/shallow_water_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "ice_water_1",
+      "biome": "ice_water",
+      "row": 5,
+      "col": 1,
+      "x": 341,
+      "y": 1280,
+      "w": 342,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        336,
+        245
+      ],
+      "file": "iso_18/ice_water_1.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    },
+    {
+      "name": "ice_water_2",
+      "biome": "ice_water",
+      "row": 5,
+      "col": 2,
+      "x": 683,
+      "y": 1280,
+      "w": 341,
+      "h": 256,
+      "opaque_bbox": [
+        7,
+        21,
+        335,
+        245
+      ],
+      "file": "iso_18/ice_water_2.png",
+      "rhomb": {
+        "w_frac": 0.92,
+        "h_frac": 0.82
+      }
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "grass": {
+    "0": [
+      "tgrm040.png",
+      "tgrm041.png",
+      "tgrm042.png",
+      "tgrm043.png",
+      "tgrs040.png"
+    ],
+    "1": [
+      "tgrm010.png",
+      "tgrm011.png",
+      "tgrm013.png",
+      "tgrm030.png"
+    ],
+    "2": [
+      "tgrm001.png",
+      "tgrs012.png"
+    ],
+    "3": [
+      "tgrm021.png",
+      "tgrm031.png",
+      "tgrs030.png",
+      "tgrs032.png",
+      "tgrs033.png"
+    ],
+    "4": [
+      "tgrs020.png"
+    ],
+    "5": [
+      "tgrm012.png",
+      "tgrs031.png",
+      "tgrs042.png"
+    ],
+    "6": [
+      "tgrm002.png"
+    ],
+    "7": [
+      "tgrd030.png",
+      "tgrd031.png",
+      "tgrd032.png",
+      "tgrd033.png",
+      "tgrd043.png",
+      "tgrm020.png",
+      "tgrs043.png"
+    ],
+    "8": [
+      "tgrd040.png",
+      "tgrd041.png",
+      "tgrs000.png",
+      "tgrs001.png",
+      "tgrs003.png",
+      "tgrs021.png",
+      "tgrs041.png"
+    ],
+    "10": [
+      "tgrd000.png",
+      "tgrd012.png",
+      "tgrd013.png",
+      "tgrs010.png",
+      "tgrs011.png",
+      "tgrs013.png"
+    ],
+    "12": [
+      "tgrs002.png",
+      "tgrs022.png",
+      "tgrs023.png"
+    ],
+    "13": [
+      "tgrd020.png",
+      "tgrd021.png"
+    ],
+    "14": [
+      "tgrb023.png",
+      "tgrd001.png",
+      "tgrd010.png",
+      "tgrd011.png",
+      "tgrd023.png"
+    ],
+    "15": [
+      "tgrb000.png",
+      "tgrb001.png",
+      "tgrb002.png",
+      "tgrb003.png",
+      "tgrb004.png",
+      "tgrb005.png",
+      "tgrb006.png",
+      "tgrb007.png",
+      "tgrb010.png",
+      "tgrb011.png",
+      "tgrb012.png",
+      "tgrb013.png",
+      "tgrb014.png",
+      "tgrb015.png",
+      "tgrb016.png",
+      "tgrb017.png",
+      "tgrb018.png",
+      "tgrb019.png",
+      "tgrb020.png",
+      "tgrb021.png",
+      "tgrb022.png",
+      "tgrb024.png",
+      "tgrb025.png",
+      "tgrd002.png",
+      "tgrd003.png",
+      "tgrd022.png",
+      "tgrd042.png",
+      "tgrm000.png"
+    ]
+  },
+  "dirt": {
+    "0": [
+      "tdtm041.png"
+    ],
+    "6": [
+      "tdtm001.png"
+    ],
+    "7": [
+      "tdts030.png",
+      "tdts031.png",
+      "tdts032.png",
+      "tdts033.png",
+      "tdts042.png",
+      "tdts043.png"
+    ],
+    "8": [
+      "tdts000.png",
+      "tdts001.png",
+      "tdts002.png",
+      "tdts003.png",
+      "tdts040.png",
+      "tdts041.png"
+    ],
+    "10": [
+      "tdts010.png",
+      "tdts011.png",
+      "tdts012.png",
+      "tdts013.png"
+    ],
+    "12": [
+      "tdts020.png",
+      "tdts021.png",
+      "tdts022.png",
+      "tdts023.png"
+    ],
+    "15": [
+      "tdtb000.png",
+      "tdtb001.png",
+      "tdtb002.png",
+      "tdtb003.png",
+      "tdtb004.png",
+      "tdtb005.png",
+      "tdtb006.png",
+      "tdtb007.png",
+      "tdtb010.png",
+      "tdtb011.png",
+      "tdtb012.png",
+      "tdtb013.png",
+      "tdtb014.png",
+      "tdtb015.png",
+      "tdtb016.png",
+      "tdtb017.png",
+      "tdtb018.png",
+      "tdtb019.png",
+      "tdtb020.png",
+      "tdtb021.png",
+      "tdtb022.png",
+      "tdtb023.png",
+      "tdtb024.png",
+      "tdtb025.png"
+    ]
+  },
+  "sand": {
+    "0": [
+      "tsab000.png",
+      "tsab001.png",
+      "tsab002.png",
+      "tsab003.png",
+      "tsab004.png",
+      "tsab005.png",
+      "tsab006.png",
+      "tsab007.png",
+      "tsab010.png",
+      "tsab011.png",
+      "tsab012.png",
+      "tsab013.png",
+      "tsab014.png",
+      "tsab015.png",
+      "tsab016.png",
+      "tsab017.png",
+      "tsab018.png",
+      "tsab019.png",
+      "tsab020.png",
+      "tsab021.png",
+      "tsab022.png",
+      "tsab023.png",
+      "tsab024.png",
+      "tsab025.png"
+    ]
+  },
+  "snow": {
+    "0": [
+      "tsnd040.png",
+      "tsnm040.png",
+      "tsnm041.png",
+      "tsnm042.png",
+      "tsnm043.png"
+    ],
+    "1": [
+      "tsnm012.png"
+    ],
+    "3": [
+      "tsnm011.png"
+    ],
+    "5": [
+      "tsnd032.png",
+      "tsnm020.png",
+      "tsnm031.png"
+    ],
+    "7": [
+      "tsnd030.png",
+      "tsnd043.png",
+      "tsnm010.png",
+      "tsns030.png",
+      "tsns032.png",
+      "tsns033.png"
+    ],
+    "8": [
+      "tsnd000.png",
+      "tsnd001.png",
+      "tsnd003.png",
+      "tsnd020.png",
+      "tsnd041.png",
+      "tsns040.png",
+      "tsns041.png"
+    ],
+    "10": [
+      "tsnd012.png",
+      "tsnd013.png"
+    ],
+    "11": [
+      "tsnd010.png",
+      "tsnm021.png",
+      "tsnm030.png",
+      "tsns002.png",
+      "tsns010.png"
+    ],
+    "12": [
+      "tsnd022.png",
+      "tsnd023.png",
+      "tsns023.png"
+    ],
+    "13": [
+      "tsns021.png"
+    ],
+    "14": [
+      "tsnd002.png",
+      "tsnd011.png",
+      "tsnd021.png",
+      "tsnm000.png",
+      "tsnm001.png",
+      "tsnm002.png",
+      "tsns000.png",
+      "tsns020.png"
+    ],
+    "15": [
+      "tsnb000.png",
+      "tsnb001.png",
+      "tsnb002.png",
+      "tsnb003.png",
+      "tsnb004.png",
+      "tsnb005.png",
+      "tsnb006.png",
+      "tsnb007.png",
+      "tsnb010.png",
+      "tsnb011.png",
+      "tsnb012.png",
+      "tsnb013.png",
+      "tsnb014.png",
+      "tsnb015.png",
+      "tsnb016.png",
+      "tsnb017.png",
+      "tsnb018.png",
+      "tsnb019.png",
+      "tsnb020.png",
+      "tsnb021.png",
+      "tsnb022.png",
+      "tsnb023.png",
+      "tsnb024.png",
+      "tsnb025.png",
+      "tsnd031.png",
+      "tsnd033.png",
+      "tsnd042.png",
+      "tsnm013.png",
+      "tsns001.png",
+      "tsns003.png",
+      "tsns011.png",
+      "tsns012.png",
+      "tsns013.png",
+      "tsns022.png",
+      "tsns031.png",
+      "tsns042.png",
+      "tsns043.png"
+    ]
+  },
+  "swamp": {
+    "0": [
+      "tswm040.png",
+      "tswm041.png",
+      "tswm042.png",
+      "tswm043.png",
+      "tsws002.png",
+      "tsws031.png",
+      "tsws032.png",
+      "tsws040.png",
+      "tsws041.png"
+    ],
+    "1": [
+      "tswm010.png",
+      "tswm011.png",
+      "tswm012.png",
+      "tswm013.png",
+      "tswm030.png",
+      "tswm031.png",
+      "tsws042.png"
+    ],
+    "2": [
+      "tswm001.png",
+      "tswm002.png",
+      "tsws011.png",
+      "tsws012.png",
+      "tsws030.png",
+      "tsws033.png"
+    ],
+    "3": [
+      "tswm021.png",
+      "tsws043.png"
+    ],
+    "4": [
+      "tsws020.png",
+      "tsws023.png"
+    ],
+    "5": [
+      "tswm020.png"
+    ],
+    "7": [
+      "tswd030.png",
+      "tswd031.png",
+      "tswd032.png",
+      "tswd033.png",
+      "tswd042.png",
+      "tswd043.png"
+    ],
+    "8": [
+      "tswd000.png",
+      "tswd040.png",
+      "tswd041.png",
+      "tsws000.png",
+      "tsws001.png",
+      "tsws003.png",
+      "tsws013.png"
+    ],
+    "10": [
+      "tswd003.png",
+      "tswd012.png",
+      "tswd013.png",
+      "tsws010.png"
+    ],
+    "11": [
+      "tswd002.png"
+    ],
+    "12": [
+      "tsws021.png",
+      "tsws022.png"
+    ],
+    "13": [
+      "tswd021.png"
+    ],
+    "14": [
+      "tswd023.png"
+    ],
+    "15": [
+      "tswb000.png",
+      "tswb001.png",
+      "tswb002.png",
+      "tswb003.png",
+      "tswb004.png",
+      "tswb005.png",
+      "tswb006.png",
+      "tswb007.png",
+      "tswb010.png",
+      "tswb011.png",
+      "tswb012.png",
+      "tswb013.png",
+      "tswb014.png",
+      "tswb015.png",
+      "tswb016.png",
+      "tswb017.png",
+      "tswb018.png",
+      "tswb019.png",
+      "tswb020.png",
+      "tswb021.png",
+      "tswb022.png",
+      "tswb023.png",
+      "tswb024.png",
+      "tswb025.png",
+      "tswd001.png",
+      "tswd010.png",
+      "tswd011.png",
+      "tswd020.png",
+      "tswd022.png",
+      "tswm000.png"
+    ]
+  },
+  "sub": {
+    "0": [
+      "tsub000.png",
+      "tsub001.png",
+      "tsub002.png",
+      "tsub003.png",
+      "tsub004.png",
+      "tsub005.png",
+      "tsub006.png",
+      "tsub007.png",
+      "tsub010.png",
+      "tsub011.png",
+      "tsub012.png",
+      "tsub013.png",
+      "tsub014.png",
+      "tsub015.png",
+      "tsub016.png",
+      "tsub017.png",
+      "tsub018.png",
+      "tsub019.png",
+      "tsub020.png",
+      "tsub021.png",
+      "tsub022.png",
+      "tsub023.png",
+      "tsub024.png",
+      "tsub025.png",
+      "tsud000.png",
+      "tsud001.png",
+      "tsud002.png",
+      "tsud003.png",
+      "tsud010.png",
+      "tsud011.png",
+      "tsud012.png",
+      "tsud013.png",
+      "tsud020.png",
+      "tsud021.png",
+      "tsud022.png",
+      "tsud023.png",
+      "tsud030.png",
+      "tsud031.png",
+      "tsud032.png",
+      "tsud033.png",
+      "tsud040.png",
+      "tsud041.png",
+      "tsud042.png",
+      "tsud043.png",
+      "tsum000.png",
+      "tsum001.png",
+      "tsum002.png",
+      "tsum010.png",
+      "tsum011.png",
+      "tsum012.png",
+      "tsum013.png",
+      "tsum020.png",
+      "tsum021.png",
+      "tsum030.png",
+      "tsum031.png",
+      "tsum040.png",
+      "tsum041.png",
+      "tsum042.png",
+      "tsum043.png",
+      "tsus000.png",
+      "tsus001.png",
+      "tsus002.png",
+      "tsus003.png",
+      "tsus010.png",
+      "tsus011.png",
+      "tsus012.png",
+      "tsus013.png",
+      "tsus020.png",
+      "tsus021.png",
+      "tsus022.png",
+      "tsus023.png",
+      "tsus030.png",
+      "tsus031.png",
+      "tsus032.png",
+      "tsus033.png",
+      "tsus040.png",
+      "tsus041.png",
+      "tsus042.png",
+      "tsus043.png"
+    ]
+  },
+  "volc": {
+    "0": [
+      "tvlm001.png",
+      "tvlm020.png",
+      "tvlm040.png",
+      "tvlm041.png",
+      "tvlm042.png",
+      "tvlm043.png",
+      "tvls012.png",
+      "tvls041.png"
+    ],
+    "1": [
+      "tvlm010.png",
+      "tvlm012.png",
+      "tvlm013.png",
+      "tvlm030.png",
+      "tvls031.png"
+    ],
+    "2": [
+      "tvlm002.png"
+    ],
+    "3": [
+      "tvlm021.png",
+      "tvls013.png",
+      "tvls030.png"
+    ],
+    "4": [
+      "tvls023.png"
+    ],
+    "5": [
+      "tvlm011.png",
+      "tvls022.png",
+      "tvls032.png"
+    ],
+    "6": [
+      "tvld022.png",
+      "tvlm000.png",
+      "tvls021.png"
+    ],
+    "7": [
+      "tvld030.png",
+      "tvld031.png",
+      "tvld032.png",
+      "tvld033.png",
+      "tvls033.png",
+      "tvls042.png",
+      "tvls043.png"
+    ],
+    "8": [
+      "tvld040.png",
+      "tvld041.png",
+      "tvls001.png",
+      "tvls002.png",
+      "tvls003.png",
+      "tvls040.png"
+    ],
+    "10": [
+      "tvld012.png",
+      "tvld013.png",
+      "tvls011.png"
+    ],
+    "11": [
+      "tvld011.png"
+    ],
+    "12": [
+      "tvld000.png",
+      "tvld020.png",
+      "tvls000.png",
+      "tvls020.png"
+    ],
+    "13": [
+      "tvlb022.png",
+      "tvld021.png",
+      "tvld023.png",
+      "tvlm031.png"
+    ],
+    "14": [
+      "tvld001.png",
+      "tvld002.png",
+      "tvld003.png",
+      "tvld010.png",
+      "tvls010.png"
+    ],
+    "15": [
+      "tvlb000.png",
+      "tvlb001.png",
+      "tvlb002.png",
+      "tvlb003.png",
+      "tvlb004.png",
+      "tvlb005.png",
+      "tvlb006.png",
+      "tvlb007.png",
+      "tvlb010.png",
+      "tvlb011.png",
+      "tvlb012.png",
+      "tvlb013.png",
+      "tvlb014.png",
+      "tvlb015.png",
+      "tvlb016.png",
+      "tvlb017.png",
+      "tvlb018.png",
+      "tvlb019.png",
+      "tvlb020.png",
+      "tvlb021.png",
+      "tvlb023.png",
+      "tvlb024.png",
+      "tvlb025.png",
+      "tvld042.png",
+      "tvld043.png"
+    ]
+  },
+  "rough": {
+    "0": [
+      "trom040.png"
+    ],
+    "2": [
+      "trod020.png"
+    ],
+    "4": [
+      "trod022.png"
+    ],
+    "5": [
+      "trod033.png"
+    ],
+    "6": [
+      "trom000.png"
+    ],
+    "7": [
+      "trod030.png",
+      "trod031.png",
+      "trod032.png",
+      "trod042.png",
+      "trod043.png"
+    ],
+    "8": [
+      "trod000.png",
+      "trod001.png",
+      "trod012.png",
+      "trod040.png",
+      "trod041.png",
+      "trom043.png"
+    ],
+    "10": [
+      "trod003.png",
+      "trod011.png",
+      "trod013.png"
+    ],
+    "11": [
+      "trom011.png"
+    ],
+    "12": [
+      "trod002.png",
+      "trod021.png"
+    ],
+    "13": [
+      "trod023.png",
+      "trom013.png"
+    ],
+    "14": [
+      "trob019.png",
+      "trod010.png"
+    ],
+    "15": [
+      "trob000.png",
+      "trob001.png",
+      "trob002.png",
+      "trob003.png",
+      "trob004.png",
+      "trob005.png",
+      "trob006.png",
+      "trob007.png",
+      "trob010.png",
+      "trob011.png",
+      "trob012.png",
+      "trob013.png",
+      "trob014.png",
+      "trob015.png",
+      "trob016.png",
+      "trob017.png",
+      "trob018.png",
+      "trob020.png",
+      "trob021.png",
+      "trob022.png",
+      "trob023.png",
+      "trob024.png",
+      "trob025.png",
+      "trom001.png",
+      "trom002.png",
+      "trom010.png",
+      "trom012.png",
+      "trom020.png",
+      "trom021.png",
+      "trom030.png",
+      "trom031.png",
+      "trom041.png",
+      "trom042.png",
+      "tros000.png",
+      "tros001.png",
+      "tros002.png",
+      "tros003.png",
+      "tros010.png",
+      "tros011.png",
+      "tros012.png",
+      "tros013.png",
+      "tros020.png",
+      "tros021.png",
+      "tros022.png",
+      "tros023.png",
+      "tros030.png",
+      "tros031.png",
+      "tros032.png",
+      "tros033.png",
+      "tros040.png",
+      "tros041.png",
+      "tros042.png",
+      "tros043.png"
+    ]
+  }
+}

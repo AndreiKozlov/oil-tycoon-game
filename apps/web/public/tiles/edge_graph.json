@@ -1,0 +1,2064 @@
+{
+  "tile_size": 32,
+  "tiles": [
+    "clrrvr00.png",
+    "clrrvr01.png",
+    "clrrvr02.png",
+    "clrrvr03.png",
+    "clrrvr04.png",
+    "clrrvr05.png",
+    "clrrvr06.png",
+    "clrrvr07.png",
+    "clrrvr08.png",
+    "clrrvr09.png",
+    "clrrvr10.png",
+    "clrrvr11.png",
+    "clrrvr12.png",
+    "tdtb000.png",
+    "tdtb001.png",
+    "tdtb002.png",
+    "tdtb003.png",
+    "tdtb004.png",
+    "tdtb005.png",
+    "tdtb006.png",
+    "tdtb007.png",
+    "tdtb010.png",
+    "tdtb011.png",
+    "tdtb012.png",
+    "tdtb013.png",
+    "tdtb014.png",
+    "tdtb015.png",
+    "tdtb016.png",
+    "tdtb017.png",
+    "tdtb018.png",
+    "tdtb019.png",
+    "tdtb020.png",
+    "tdtb021.png",
+    "tdtb022.png",
+    "tdtb023.png",
+    "tdtb024.png",
+    "tdtb025.png",
+    "tdtm001.png",
+    "tdtm041.png",
+    "tdts000.png",
+    "tdts001.png",
+    "tdts002.png",
+    "tdts003.png",
+    "tdts010.png",
+    "tdts011.png",
+    "tdts012.png",
+    "tdts013.png",
+    "tdts020.png",
+    "tdts021.png",
+    "tdts022.png",
+    "tdts023.png",
+    "tdts030.png",
+    "tdts031.png",
+    "tdts032.png",
+    "tdts033.png",
+    "tdts040.png",
+    "tdts041.png",
+    "tdts042.png",
+    "tdts043.png",
+    "tgrb000.png",
+    "tgrb001.png",
+    "tgrb002.png",
+    "tgrb003.png",
+    "tgrb004.png",
+    "tgrb005.png",
+    "tgrb006.png",
+    "tgrb007.png",
+    "tgrb010.png",
+    "tgrb011.png",
+    "tgrb012.png",
+    "tgrb013.png",
+    "tgrb014.png",
+    "tgrb015.png",
+    "tgrb016.png",
+    "tgrb017.png",
+    "tgrb018.png",
+    "tgrb019.png",
+    "tgrb020.png",
+    "tgrb021.png",
+    "tgrb022.png",
+    "tgrb023.png",
+    "tgrb024.png",
+    "tgrb025.png",
+    "tgrd000.png",
+    "tgrd001.png",
+    "tgrd002.png",
+    "tgrd003.png",
+    "tgrd010.png",
+    "tgrd011.png",
+    "tgrd012.png",
+    "tgrd013.png",
+    "tgrd020.png",
+    "tgrd021.png",
+    "tgrd022.png",
+    "tgrd023.png",
+    "tgrd030.png",
+    "tgrd031.png",
+    "tgrd032.png",
+    "tgrd033.png",
+    "tgrd040.png",
+    "tgrd041.png",
+    "tgrd042.png",
+    "tgrd043.png",
+    "tgrm000.png",
+    "tgrm001.png",
+    "tgrm002.png",
+    "tgrm010.png",
+    "tgrm011.png",
+    "tgrm012.png",
+    "tgrm013.png",
+    "tgrm020.png"
+  ],
+  "edges": {
+    "clrrvr00.png": {
+      "top": "dc0788895a3b",
+      "bottom": "6ff5585b7ab9",
+      "left": "5e76e68bb530",
+      "right": "5a403cc2f9a3"
+    },
+    "clrrvr01.png": {
+      "top": "5e76e68bb530",
+      "bottom": "d566a210ad40",
+      "left": "5e76e68bb530",
+      "right": "d7547078dad5"
+    },
+    "clrrvr02.png": {
+      "top": "5e76e68bb530",
+      "bottom": "6c866664f6db",
+      "left": "79a8a7152319",
+      "right": "6801c5d23dde"
+    },
+    "clrrvr03.png": {
+      "top": "5e76e68bb530",
+      "bottom": "e258fef3de13",
+      "left": "ed973a5601ec",
+      "right": "b1df6949c727"
+    },
+    "clrrvr04.png": {
+      "top": "b837209897e2",
+      "bottom": "fd2552c9b39e",
+      "left": "cb8949447afc",
+      "right": "329c0c7a5938"
+    },
+    "clrrvr05.png": {
+      "top": "5e76e68bb530",
+      "bottom": "b5ed4727fd3e",
+      "left": "cbddf63b8857",
+      "right": "3fa6dafc61f0"
+    },
+    "clrrvr06.png": {
+      "top": "5e76e68bb530",
+      "bottom": "36035d9b4f52",
+      "left": "0bcfa25f2d65",
+      "right": "93b973e9da21"
+    },
+    "clrrvr07.png": {
+      "top": "6126d05553dc",
+      "bottom": "78131d48e876",
+      "left": "5e76e68bb530",
+      "right": "9f876284f0bd"
+    },
+    "clrrvr08.png": {
+      "top": "10a44287bdec",
+      "bottom": "1ae60c15385d",
+      "left": "5e76e68bb530",
+      "right": "dbcc59d69500"
+    },
+    "clrrvr09.png": {
+      "top": "5d2a63c15ee6",
+      "bottom": "0b94a3e35380",
+      "left": "5e76e68bb530",
+      "right": "5e76e68bb530"
+    },
+    "clrrvr10.png": {
+      "top": "4ff92550c789",
+      "bottom": "bfdc8de199bc",
+      "left": "5e76e68bb530",
+      "right": "5e76e68bb530"
+    },
+    "clrrvr11.png": {
+      "top": "5e76e68bb530",
+      "bottom": "5e76e68bb530",
+      "left": "fa232e955d2d",
+      "right": "f036eadc3932"
+    },
+    "clrrvr12.png": {
+      "top": "5e76e68bb530",
+      "bottom": "5e76e68bb530",
+      "left": "da875c232215",
+      "right": "1525df0a8ae4"
+    },
+    "tdtb000.png": {
+      "top": "b4afeb007cb7",
+      "bottom": "8cdb4b495530",
+      "left": "652fb1c8287f",
+      "right": "640d053300c7"
+    },
+    "tdtb001.png": {
+      "top": "b4afeb007cb7",
+      "bottom": "8cdb4b495530",
+      "left": "652fb1c8287f",
+      "right": "640d053300c7"
+    },
+    "tdtb002.png": {
+      "top": "62e844975af0",
+      "bottom": "afde41c2f430",
+      "left": "a2e6ff011e8e",
+      "right": "fa5cbef2f73c"
+    },
+    "tdtb003.png": {
+      "top": "8ba90d4ebd36",
+      "bottom": "97f9c9290d9a",
+      "left": "9016e5c5c3f4",
+      "right": "caefbd950aa6"
+    },
+    "tdtb004.png": {
+      "top": "d9b9c0f1a4da",
+      "bottom": "a8bdc46b29d9",
+      "left": "d91eb1d4141f",
+      "right": "bcf1d9528658"
+    },
+    "tdtb005.png": {
+      "top": "13194bbec075",
+      "bottom": "a0f1bba1222b",
+      "left": "eeda8f6b82a2",
+      "right": "354fd9dc5238"
+    },
+    "tdtb006.png": {
+      "top": "13a1e87e66bd",
+      "bottom": "58c312023997",
+      "left": "e7a3aab8e3d5",
+      "right": "09458e7f4b4a"
+    },
+    "tdtb007.png": {
+      "top": "17e15aff55b7",
+      "bottom": "96fca1aee9ed",
+      "left": "d71c9f2915de",
+      "right": "2b8a8c20ddbe"
+    },
+    "tdtb010.png": {
+      "top": "a57107009a57",
+      "bottom": "5e8e3acd4e67",
+      "left": "b649d28c21b7",
+      "right": "e11e8477e537"
+    },
+    "tdtb011.png": {
+      "top": "df77d3b3876b",
+      "bottom": "2e808da5ff97",
+      "left": "c12aa95e409b",
+      "right": "18f336c39299"
+    },
+    "tdtb012.png": {
+      "top": "2fdc25e06af8",
+      "bottom": "a8e5014f69b1",
+      "left": "9514b93fae1b",
+      "right": "807aeb9785fe"
+    },
+    "tdtb013.png": {
+      "top": "801f02bbc684",
+      "bottom": "f85815a79aa6",
+      "left": "4fb94f7fe875",
+      "right": "554cf9dfa766"
+    },
+    "tdtb014.png": {
+      "top": "347ea8516684",
+      "bottom": "e7ebcd5aba3e",
+      "left": "dc4c7f2c16df",
+      "right": "a0b4d1863273"
+    },
+    "tdtb015.png": {
+      "top": "bff9dfd84a40",
+      "bottom": "ec97b69e0247",
+      "left": "18048a39f824",
+      "right": "dc5e7d8c45b7"
+    },
+    "tdtb016.png": {
+      "top": "a88bfa1ecebb",
+      "bottom": "76c13d77e507",
+      "left": "a456733b7758",
+      "right": "1760d7103986"
+    },
+    "tdtb017.png": {
+      "top": "01dab1b68372",
+      "bottom": "97ac17505b4b",
+      "left": "04df6b4189fd",
+      "right": "e1668f0b0ec0"
+    },
+    "tdtb018.png": {
+      "top": "e74216451773",
+      "bottom": "2ac1027e51cb",
+      "left": "d524c7246fc6",
+      "right": "4d95f4b50ef8"
+    },
+    "tdtb019.png": {
+      "top": "e3d15e8c040d",
+      "bottom": "074f3cfc14c8",
+      "left": "f52a8c999b4b",
+      "right": "1ee7ff2c2d26"
+    },
+    "tdtb020.png": {
+      "top": "55048f8d2869",
+      "bottom": "accf2895cf8c",
+      "left": "6a2b3c75b1ae",
+      "right": "2e046b647c4b"
+    },
+    "tdtb021.png": {
+      "top": "0c7fc0b1d119",
+      "bottom": "e79e24afe408",
+      "left": "2f0c484572f4",
+      "right": "b2234568f6ba"
+    },
+    "tdtb022.png": {
+      "top": "0f2b09aa7e53",
+      "bottom": "0d0ae5e907c6",
+      "left": "115f1b2de3b1",
+      "right": "bc998d5cd97b"
+    },
+    "tdtb023.png": {
+      "top": "9edd55eadd11",
+      "bottom": "6e509dff4501",
+      "left": "f5333f3721a4",
+      "right": "a1dc2f061bc9"
+    },
+    "tdtb024.png": {
+      "top": "f91117000a13",
+      "bottom": "843e7d1745bb",
+      "left": "cf2e144865ee",
+      "right": "6418dad6aec3"
+    },
+    "tdtb025.png": {
+      "top": "ba1044664fae",
+      "bottom": "7f7704fcf2f4",
+      "left": "acabc4e2768a",
+      "right": "c4597c3b5f5b"
+    },
+    "tdtm001.png": {
+      "top": "31f21584e3b3",
+      "bottom": "94fad7909e0f",
+      "left": "fc17010c90b6",
+      "right": "fdd4c5dd3a56"
+    },
+    "tdtm041.png": {
+      "top": "a8232dc61cc8",
+      "bottom": "f6f7dd9f19fa",
+      "left": "387c0344ec15",
+      "right": "d22d27cb23eb"
+    },
+    "tdts000.png": {
+      "top": "c9887850077f",
+      "bottom": "6c013c4073e3",
+      "left": "387c0344ec15",
+      "right": "e5f71a1e7698"
+    },
+    "tdts001.png": {
+      "top": "5700a46fb5ed",
+      "bottom": "ff8d297d7da6",
+      "left": "d2804b69f013",
+      "right": "2eff793a9590"
+    },
+    "tdts002.png": {
+      "top": "90f4f05809e4",
+      "bottom": "f78b1a229e9a",
+      "left": "04ae81a4ebcb",
+      "right": "8423fe899217"
+    },
+    "tdts003.png": {
+      "top": "3d91dd68f803",
+      "bottom": "b45315f6a2b0",
+      "left": "982bdb44a413",
+      "right": "4caaaaadf0f4"
+    },
+    "tdts010.png": {
+      "top": "54b41f9c2dd0",
+      "bottom": "23a83a3b8bf9",
+      "left": "7f97ffd23ed7",
+      "right": "8c65b806ea7d"
+    },
+    "tdts011.png": {
+      "top": "a46056a8f98b",
+      "bottom": "cc85d312445e",
+      "left": "7683ceb7418b",
+      "right": "078e2b5ed168"
+    },
+    "tdts012.png": {
+      "top": "b01bf6548eb9",
+      "bottom": "13de8ed163cc",
+      "left": "ac59e26ccfb3",
+      "right": "1e0e4b9d90bc"
+    },
+    "tdts013.png": {
+      "top": "8a412db8d3b5",
+      "bottom": "9e35dec2e997",
+      "left": "9ad98e5f395d",
+      "right": "85e7d0394801"
+    },
+    "tdts020.png": {
+      "top": "a8232dc61cc8",
+      "bottom": "cebdf3fbf5ba",
+      "left": "01561b888ff0",
+      "right": "4dabcb7888d1"
+    },
+    "tdts021.png": {
+      "top": "4ff8dc0cce0a",
+      "bottom": "6ee501ef3986",
+      "left": "baa04cce4470",
+      "right": "c18ef6f8de44"
+    },
+    "tdts022.png": {
+      "top": "90f4f05809e4",
+      "bottom": "5a29d1cab467",
+      "left": "35a50dd075ef",
+      "right": "641bdbb00003"
+    },
+    "tdts023.png": {
+      "top": "b8afe6476108",
+      "bottom": "3348787fc5e1",
+      "left": "1f9e10d58a9e",
+      "right": "35cb07d42830"
+    },
+    "tdts030.png": {
+      "top": "3cee72f2f33d",
+      "bottom": "f62f44343936",
+      "left": "af9b0e3c0e43",
+      "right": "2657071282f9"
+    },
+    "tdts031.png": {
+      "top": "13194bbec075",
+      "bottom": "b0c8b8537d63",
+      "left": "510ba331da93",
+      "right": "057d85fe9bd0"
+    },
+    "tdts032.png": {
+      "top": "6d6b7c36d022",
+      "bottom": "4970d267fa75",
+      "left": "e7a3aab8e3d5",
+      "right": "8a8a50ffc3a4"
+    },
+    "tdts033.png": {
+      "top": "ed76493a2d5a",
+      "bottom": "b52e2168a04c",
+      "left": "336dc46e91c5",
+      "right": "2e1191d10503"
+    },
+    "tdts040.png": {
+      "top": "e5954f5807f3",
+      "bottom": "49197affe5b3",
+      "left": "387c0344ec15",
+      "right": "b907522251cc"
+    },
+    "tdts041.png": {
+      "top": "4ff8dc0cce0a",
+      "bottom": "abc97926b974",
+      "left": "fd664fe238d3",
+      "right": "6d15cda0fb10"
+    },
+    "tdts042.png": {
+      "top": "62e844975af0",
+      "bottom": "8a6d7f5dfe1f",
+      "left": "a4ae91ecf180",
+      "right": "628de822de72"
+    },
+    "tdts043.png": {
+      "top": "4b1333f3f0dd",
+      "bottom": "5fe884876040",
+      "left": "e0a5d8eb0693",
+      "right": "1a267daff565"
+    },
+    "tgrb000.png": {
+      "top": "3ab647637e5d",
+      "bottom": "bc5ff3c6cdba",
+      "left": "b17985dd4905",
+      "right": "28df42b3ee2a"
+    },
+    "tgrb001.png": {
+      "top": "5da9b1a9a83f",
+      "bottom": "d1e0c9689bce",
+      "left": "cc1555cd22ff",
+      "right": "5d0ef364ff2f"
+    },
+    "tgrb002.png": {
+      "top": "989041f9190c",
+      "bottom": "23574529cb72",
+      "left": "578cecb860cc",
+      "right": "fc067cef219c"
+    },
+    "tgrb003.png": {
+      "top": "e836f08e20ca",
+      "bottom": "dd8a162bc00f",
+      "left": "2f5565fe71f0",
+      "right": "5b908a4550e1"
+    },
+    "tgrb004.png": {
+      "top": "5c5f67b2fd29",
+      "bottom": "0d10472672c9",
+      "left": "8f463a84127e",
+      "right": "8788bcb46d36"
+    },
+    "tgrb005.png": {
+      "top": "5657dcc76489",
+      "bottom": "0d62c9040766",
+      "left": "1508abc4ffd5",
+      "right": "6a3ef262ddb9"
+    },
+    "tgrb006.png": {
+      "top": "fad2c7438a60",
+      "bottom": "3402e28f7324",
+      "left": "66dd6cdeaa96",
+      "right": "d247347d054c"
+    },
+    "tgrb007.png": {
+      "top": "3fa3e7b932d7",
+      "bottom": "59e9e5328f22",
+      "left": "0f055ebcc9d2",
+      "right": "f2d7ee49af76"
+    },
+    "tgrb010.png": {
+      "top": "3b2dac419f65",
+      "bottom": "307816db67f8",
+      "left": "ea1add32955e",
+      "right": "f72bfe3bb8a5"
+    },
+    "tgrb011.png": {
+      "top": "082b72fe5045",
+      "bottom": "0551784edb8d",
+      "left": "888229f68bc2",
+      "right": "2e545f5d12dc"
+    },
+    "tgrb012.png": {
+      "top": "024edad6f572",
+      "bottom": "34364986894f",
+      "left": "ae8a60e6c2c3",
+      "right": "20253165d8d1"
+    },
+    "tgrb013.png": {
+      "top": "a07446d9bde0",
+      "bottom": "ebdc491187ee",
+      "left": "7459ef435e00",
+      "right": "4be21cd9cec4"
+    },
+    "tgrb014.png": {
+      "top": "c89bd899d2c7",
+      "bottom": "c8e5bb1ed502",
+      "left": "4cb574da0883",
+      "right": "50830a44957d"
+    },
+    "tgrb015.png": {
+      "top": "e361769c08f5",
+      "bottom": "d146a4b2933d",
+      "left": "8dafa88c986a",
+      "right": "303cfc7a2ff5"
+    },
+    "tgrb016.png": {
+      "top": "98adbeb04c08",
+      "bottom": "b3be97b910fb",
+      "left": "16d0ceac33f2",
+      "right": "69bc314d5c0b"
+    },
+    "tgrb017.png": {
+      "top": "a9c0ce5a26e6",
+      "bottom": "9983900583f5",
+      "left": "e4d5d14ba559",
+      "right": "0efc06b06977"
+    },
+    "tgrb018.png": {
+      "top": "2cc835252831",
+      "bottom": "096c9a313c53",
+      "left": "06bdb7802fc2",
+      "right": "aeb1e01dde5c"
+    },
+    "tgrb019.png": {
+      "top": "62b92ba8b404",
+      "bottom": "98ed09ae0de7",
+      "left": "ce8b6ea129f2",
+      "right": "9a2f8e005ad8"
+    },
+    "tgrb020.png": {
+      "top": "c8ca23ad4af4",
+      "bottom": "f0d9238f85b7",
+      "left": "2103f5aae36c",
+      "right": "17f90ea48f3b"
+    },
+    "tgrb021.png": {
+      "top": "73893ddf32c8",
+      "bottom": "756c704f7d93",
+      "left": "4ee147d93a1f",
+      "right": "f66823c562ef"
+    },
+    "tgrb022.png": {
+      "top": "bdc0c8121969",
+      "bottom": "e4b6d17184be",
+      "left": "b4bf3828e42b",
+      "right": "890218549f10"
+    },
+    "tgrb023.png": {
+      "top": "f6cf36e3bc38",
+      "bottom": "5e5dd28a8112",
+      "left": "59b0c932fc0c",
+      "right": "044ea7df0a31"
+    },
+    "tgrb024.png": {
+      "top": "e668a15e5d19",
+      "bottom": "e0ac25b74082",
+      "left": "4a3a57acc988",
+      "right": "60654e8379de"
+    },
+    "tgrb025.png": {
+      "top": "3ff312e03f0a",
+      "bottom": "4d2579f2343e",
+      "left": "0df8ea25d595",
+      "right": "3f7ce34314f3"
+    },
+    "tgrd000.png": {
+      "top": "524f66a1e6b3",
+      "bottom": "0a3c1e8a1b2c",
+      "left": "4b965d91c4d8",
+      "right": "e501b0546551"
+    },
+    "tgrd001.png": {
+      "top": "c12713ccb94e",
+      "bottom": "d008940d9810",
+      "left": "d6a6ff193053",
+      "right": "643a785d7e83"
+    },
+    "tgrd002.png": {
+      "top": "7a2ac284ad1b",
+      "bottom": "694ca7913b08",
+      "left": "c2553d0162dd",
+      "right": "fa1c0a688710"
+    },
+    "tgrd003.png": {
+      "top": "7796abce8b86",
+      "bottom": "109fe3650034",
+      "left": "c19c3a57afa0",
+      "right": "5a69209a9ad3"
+    },
+    "tgrd010.png": {
+      "top": "9cf320d53d8c",
+      "bottom": "98ddc10e492a",
+      "left": "06c2ad867ce3",
+      "right": "86efe3df4015"
+    },
+    "tgrd011.png": {
+      "top": "37d876d96fe6",
+      "bottom": "239586498c65",
+      "left": "4b965d91c4d8",
+      "right": "d247347d054c"
+    },
+    "tgrd012.png": {
+      "top": "8f5d39bc7931",
+      "bottom": "01aa3ff4affa",
+      "left": "c19c3a57afa0",
+      "right": "f3b158d6c12a"
+    },
+    "tgrd013.png": {
+      "top": "de0a3d7d6548",
+      "bottom": "9592a2547092",
+      "left": "33d7c754dee8",
+      "right": "3e50ac801a3a"
+    },
+    "tgrd020.png": {
+      "top": "02043723876e",
+      "bottom": "8d33ace6c524",
+      "left": "057e3506d722",
+      "right": "9751cf70d921"
+    },
+    "tgrd021.png": {
+      "top": "aedf67cb25fb",
+      "bottom": "d531571c718a",
+      "left": "bbb2ed41e02d",
+      "right": "6f5ca96c53fb"
+    },
+    "tgrd022.png": {
+      "top": "a2dae84f90cf",
+      "bottom": "ba6e6ddd37bd",
+      "left": "ec043dcf5fd4",
+      "right": "f1dd118e1a32"
+    },
+    "tgrd023.png": {
+      "top": "61e40673872e",
+      "bottom": "a812247086a7",
+      "left": "dbee8956a90a",
+      "right": "d3ddd58e7f5c"
+    },
+    "tgrd030.png": {
+      "top": "7957743e23d9",
+      "bottom": "e224e36d135d",
+      "left": "cf9c8fbfa324",
+      "right": "308af282100b"
+    },
+    "tgrd031.png": {
+      "top": "23380b9e29ca",
+      "bottom": "15127ea73ef6",
+      "left": "2681b5c1f0cc",
+      "right": "ed04c059b47c"
+    },
+    "tgrd032.png": {
+      "top": "3f288ed1cf15",
+      "bottom": "95580da9ef50",
+      "left": "b127299b980b",
+      "right": "653c0b625c1b"
+    },
+    "tgrd033.png": {
+      "top": "3fa3e7b932d7",
+      "bottom": "8afd5cf3684b",
+      "left": "e7060f09d81a",
+      "right": "c2a0cb28d883"
+    },
+    "tgrd040.png": {
+      "top": "aedf67cb25fb",
+      "bottom": "86f5c102983b",
+      "left": "512286df43f7",
+      "right": "3c4f57cf284c"
+    },
+    "tgrd041.png": {
+      "top": "2a0e99724b2c",
+      "bottom": "e616db872b17",
+      "left": "61e40673872e",
+      "right": "33d426441414"
+    },
+    "tgrd042.png": {
+      "top": "ad035f168a12",
+      "bottom": "a31e1c99d596",
+      "left": "ca05051bd55e",
+      "right": "866e2c1a8106"
+    },
+    "tgrd043.png": {
+      "top": "debee217bf73",
+      "bottom": "565097067219",
+      "left": "b8654d412890",
+      "right": "3584ea5fd5fe"
+    },
+    "tgrm000.png": {
+      "top": "041ff74943b4",
+      "bottom": "7bcdeeabf00a",
+      "left": "8bbc64b7e1d5",
+      "right": "5af13789198d"
+    },
+    "tgrm001.png": {
+      "top": "87faa18bc0f8",
+      "bottom": "a636c58b4909",
+      "left": "33c8699b42ee",
+      "right": "3a6b0f7a4959"
+    },
+    "tgrm002.png": {
+      "top": "a9eb8267fdb8",
+      "bottom": "3d759be3f1cd",
+      "left": "a36727c545af",
+      "right": "e4612144daae"
+    },
+    "tgrm010.png": {
+      "top": "7c8919d4efd7",
+      "bottom": "20d842e36be7",
+      "left": "fd05f3fda840",
+      "right": "e66dd67a2701"
+    },
+    "tgrm011.png": {
+      "top": "f40fb97b92d5",
+      "bottom": "91f43595a5fa",
+      "left": "044b4260f039",
+      "right": "27e9360aa265"
+    },
+    "tgrm012.png": {
+      "top": "6b04042279b7",
+      "bottom": "272f50a7673b",
+      "left": "881cb8ddc4d0",
+      "right": "dbd0daeba162"
+    },
+    "tgrm013.png": {
+      "top": "0c16beb89200",
+      "bottom": "ef00563d1de9",
+      "left": "14ea07a3d7cb",
+      "right": "59cf5b19add7"
+    },
+    "tgrm020.png": {
+      "top": "9bf36c71e392",
+      "bottom": "b3d6c16c4dea",
+      "left": "1f41ab31a595",
+      "right": "48c4610a953f"
+    }
+  },
+  "by_left": {
+    "5e76e68bb530": [
+      "clrrvr00.png",
+      "clrrvr01.png",
+      "clrrvr07.png",
+      "clrrvr08.png",
+      "clrrvr09.png",
+      "clrrvr10.png"
+    ],
+    "79a8a7152319": [
+      "clrrvr02.png"
+    ],
+    "ed973a5601ec": [
+      "clrrvr03.png"
+    ],
+    "cb8949447afc": [
+      "clrrvr04.png"
+    ],
+    "cbddf63b8857": [
+      "clrrvr05.png"
+    ],
+    "0bcfa25f2d65": [
+      "clrrvr06.png"
+    ],
+    "fa232e955d2d": [
+      "clrrvr11.png"
+    ],
+    "da875c232215": [
+      "clrrvr12.png"
+    ],
+    "652fb1c8287f": [
+      "tdtb000.png",
+      "tdtb001.png"
+    ],
+    "a2e6ff011e8e": [
+      "tdtb002.png"
+    ],
+    "9016e5c5c3f4": [
+      "tdtb003.png"
+    ],
+    "d91eb1d4141f": [
+      "tdtb004.png"
+    ],
+    "eeda8f6b82a2": [
+      "tdtb005.png"
+    ],
+    "e7a3aab8e3d5": [
+      "tdtb006.png",
+      "tdts032.png"
+    ],
+    "d71c9f2915de": [
+      "tdtb007.png"
+    ],
+    "b649d28c21b7": [
+      "tdtb010.png"
+    ],
+    "c12aa95e409b": [
+      "tdtb011.png"
+    ],
+    "9514b93fae1b": [
+      "tdtb012.png"
+    ],
+    "4fb94f7fe875": [
+      "tdtb013.png"
+    ],
+    "dc4c7f2c16df": [
+      "tdtb014.png"
+    ],
+    "18048a39f824": [
+      "tdtb015.png"
+    ],
+    "a456733b7758": [
+      "tdtb016.png"
+    ],
+    "04df6b4189fd": [
+      "tdtb017.png"
+    ],
+    "d524c7246fc6": [
+      "tdtb018.png"
+    ],
+    "f52a8c999b4b": [
+      "tdtb019.png"
+    ],
+    "6a2b3c75b1ae": [
+      "tdtb020.png"
+    ],
+    "2f0c484572f4": [
+      "tdtb021.png"
+    ],
+    "115f1b2de3b1": [
+      "tdtb022.png"
+    ],
+    "f5333f3721a4": [
+      "tdtb023.png"
+    ],
+    "cf2e144865ee": [
+      "tdtb024.png"
+    ],
+    "acabc4e2768a": [
+      "tdtb025.png"
+    ],
+    "fc17010c90b6": [
+      "tdtm001.png"
+    ],
+    "387c0344ec15": [
+      "tdtm041.png",
+      "tdts000.png",
+      "tdts040.png"
+    ],
+    "d2804b69f013": [
+      "tdts001.png"
+    ],
+    "04ae81a4ebcb": [
+      "tdts002.png"
+    ],
+    "982bdb44a413": [
+      "tdts003.png"
+    ],
+    "7f97ffd23ed7": [
+      "tdts010.png"
+    ],
+    "7683ceb7418b": [
+      "tdts011.png"
+    ],
+    "ac59e26ccfb3": [
+      "tdts012.png"
+    ],
+    "9ad98e5f395d": [
+      "tdts013.png"
+    ],
+    "01561b888ff0": [
+      "tdts020.png"
+    ],
+    "baa04cce4470": [
+      "tdts021.png"
+    ],
+    "35a50dd075ef": [
+      "tdts022.png"
+    ],
+    "1f9e10d58a9e": [
+      "tdts023.png"
+    ],
+    "af9b0e3c0e43": [
+      "tdts030.png"
+    ],
+    "510ba331da93": [
+      "tdts031.png"
+    ],
+    "336dc46e91c5": [
+      "tdts033.png"
+    ],
+    "fd664fe238d3": [
+      "tdts041.png"
+    ],
+    "a4ae91ecf180": [
+      "tdts042.png"
+    ],
+    "e0a5d8eb0693": [
+      "tdts043.png"
+    ],
+    "b17985dd4905": [
+      "tgrb000.png"
+    ],
+    "cc1555cd22ff": [
+      "tgrb001.png"
+    ],
+    "578cecb860cc": [
+      "tgrb002.png"
+    ],
+    "2f5565fe71f0": [
+      "tgrb003.png"
+    ],
+    "8f463a84127e": [
+      "tgrb004.png"
+    ],
+    "1508abc4ffd5": [
+      "tgrb005.png"
+    ],
+    "66dd6cdeaa96": [
+      "tgrb006.png"
+    ],
+    "0f055ebcc9d2": [
+      "tgrb007.png"
+    ],
+    "ea1add32955e": [
+      "tgrb010.png"
+    ],
+    "888229f68bc2": [
+      "tgrb011.png"
+    ],
+    "ae8a60e6c2c3": [
+      "tgrb012.png"
+    ],
+    "7459ef435e00": [
+      "tgrb013.png"
+    ],
+    "4cb574da0883": [
+      "tgrb014.png"
+    ],
+    "8dafa88c986a": [
+      "tgrb015.png"
+    ],
+    "16d0ceac33f2": [
+      "tgrb016.png"
+    ],
+    "e4d5d14ba559": [
+      "tgrb017.png"
+    ],
+    "06bdb7802fc2": [
+      "tgrb018.png"
+    ],
+    "ce8b6ea129f2": [
+      "tgrb019.png"
+    ],
+    "2103f5aae36c": [
+      "tgrb020.png"
+    ],
+    "4ee147d93a1f": [
+      "tgrb021.png"
+    ],
+    "b4bf3828e42b": [
+      "tgrb022.png"
+    ],
+    "59b0c932fc0c": [
+      "tgrb023.png"
+    ],
+    "4a3a57acc988": [
+      "tgrb024.png"
+    ],
+    "0df8ea25d595": [
+      "tgrb025.png"
+    ],
+    "4b965d91c4d8": [
+      "tgrd000.png",
+      "tgrd011.png"
+    ],
+    "d6a6ff193053": [
+      "tgrd001.png"
+    ],
+    "c2553d0162dd": [
+      "tgrd002.png"
+    ],
+    "c19c3a57afa0": [
+      "tgrd003.png",
+      "tgrd012.png"
+    ],
+    "06c2ad867ce3": [
+      "tgrd010.png"
+    ],
+    "33d7c754dee8": [
+      "tgrd013.png"
+    ],
+    "057e3506d722": [
+      "tgrd020.png"
+    ],
+    "bbb2ed41e02d": [
+      "tgrd021.png"
+    ],
+    "ec043dcf5fd4": [
+      "tgrd022.png"
+    ],
+    "dbee8956a90a": [
+      "tgrd023.png"
+    ],
+    "cf9c8fbfa324": [
+      "tgrd030.png"
+    ],
+    "2681b5c1f0cc": [
+      "tgrd031.png"
+    ],
+    "b127299b980b": [
+      "tgrd032.png"
+    ],
+    "e7060f09d81a": [
+      "tgrd033.png"
+    ],
+    "512286df43f7": [
+      "tgrd040.png"
+    ],
+    "61e40673872e": [
+      "tgrd041.png"
+    ],
+    "ca05051bd55e": [
+      "tgrd042.png"
+    ],
+    "b8654d412890": [
+      "tgrd043.png"
+    ],
+    "8bbc64b7e1d5": [
+      "tgrm000.png"
+    ],
+    "33c8699b42ee": [
+      "tgrm001.png"
+    ],
+    "a36727c545af": [
+      "tgrm002.png"
+    ],
+    "fd05f3fda840": [
+      "tgrm010.png"
+    ],
+    "044b4260f039": [
+      "tgrm011.png"
+    ],
+    "881cb8ddc4d0": [
+      "tgrm012.png"
+    ],
+    "14ea07a3d7cb": [
+      "tgrm013.png"
+    ],
+    "1f41ab31a595": [
+      "tgrm020.png"
+    ]
+  },
+  "by_right": {
+    "5a403cc2f9a3": [
+      "clrrvr00.png"
+    ],
+    "d7547078dad5": [
+      "clrrvr01.png"
+    ],
+    "6801c5d23dde": [
+      "clrrvr02.png"
+    ],
+    "b1df6949c727": [
+      "clrrvr03.png"
+    ],
+    "329c0c7a5938": [
+      "clrrvr04.png"
+    ],
+    "3fa6dafc61f0": [
+      "clrrvr05.png"
+    ],
+    "93b973e9da21": [
+      "clrrvr06.png"
+    ],
+    "9f876284f0bd": [
+      "clrrvr07.png"
+    ],
+    "dbcc59d69500": [
+      "clrrvr08.png"
+    ],
+    "5e76e68bb530": [
+      "clrrvr09.png",
+      "clrrvr10.png"
+    ],
+    "f036eadc3932": [
+      "clrrvr11.png"
+    ],
+    "1525df0a8ae4": [
+      "clrrvr12.png"
+    ],
+    "640d053300c7": [
+      "tdtb000.png",
+      "tdtb001.png"
+    ],
+    "fa5cbef2f73c": [
+      "tdtb002.png"
+    ],
+    "caefbd950aa6": [
+      "tdtb003.png"
+    ],
+    "bcf1d9528658": [
+      "tdtb004.png"
+    ],
+    "354fd9dc5238": [
+      "tdtb005.png"
+    ],
+    "09458e7f4b4a": [
+      "tdtb006.png"
+    ],
+    "2b8a8c20ddbe": [
+      "tdtb007.png"
+    ],
+    "e11e8477e537": [
+      "tdtb010.png"
+    ],
+    "18f336c39299": [
+      "tdtb011.png"
+    ],
+    "807aeb9785fe": [
+      "tdtb012.png"
+    ],
+    "554cf9dfa766": [
+      "tdtb013.png"
+    ],
+    "a0b4d1863273": [
+      "tdtb014.png"
+    ],
+    "dc5e7d8c45b7": [
+      "tdtb015.png"
+    ],
+    "1760d7103986": [
+      "tdtb016.png"
+    ],
+    "e1668f0b0ec0": [
+      "tdtb017.png"
+    ],
+    "4d95f4b50ef8": [
+      "tdtb018.png"
+    ],
+    "1ee7ff2c2d26": [
+      "tdtb019.png"
+    ],
+    "2e046b647c4b": [
+      "tdtb020.png"
+    ],
+    "b2234568f6ba": [
+      "tdtb021.png"
+    ],
+    "bc998d5cd97b": [
+      "tdtb022.png"
+    ],
+    "a1dc2f061bc9": [
+      "tdtb023.png"
+    ],
+    "6418dad6aec3": [
+      "tdtb024.png"
+    ],
+    "c4597c3b5f5b": [
+      "tdtb025.png"
+    ],
+    "fdd4c5dd3a56": [
+      "tdtm001.png"
+    ],
+    "d22d27cb23eb": [
+      "tdtm041.png"
+    ],
+    "e5f71a1e7698": [
+      "tdts000.png"
+    ],
+    "2eff793a9590": [
+      "tdts001.png"
+    ],
+    "8423fe899217": [
+      "tdts002.png"
+    ],
+    "4caaaaadf0f4": [
+      "tdts003.png"
+    ],
+    "8c65b806ea7d": [
+      "tdts010.png"
+    ],
+    "078e2b5ed168": [
+      "tdts011.png"
+    ],
+    "1e0e4b9d90bc": [
+      "tdts012.png"
+    ],
+    "85e7d0394801": [
+      "tdts013.png"
+    ],
+    "4dabcb7888d1": [
+      "tdts020.png"
+    ],
+    "c18ef6f8de44": [
+      "tdts021.png"
+    ],
+    "641bdbb00003": [
+      "tdts022.png"
+    ],
+    "35cb07d42830": [
+      "tdts023.png"
+    ],
+    "2657071282f9": [
+      "tdts030.png"
+    ],
+    "057d85fe9bd0": [
+      "tdts031.png"
+    ],
+    "8a8a50ffc3a4": [
+      "tdts032.png"
+    ],
+    "2e1191d10503": [
+      "tdts033.png"
+    ],
+    "b907522251cc": [
+      "tdts040.png"
+    ],
+    "6d15cda0fb10": [
+      "tdts041.png"
+    ],
+    "628de822de72": [
+      "tdts042.png"
+    ],
+    "1a267daff565": [
+      "tdts043.png"
+    ],
+    "28df42b3ee2a": [
+      "tgrb000.png"
+    ],
+    "5d0ef364ff2f": [
+      "tgrb001.png"
+    ],
+    "fc067cef219c": [
+      "tgrb002.png"
+    ],
+    "5b908a4550e1": [
+      "tgrb003.png"
+    ],
+    "8788bcb46d36": [
+      "tgrb004.png"
+    ],
+    "6a3ef262ddb9": [
+      "tgrb005.png"
+    ],
+    "d247347d054c": [
+      "tgrb006.png",
+      "tgrd011.png"
+    ],
+    "f2d7ee49af76": [
+      "tgrb007.png"
+    ],
+    "f72bfe3bb8a5": [
+      "tgrb010.png"
+    ],
+    "2e545f5d12dc": [
+      "tgrb011.png"
+    ],
+    "20253165d8d1": [
+      "tgrb012.png"
+    ],
+    "4be21cd9cec4": [
+      "tgrb013.png"
+    ],
+    "50830a44957d": [
+      "tgrb014.png"
+    ],
+    "303cfc7a2ff5": [
+      "tgrb015.png"
+    ],
+    "69bc314d5c0b": [
+      "tgrb016.png"
+    ],
+    "0efc06b06977": [
+      "tgrb017.png"
+    ],
+    "aeb1e01dde5c": [
+      "tgrb018.png"
+    ],
+    "9a2f8e005ad8": [
+      "tgrb019.png"
+    ],
+    "17f90ea48f3b": [
+      "tgrb020.png"
+    ],
+    "f66823c562ef": [
+      "tgrb021.png"
+    ],
+    "890218549f10": [
+      "tgrb022.png"
+    ],
+    "044ea7df0a31": [
+      "tgrb023.png"
+    ],
+    "60654e8379de": [
+      "tgrb024.png"
+    ],
+    "3f7ce34314f3": [
+      "tgrb025.png"
+    ],
+    "e501b0546551": [
+      "tgrd000.png"
+    ],
+    "643a785d7e83": [
+      "tgrd001.png"
+    ],
+    "fa1c0a688710": [
+      "tgrd002.png"
+    ],
+    "5a69209a9ad3": [
+      "tgrd003.png"
+    ],
+    "86efe3df4015": [
+      "tgrd010.png"
+    ],
+    "f3b158d6c12a": [
+      "tgrd012.png"
+    ],
+    "3e50ac801a3a": [
+      "tgrd013.png"
+    ],
+    "9751cf70d921": [
+      "tgrd020.png"
+    ],
+    "6f5ca96c53fb": [
+      "tgrd021.png"
+    ],
+    "f1dd118e1a32": [
+      "tgrd022.png"
+    ],
+    "d3ddd58e7f5c": [
+      "tgrd023.png"
+    ],
+    "308af282100b": [
+      "tgrd030.png"
+    ],
+    "ed04c059b47c": [
+      "tgrd031.png"
+    ],
+    "653c0b625c1b": [
+      "tgrd032.png"
+    ],
+    "c2a0cb28d883": [
+      "tgrd033.png"
+    ],
+    "3c4f57cf284c": [
+      "tgrd040.png"
+    ],
+    "33d426441414": [
+      "tgrd041.png"
+    ],
+    "866e2c1a8106": [
+      "tgrd042.png"
+    ],
+    "3584ea5fd5fe": [
+      "tgrd043.png"
+    ],
+    "5af13789198d": [
+      "tgrm000.png"
+    ],
+    "3a6b0f7a4959": [
+      "tgrm001.png"
+    ],
+    "e4612144daae": [
+      "tgrm002.png"
+    ],
+    "e66dd67a2701": [
+      "tgrm010.png"
+    ],
+    "27e9360aa265": [
+      "tgrm011.png"
+    ],
+    "dbd0daeba162": [
+      "tgrm012.png"
+    ],
+    "59cf5b19add7": [
+      "tgrm013.png"
+    ],
+    "48c4610a953f": [
+      "tgrm020.png"
+    ]
+  },
+  "by_top": {
+    "dc0788895a3b": [
+      "clrrvr00.png"
+    ],
+    "5e76e68bb530": [
+      "clrrvr01.png",
+      "clrrvr02.png",
+      "clrrvr03.png",
+      "clrrvr05.png",
+      "clrrvr06.png",
+      "clrrvr11.png",
+      "clrrvr12.png"
+    ],
+    "b837209897e2": [
+      "clrrvr04.png"
+    ],
+    "6126d05553dc": [
+      "clrrvr07.png"
+    ],
+    "10a44287bdec": [
+      "clrrvr08.png"
+    ],
+    "5d2a63c15ee6": [
+      "clrrvr09.png"
+    ],
+    "4ff92550c789": [
+      "clrrvr10.png"
+    ],
+    "b4afeb007cb7": [
+      "tdtb000.png",
+      "tdtb001.png"
+    ],
+    "62e844975af0": [
+      "tdtb002.png",
+      "tdts042.png"
+    ],
+    "8ba90d4ebd36": [
+      "tdtb003.png"
+    ],
+    "d9b9c0f1a4da": [
+      "tdtb004.png"
+    ],
+    "13194bbec075": [
+      "tdtb005.png",
+      "tdts031.png"
+    ],
+    "13a1e87e66bd": [
+      "tdtb006.png"
+    ],
+    "17e15aff55b7": [
+      "tdtb007.png"
+    ],
+    "a57107009a57": [
+      "tdtb010.png"
+    ],
+    "df77d3b3876b": [
+      "tdtb011.png"
+    ],
+    "2fdc25e06af8": [
+      "tdtb012.png"
+    ],
+    "801f02bbc684": [
+      "tdtb013.png"
+    ],
+    "347ea8516684": [
+      "tdtb014.png"
+    ],
+    "bff9dfd84a40": [
+      "tdtb015.png"
+    ],
+    "a88bfa1ecebb": [
+      "tdtb016.png"
+    ],
+    "01dab1b68372": [
+      "tdtb017.png"
+    ],
+    "e74216451773": [
+      "tdtb018.png"
+    ],
+    "e3d15e8c040d": [
+      "tdtb019.png"
+    ],
+    "55048f8d2869": [
+      "tdtb020.png"
+    ],
+    "0c7fc0b1d119": [
+      "tdtb021.png"
+    ],
+    "0f2b09aa7e53": [
+      "tdtb022.png"
+    ],
+    "9edd55eadd11": [
+      "tdtb023.png"
+    ],
+    "f91117000a13": [
+      "tdtb024.png"
+    ],
+    "ba1044664fae": [
+      "tdtb025.png"
+    ],
+    "31f21584e3b3": [
+      "tdtm001.png"
+    ],
+    "a8232dc61cc8": [
+      "tdtm041.png",
+      "tdts020.png"
+    ],
+    "c9887850077f": [
+      "tdts000.png"
+    ],
+    "5700a46fb5ed": [
+      "tdts001.png"
+    ],
+    "90f4f05809e4": [
+      "tdts002.png",
+      "tdts022.png"
+    ],
+    "3d91dd68f803": [
+      "tdts003.png"
+    ],
+    "54b41f9c2dd0": [
+      "tdts010.png"
+    ],
+    "a46056a8f98b": [
+      "tdts011.png"
+    ],
+    "b01bf6548eb9": [
+      "tdts012.png"
+    ],
+    "8a412db8d3b5": [
+      "tdts013.png"
+    ],
+    "4ff8dc0cce0a": [
+      "tdts021.png",
+      "tdts041.png"
+    ],
+    "b8afe6476108": [
+      "tdts023.png"
+    ],
+    "3cee72f2f33d": [
+      "tdts030.png"
+    ],
+    "6d6b7c36d022": [
+      "tdts032.png"
+    ],
+    "ed76493a2d5a": [
+      "tdts033.png"
+    ],
+    "e5954f5807f3": [
+      "tdts040.png"
+    ],
+    "4b1333f3f0dd": [
+      "tdts043.png"
+    ],
+    "3ab647637e5d": [
+      "tgrb000.png"
+    ],
+    "5da9b1a9a83f": [
+      "tgrb001.png"
+    ],
+    "989041f9190c": [
+      "tgrb002.png"
+    ],
+    "e836f08e20ca": [
+      "tgrb003.png"
+    ],
+    "5c5f67b2fd29": [
+      "tgrb004.png"
+    ],
+    "5657dcc76489": [
+      "tgrb005.png"
+    ],
+    "fad2c7438a60": [
+      "tgrb006.png"
+    ],
+    "3fa3e7b932d7": [
+      "tgrb007.png",
+      "tgrd033.png"
+    ],
+    "3b2dac419f65": [
+      "tgrb010.png"
+    ],
+    "082b72fe5045": [
+      "tgrb011.png"
+    ],
+    "024edad6f572": [
+      "tgrb012.png"
+    ],
+    "a07446d9bde0": [
+      "tgrb013.png"
+    ],
+    "c89bd899d2c7": [
+      "tgrb014.png"
+    ],
+    "e361769c08f5": [
+      "tgrb015.png"
+    ],
+    "98adbeb04c08": [
+      "tgrb016.png"
+    ],
+    "a9c0ce5a26e6": [
+      "tgrb017.png"
+    ],
+    "2cc835252831": [
+      "tgrb018.png"
+    ],
+    "62b92ba8b404": [
+      "tgrb019.png"
+    ],
+    "c8ca23ad4af4": [
+      "tgrb020.png"
+    ],
+    "73893ddf32c8": [
+      "tgrb021.png"
+    ],
+    "bdc0c8121969": [
+      "tgrb022.png"
+    ],
+    "f6cf36e3bc38": [
+      "tgrb023.png"
+    ],
+    "e668a15e5d19": [
+      "tgrb024.png"
+    ],
+    "3ff312e03f0a": [
+      "tgrb025.png"
+    ],
+    "524f66a1e6b3": [
+      "tgrd000.png"
+    ],
+    "c12713ccb94e": [
+      "tgrd001.png"
+    ],
+    "7a2ac284ad1b": [
+      "tgrd002.png"
+    ],
+    "7796abce8b86": [
+      "tgrd003.png"
+    ],
+    "9cf320d53d8c": [
+      "tgrd010.png"
+    ],
+    "37d876d96fe6": [
+      "tgrd011.png"
+    ],
+    "8f5d39bc7931": [
+      "tgrd012.png"
+    ],
+    "de0a3d7d6548": [
+      "tgrd013.png"
+    ],
+    "02043723876e": [
+      "tgrd020.png"
+    ],
+    "aedf67cb25fb": [
+      "tgrd021.png",
+      "tgrd040.png"
+    ],
+    "a2dae84f90cf": [
+      "tgrd022.png"
+    ],
+    "61e40673872e": [
+      "tgrd023.png"
+    ],
+    "7957743e23d9": [
+      "tgrd030.png"
+    ],
+    "23380b9e29ca": [
+      "tgrd031.png"
+    ],
+    "3f288ed1cf15": [
+      "tgrd032.png"
+    ],
+    "2a0e99724b2c": [
+      "tgrd041.png"
+    ],
+    "ad035f168a12": [
+      "tgrd042.png"
+    ],
+    "debee217bf73": [
+      "tgrd043.png"
+    ],
+    "041ff74943b4": [
+      "tgrm000.png"
+    ],
+    "87faa18bc0f8": [
+      "tgrm001.png"
+    ],
+    "a9eb8267fdb8": [
+      "tgrm002.png"
+    ],
+    "7c8919d4efd7": [
+      "tgrm010.png"
+    ],
+    "f40fb97b92d5": [
+      "tgrm011.png"
+    ],
+    "6b04042279b7": [
+      "tgrm012.png"
+    ],
+    "0c16beb89200": [
+      "tgrm013.png"
+    ],
+    "9bf36c71e392": [
+      "tgrm020.png"
+    ]
+  },
+  "by_bottom": {
+    "6ff5585b7ab9": [
+      "clrrvr00.png"
+    ],
+    "d566a210ad40": [
+      "clrrvr01.png"
+    ],
+    "6c866664f6db": [
+      "clrrvr02.png"
+    ],
+    "e258fef3de13": [
+      "clrrvr03.png"
+    ],
+    "fd2552c9b39e": [
+      "clrrvr04.png"
+    ],
+    "b5ed4727fd3e": [
+      "clrrvr05.png"
+    ],
+    "36035d9b4f52": [
+      "clrrvr06.png"
+    ],
+    "78131d48e876": [
+      "clrrvr07.png"
+    ],
+    "1ae60c15385d": [
+      "clrrvr08.png"
+    ],
+    "0b94a3e35380": [
+      "clrrvr09.png"
+    ],
+    "bfdc8de199bc": [
+      "clrrvr10.png"
+    ],
+    "5e76e68bb530": [
+      "clrrvr11.png",
+      "clrrvr12.png"
+    ],
+    "8cdb4b495530": [
+      "tdtb000.png",
+      "tdtb001.png"
+    ],
+    "afde41c2f430": [
+      "tdtb002.png"
+    ],
+    "97f9c9290d9a": [
+      "tdtb003.png"
+    ],
+    "a8bdc46b29d9": [
+      "tdtb004.png"
+    ],
+    "a0f1bba1222b": [
+      "tdtb005.png"
+    ],
+    "58c312023997": [
+      "tdtb006.png"
+    ],
+    "96fca1aee9ed": [
+      "tdtb007.png"
+    ],
+    "5e8e3acd4e67": [
+      "tdtb010.png"
+    ],
+    "2e808da5ff97": [
+      "tdtb011.png"
+    ],
+    "a8e5014f69b1": [
+      "tdtb012.png"
+    ],
+    "f85815a79aa6": [
+      "tdtb013.png"
+    ],
+    "e7ebcd5aba3e": [
+      "tdtb014.png"
+    ],
+    "ec97b69e0247": [
+      "tdtb015.png"
+    ],
+    "76c13d77e507": [
+      "tdtb016.png"
+    ],
+    "97ac17505b4b": [
+      "tdtb017.png"
+    ],
+    "2ac1027e51cb": [
+      "tdtb018.png"
+    ],
+    "074f3cfc14c8": [
+      "tdtb019.png"
+    ],
+    "accf2895cf8c": [
+      "tdtb020.png"
+    ],
+    "e79e24afe408": [
+      "tdtb021.png"
+    ],
+    "0d0ae5e907c6": [
+      "tdtb022.png"
+    ],
+    "6e509dff4501": [
+      "tdtb023.png"
+    ],
+    "843e7d1745bb": [
+      "tdtb024.png"
+    ],
+    "7f7704fcf2f4": [
+      "tdtb025.png"
+    ],
+    "94fad7909e0f": [
+      "tdtm001.png"
+    ],
+    "f6f7dd9f19fa": [
+      "tdtm041.png"
+    ],
+    "6c013c4073e3": [
+      "tdts000.png"
+    ],
+    "ff8d297d7da6": [
+      "tdts001.png"
+    ],
+    "f78b1a229e9a": [
+      "tdts002.png"
+    ],
+    "b45315f6a2b0": [
+      "tdts003.png"
+    ],
+    "23a83a3b8bf9": [
+      "tdts010.png"
+    ],
+    "cc85d312445e": [
+      "tdts011.png"
+    ],
+    "13de8ed163cc": [
+      "tdts012.png"
+    ],
+    "9e35dec2e997": [
+      "tdts013.png"
+    ],
+    "cebdf3fbf5ba": [
+      "tdts020.png"
+    ],
+    "6ee501ef3986": [
+      "tdts021.png"
+    ],
+    "5a29d1cab467": [
+      "tdts022.png"
+    ],
+    "3348787fc5e1": [
+      "tdts023.png"
+    ],
+    "f62f44343936": [
+      "tdts030.png"
+    ],
+    "b0c8b8537d63": [
+      "tdts031.png"
+    ],
+    "4970d267fa75": [
+      "tdts032.png"
+    ],
+    "b52e2168a04c": [
+      "tdts033.png"
+    ],
+    "49197affe5b3": [
+      "tdts040.png"
+    ],
+    "abc97926b974": [
+      "tdts041.png"
+    ],
+    "8a6d7f5dfe1f": [
+      "tdts042.png"
+    ],
+    "5fe884876040": [
+      "tdts043.png"
+    ],
+    "bc5ff3c6cdba": [
+      "tgrb000.png"
+    ],
+    "d1e0c9689bce": [
+      "tgrb001.png"
+    ],
+    "23574529cb72": [
+      "tgrb002.png"
+    ],
+    "dd8a162bc00f": [
+      "tgrb003.png"
+    ],
+    "0d10472672c9": [
+      "tgrb004.png"
+    ],
+    "0d62c9040766": [
+      "tgrb005.png"
+    ],
+    "3402e28f7324": [
+      "tgrb006.png"
+    ],
+    "59e9e5328f22": [
+      "tgrb007.png"
+    ],
+    "307816db67f8": [
+      "tgrb010.png"
+    ],
+    "0551784edb8d": [
+      "tgrb011.png"
+    ],
+    "34364986894f": [
+      "tgrb012.png"
+    ],
+    "ebdc491187ee": [
+      "tgrb013.png"
+    ],
+    "c8e5bb1ed502": [
+      "tgrb014.png"
+    ],
+    "d146a4b2933d": [
+      "tgrb015.png"
+    ],
+    "b3be97b910fb": [
+      "tgrb016.png"
+    ],
+    "9983900583f5": [
+      "tgrb017.png"
+    ],
+    "096c9a313c53": [
+      "tgrb018.png"
+    ],
+    "98ed09ae0de7": [
+      "tgrb019.png"
+    ],
+    "f0d9238f85b7": [
+      "tgrb020.png"
+    ],
+    "756c704f7d93": [
+      "tgrb021.png"
+    ],
+    "e4b6d17184be": [
+      "tgrb022.png"
+    ],
+    "5e5dd28a8112": [
+      "tgrb023.png"
+    ],
+    "e0ac25b74082": [
+      "tgrb024.png"
+    ],
+    "4d2579f2343e": [
+      "tgrb025.png"
+    ],
+    "0a3c1e8a1b2c": [
+      "tgrd000.png"
+    ],
+    "d008940d9810": [
+      "tgrd001.png"
+    ],
+    "694ca7913b08": [
+      "tgrd002.png"
+    ],
+    "109fe3650034": [
+      "tgrd003.png"
+    ],
+    "98ddc10e492a": [
+      "tgrd010.png"
+    ],
+    "239586498c65": [
+      "tgrd011.png"
+    ],
+    "01aa3ff4affa": [
+      "tgrd012.png"
+    ],
+    "9592a2547092": [
+      "tgrd013.png"
+    ],
+    "8d33ace6c524": [
+      "tgrd020.png"
+    ],
+    "d531571c718a": [
+      "tgrd021.png"
+    ],
+    "ba6e6ddd37bd": [
+      "tgrd022.png"
+    ],
+    "a812247086a7": [
+      "tgrd023.png"
+    ],
+    "e224e36d135d": [
+      "tgrd030.png"
+    ],
+    "15127ea73ef6": [
+      "tgrd031.png"
+    ],
+    "95580da9ef50": [
+      "tgrd032.png"
+    ],
+    "8afd5cf3684b": [
+      "tgrd033.png"
+    ],
+    "86f5c102983b": [
+      "tgrd040.png"
+    ],
+    "e616db872b17": [
+      "tgrd041.png"
+    ],
+    "a31e1c99d596": [
+      "tgrd042.png"
+    ],
+    "565097067219": [
+      "tgrd043.png"
+    ],
+    "7bcdeeabf00a": [
+      "tgrm000.png"
+    ],
+    "a636c58b4909": [
+      "tgrm001.png"
+    ],
+    "3d759be3f1cd": [
+      "tgrm002.png"
+    ],
+    "20d842e36be7": [
+      "tgrm010.png"
+    ],
+    "91f43595a5fa": [
+      "tgrm011.png"
+    ],
+    "272f50a7673b": [
+      "tgrm012.png"
+    ],
+    "ef00563d1de9": [
+      "tgrm013.png"
+    ],
+    "b3d6c16c4dea": [
+      "tgrm020.png"
+    ]
+  }
+}

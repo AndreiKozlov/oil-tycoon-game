@@ -1,0 +1,724 @@
+# Atlas build report
+Atlas size: 1088x4160 px
+Groups: 26
+Tiles: 513
+
+## tgrm  (5×4)
+  V-stitch BAD (0.13): tgrm_2_1 ↓ tgrm_3_1
+  H-stitch BAD (0.24): tgrm_3_0 → tgrm_3_1
+  V-stitch BAD (0.18): tgrm_3_0 ↓ tgrm_4_0
+  V-stitch BAD (0.21): tgrm_3_1 ↓ tgrm_4_1
+  H-stitch BAD (0.01): tgrm_4_0 → tgrm_4_1
+  H-stitch BAD (0.43): tgrm_4_1 → tgrm_4_2
+  H-stitch BAD (0.40): tgrm_4_2 → tgrm_4_3
+  H: 0 good / 4 bad   V: 0 good / 3 bad
+
+## tgrs  (5×4)
+  H-stitch BAD (0.22): tgrs_0_0 → tgrs_0_1
+  V-stitch BAD (0.55): tgrs_0_0 ↓ tgrs_1_0
+  H-stitch BAD (0.17): tgrs_0_1 → tgrs_0_2
+  V-stitch BAD (0.60): tgrs_0_1 ↓ tgrs_1_1
+  H-stitch BAD (0.21): tgrs_0_2 → tgrs_0_3
+  V-stitch BAD (0.49): tgrs_0_2 ↓ tgrs_1_2
+  V-stitch BAD (0.52): tgrs_0_3 ↓ tgrs_1_3
+  H-stitch BAD (0.00): tgrs_1_0 → tgrs_1_1
+  V-stitch BAD (0.21): tgrs_1_0 ↓ tgrs_2_0
+  H-stitch BAD (0.00): tgrs_1_1 → tgrs_1_2
+  V-stitch BAD (0.18): tgrs_1_1 ↓ tgrs_2_1
+  H-stitch BAD (0.00): tgrs_1_2 → tgrs_1_3
+  V-stitch BAD (0.24): tgrs_1_2 ↓ tgrs_2_2
+  V-stitch BAD (0.21): tgrs_1_3 ↓ tgrs_2_3
+  H-stitch BAD (0.48): tgrs_2_0 → tgrs_2_1
+  V-stitch BAD (0.68): tgrs_2_0 ↓ tgrs_3_0
+  H-stitch BAD (0.56): tgrs_2_1 → tgrs_2_2
+  V-stitch BAD (0.60): tgrs_2_1 ↓ tgrs_3_1
+  H-stitch BAD (0.62): tgrs_2_2 → tgrs_2_3
+  V-stitch BAD (0.73): tgrs_2_2 ↓ tgrs_3_2
+  V-stitch BAD (0.74): tgrs_2_3 ↓ tgrs_3_3
+  H-stitch BAD (0.24): tgrs_3_0 → tgrs_3_1
+  V-stitch BAD (0.22): tgrs_3_0 ↓ tgrs_4_0
+  H-stitch BAD (0.38): tgrs_3_1 → tgrs_3_2
+  V-stitch BAD (0.19): tgrs_3_1 ↓ tgrs_4_1
+  H-stitch BAD (0.35): tgrs_3_2 → tgrs_3_3
+  V-stitch BAD (0.36): tgrs_3_2 ↓ tgrs_4_2
+  V-stitch BAD (0.42): tgrs_3_3 ↓ tgrs_4_3
+  H-stitch BAD (0.29): tgrs_4_0 → tgrs_4_1
+  H-stitch BAD (0.36): tgrs_4_1 → tgrs_4_2
+  H-stitch BAD (0.38): tgrs_4_2 → tgrs_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## trdd  (6×4)
+  H-stitch BAD (0.62): trdd_0_0 → trdd_0_1
+  V-stitch BAD (0.62): trdd_0_0 ↓ trdd_1_0
+  V-stitch BAD (0.62): trdd_0_1 ↓ trdd_1_1
+  H-stitch BAD (0.62): trdd_1_0 → trdd_1_1
+  H-stitch BAD (0.62): trdd_1_1 → trdd_1_2
+  H-stitch BAD (0.62): trdd_1_2 → trdd_1_3
+  V-stitch BAD (0.62): trdd_1_2 ↓ trdd_2_2
+  V-stitch BAD (0.62): trdd_1_3 ↓ trdd_2_3
+  H-stitch BAD (0.62): trdd_2_0 → trdd_2_1
+  V-stitch BAD (0.62): trdd_2_2 ↓ trdd_3_2
+  V-stitch BAD (0.62): trdd_2_3 ↓ trdd_3_3
+  V-stitch BAD (0.62): trdd_3_0 ↓ trdd_4_0
+  H-stitch BAD (0.62): trdd_3_1 → trdd_3_2
+  V-stitch BAD (0.62): trdd_3_1 ↓ trdd_4_1
+  V-stitch BAD (0.78): trdd_4_0 ↓ trdd_5_0
+  H: 5 good / 6 bad   V: 4 good / 9 bad
+
+## trdg  (6×4)
+  H-stitch BAD (0.62): trdg_0_0 → trdg_0_1
+  V-stitch BAD (0.62): trdg_0_0 ↓ trdg_1_0
+  V-stitch BAD (0.62): trdg_0_1 ↓ trdg_1_1
+  H-stitch BAD (0.56): trdg_1_0 → trdg_1_1
+  V-stitch BAD (0.82): trdg_1_0 ↓ trdg_2_0
+  H-stitch BAD (0.56): trdg_1_1 → trdg_1_2
+  V-stitch BAD (0.77): trdg_1_1 ↓ trdg_2_1
+  H-stitch BAD (0.59): trdg_1_2 → trdg_1_3
+  V-stitch BAD (0.62): trdg_1_2 ↓ trdg_2_2
+  V-stitch BAD (0.59): trdg_1_3 ↓ trdg_2_3
+  H-stitch BAD (0.62): trdg_2_0 → trdg_2_1
+  V-stitch BAD (0.79): trdg_2_0 ↓ trdg_3_0
+  H-stitch BAD (0.78): trdg_2_1 → trdg_2_2
+  V-stitch BAD (0.80): trdg_2_1 ↓ trdg_3_1
+  H-stitch BAD (0.79): trdg_2_2 → trdg_2_3
+  V-stitch BAD (0.62): trdg_2_2 ↓ trdg_3_2
+  V-stitch BAD (0.62): trdg_2_3 ↓ trdg_3_3
+  V-stitch BAD (0.62): trdg_3_0 ↓ trdg_4_0
+  H-stitch BAD (0.62): trdg_3_1 → trdg_3_2
+  V-stitch BAD (0.62): trdg_3_1 ↓ trdg_4_1
+  H-stitch BAD (0.80): trdg_3_2 → trdg_3_3
+  V-stitch BAD (0.82): trdg_4_0 ↓ trdg_5_0
+  H: 2 good / 9 bad   V: 0 good / 13 bad
+
+## trob  (1×26)
+  H-stitch BAD (0.52): trob_0_0 → trob_0_1
+  H-stitch BAD (0.42): trob_0_1 → trob_0_2
+  H-stitch BAD (0.47): trob_0_2 → trob_0_3
+  H-stitch BAD (0.48): trob_0_3 → trob_0_4
+  H-stitch BAD (0.41): trob_0_4 → trob_0_5
+  H-stitch BAD (0.38): trob_0_5 → trob_0_6
+  H-stitch BAD (0.47): trob_0_6 → trob_0_7
+  H-stitch BAD (0.49): trob_0_10 → trob_0_11
+  H-stitch BAD (0.44): trob_0_11 → trob_0_12
+  H-stitch BAD (0.43): trob_0_12 → trob_0_13
+  H-stitch BAD (0.59): trob_0_13 → trob_0_14
+  H-stitch BAD (0.53): trob_0_14 → trob_0_15
+  H-stitch BAD (0.46): trob_0_15 → trob_0_16
+  H-stitch BAD (0.44): trob_0_16 → trob_0_17
+  H-stitch BAD (0.46): trob_0_17 → trob_0_18
+  H-stitch BAD (0.34): trob_0_18 → trob_0_19
+  H-stitch BAD (0.34): trob_0_19 → trob_0_20
+  H-stitch BAD (0.30): trob_0_20 → trob_0_21
+  H-stitch BAD (0.36): trob_0_21 → trob_0_22
+  H-stitch BAD (0.36): trob_0_22 → trob_0_23
+  H-stitch BAD (0.25): trob_0_23 → trob_0_24
+  H-stitch BAD (0.43): trob_0_24 → trob_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## trod  (5×4)
+  H-stitch BAD (0.46): trod_0_0 → trod_0_1
+  V-stitch BAD (0.50): trod_0_0 ↓ trod_1_0
+  H-stitch BAD (0.32): trod_0_1 → trod_0_2
+  V-stitch BAD (0.58): trod_0_1 ↓ trod_1_1
+  H-stitch BAD (0.44): trod_0_2 → trod_0_3
+  V-stitch BAD (0.45): trod_0_2 ↓ trod_1_2
+  V-stitch BAD (0.45): trod_0_3 ↓ trod_1_3
+  H-stitch BAD (0.32): trod_1_0 → trod_1_1
+  V-stitch BAD (0.40): trod_1_0 ↓ trod_2_0
+  H-stitch BAD (0.43): trod_1_1 → trod_1_2
+  V-stitch BAD (0.39): trod_1_1 ↓ trod_2_1
+  H-stitch BAD (0.45): trod_1_2 → trod_1_3
+  V-stitch BAD (0.58): trod_1_2 ↓ trod_2_2
+  V-stitch BAD (0.43): trod_1_3 ↓ trod_2_3
+  H-stitch BAD (0.48): trod_2_0 → trod_2_1
+  V-stitch BAD (0.44): trod_2_0 ↓ trod_3_0
+  H-stitch BAD (0.51): trod_2_1 → trod_2_2
+  V-stitch BAD (0.55): trod_2_1 ↓ trod_3_1
+  H-stitch BAD (0.38): trod_2_2 → trod_2_3
+  V-stitch BAD (0.50): trod_2_2 ↓ trod_3_2
+  V-stitch BAD (0.56): trod_2_3 ↓ trod_3_3
+  H-stitch BAD (0.46): trod_3_0 → trod_3_1
+  V-stitch BAD (0.43): trod_3_0 ↓ trod_4_0
+  H-stitch BAD (0.44): trod_3_1 → trod_3_2
+  V-stitch BAD (0.50): trod_3_1 ↓ trod_4_1
+  H-stitch BAD (0.41): trod_3_2 → trod_3_3
+  V-stitch BAD (0.30): trod_3_2 ↓ trod_4_2
+  V-stitch BAD (0.34): trod_3_3 ↓ trod_4_3
+  H-stitch BAD (0.44): trod_4_0 → trod_4_1
+  H-stitch BAD (0.51): trod_4_1 → trod_4_2
+  H-stitch BAD (0.50): trod_4_2 → trod_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## trom  (5×4)
+  H-stitch BAD (0.28): trom_0_0 → trom_0_1
+  V-stitch BAD (0.52): trom_0_0 ↓ trom_1_0
+  H-stitch BAD (0.30): trom_0_1 → trom_0_2
+  V-stitch BAD (0.52): trom_0_1 ↓ trom_1_1
+  V-stitch BAD (0.48): trom_0_2 ↓ trom_1_2
+  H-stitch BAD (0.53): trom_1_0 → trom_1_1
+  V-stitch BAD (0.38): trom_1_0 ↓ trom_2_0
+  H-stitch BAD (0.26): trom_1_1 → trom_1_2
+  V-stitch BAD (0.30): trom_1_1 ↓ trom_2_1
+  H-stitch BAD (0.29): trom_1_2 → trom_1_3
+  H-stitch BAD (0.17): trom_2_0 → trom_2_1
+  V-stitch BAD (0.46): trom_2_0 ↓ trom_3_0
+  V-stitch BAD (0.20): trom_2_1 ↓ trom_3_1
+  H-stitch BAD (0.31): trom_3_0 → trom_3_1
+  V-stitch BAD (0.29): trom_3_0 ↓ trom_4_0
+  V-stitch BAD (0.27): trom_3_1 ↓ trom_4_1
+  H-stitch BAD (0.02): trom_4_0 → trom_4_1
+  H-stitch BAD (0.44): trom_4_1 → trom_4_2
+  H-stitch BAD (0.39): trom_4_2 → trom_4_3
+  H: 0 good / 10 bad   V: 0 good / 9 bad
+
+## tros  (5×4)
+  H-stitch BAD (0.30): tros_0_0 → tros_0_1
+  V-stitch BAD (0.47): tros_0_0 ↓ tros_1_0
+  H-stitch BAD (0.35): tros_0_1 → tros_0_2
+  V-stitch BAD (0.45): tros_0_1 ↓ tros_1_1
+  H-stitch BAD (0.30): tros_0_2 → tros_0_3
+  V-stitch BAD (0.43): tros_0_3 ↓ tros_1_3
+  H-stitch BAD (0.15): tros_1_0 → tros_1_1
+  V-stitch BAD (0.31): tros_1_0 ↓ tros_2_0
+  H-stitch BAD (0.10): tros_1_1 → tros_1_2
+  V-stitch BAD (0.31): tros_1_1 ↓ tros_2_1
+  H-stitch BAD (0.14): tros_1_2 → tros_1_3
+  V-stitch BAD (0.28): tros_1_2 ↓ tros_2_2
+  V-stitch BAD (0.32): tros_1_3 ↓ tros_2_3
+  H-stitch BAD (0.40): tros_2_0 → tros_2_1
+  V-stitch BAD (0.45): tros_2_0 ↓ tros_3_0
+  H-stitch BAD (0.45): tros_2_1 → tros_2_2
+  V-stitch BAD (0.55): tros_2_1 ↓ tros_3_1
+  H-stitch BAD (0.30): tros_2_2 → tros_2_3
+  V-stitch BAD (0.55): tros_2_3 ↓ tros_3_3
+  H-stitch BAD (0.38): tros_3_0 → tros_3_1
+  V-stitch BAD (0.35): tros_3_0 ↓ tros_4_0
+  H-stitch BAD (0.25): tros_3_1 → tros_3_2
+  V-stitch BAD (0.25): tros_3_1 ↓ tros_4_1
+  H-stitch BAD (0.27): tros_3_2 → tros_3_3
+  V-stitch BAD (0.29): tros_3_2 ↓ tros_4_2
+  V-stitch BAD (0.25): tros_3_3 ↓ tros_4_3
+  H-stitch BAD (0.32): tros_4_0 → tros_4_1
+  H-stitch BAD (0.42): tros_4_1 → tros_4_2
+  H-stitch BAD (0.34): tros_4_2 → tros_4_3
+  H: 0 good / 15 bad   V: 2 good / 14 bad
+
+## tsab  (1×26)
+  H-stitch BAD (0.25): tsab_0_0 → tsab_0_1
+  H-stitch BAD (0.35): tsab_0_1 → tsab_0_2
+  H-stitch BAD (0.48): tsab_0_2 → tsab_0_3
+  H-stitch BAD (0.37): tsab_0_3 → tsab_0_4
+  H-stitch BAD (0.33): tsab_0_4 → tsab_0_5
+  H-stitch BAD (0.47): tsab_0_5 → tsab_0_6
+  H-stitch BAD (0.38): tsab_0_6 → tsab_0_7
+  H-stitch BAD (0.38): tsab_0_10 → tsab_0_11
+  H-stitch BAD (0.33): tsab_0_11 → tsab_0_12
+  H-stitch BAD (0.31): tsab_0_12 → tsab_0_13
+  H-stitch BAD (0.29): tsab_0_13 → tsab_0_14
+  H-stitch BAD (0.24): tsab_0_14 → tsab_0_15
+  H-stitch BAD (0.35): tsab_0_15 → tsab_0_16
+  H-stitch BAD (0.39): tsab_0_16 → tsab_0_17
+  H-stitch BAD (0.39): tsab_0_17 → tsab_0_18
+  H-stitch BAD (0.33): tsab_0_18 → tsab_0_19
+  H-stitch BAD (0.59): tsab_0_19 → tsab_0_20
+  H-stitch BAD (0.37): tsab_0_20 → tsab_0_21
+  H-stitch BAD (0.41): tsab_0_21 → tsab_0_22
+  H-stitch BAD (0.48): tsab_0_22 → tsab_0_23
+  H-stitch BAD (0.40): tsab_0_23 → tsab_0_24
+  H-stitch BAD (0.48): tsab_0_24 → tsab_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## tsnb  (1×26)
+  H-stitch BAD (0.82): tsnb_0_0 → tsnb_0_1
+  H-stitch BAD (0.82): tsnb_0_1 → tsnb_0_2
+  H-stitch BAD (0.83): tsnb_0_2 → tsnb_0_3
+  H-stitch BAD (0.79): tsnb_0_3 → tsnb_0_4
+  H-stitch BAD (0.80): tsnb_0_4 → tsnb_0_5
+  H-stitch BAD (0.79): tsnb_0_5 → tsnb_0_6
+  H-stitch BAD (0.85): tsnb_0_6 → tsnb_0_7
+  H-stitch BAD (0.81): tsnb_0_10 → tsnb_0_11
+  H-stitch BAD (0.83): tsnb_0_11 → tsnb_0_12
+  H-stitch BAD (0.82): tsnb_0_12 → tsnb_0_13
+  H-stitch BAD (0.79): tsnb_0_13 → tsnb_0_14
+  H-stitch BAD (0.81): tsnb_0_14 → tsnb_0_15
+  H-stitch BAD (0.84): tsnb_0_15 → tsnb_0_16
+  H-stitch BAD (0.80): tsnb_0_16 → tsnb_0_17
+  H-stitch BAD (0.75): tsnb_0_17 → tsnb_0_18
+  H-stitch BAD (0.81): tsnb_0_18 → tsnb_0_19
+  H-stitch BAD (0.84): tsnb_0_19 → tsnb_0_20
+  H-stitch BAD (0.74): tsnb_0_20 → tsnb_0_21
+  H-stitch BAD (0.69): tsnb_0_21 → tsnb_0_22
+  H-stitch BAD (0.81): tsnb_0_22 → tsnb_0_23
+  H-stitch BAD (0.77): tsnb_0_23 → tsnb_0_24
+  H-stitch BAD (0.75): tsnb_0_24 → tsnb_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## tsnd  (5×4)
+  H-stitch BAD (0.27): tsnd_0_0 → tsnd_0_1
+  V-stitch BAD (0.59): tsnd_0_0 ↓ tsnd_1_0
+  H-stitch BAD (0.28): tsnd_0_1 → tsnd_0_2
+  V-stitch BAD (0.67): tsnd_0_1 ↓ tsnd_1_1
+  H-stitch BAD (0.34): tsnd_0_2 → tsnd_0_3
+  V-stitch BAD (0.63): tsnd_0_2 ↓ tsnd_1_2
+  V-stitch BAD (0.67): tsnd_0_3 ↓ tsnd_1_3
+  H-stitch BAD (0.00): tsnd_1_0 → tsnd_1_1
+  V-stitch BAD (0.21): tsnd_1_0 ↓ tsnd_2_0
+  H-stitch BAD (0.00): tsnd_1_1 → tsnd_1_2
+  V-stitch BAD (0.27): tsnd_1_1 ↓ tsnd_2_1
+  H-stitch BAD (0.00): tsnd_1_2 → tsnd_1_3
+  V-stitch BAD (0.23): tsnd_1_2 ↓ tsnd_2_2
+  V-stitch BAD (0.33): tsnd_1_3 ↓ tsnd_2_3
+  H-stitch BAD (0.61): tsnd_2_0 → tsnd_2_1
+  V-stitch BAD (0.75): tsnd_2_0 ↓ tsnd_3_0
+  H-stitch BAD (0.66): tsnd_2_1 → tsnd_2_2
+  V-stitch BAD (0.77): tsnd_2_1 ↓ tsnd_3_1
+  H-stitch BAD (0.75): tsnd_2_2 → tsnd_2_3
+  V-stitch BAD (0.82): tsnd_2_2 ↓ tsnd_3_2
+  V-stitch BAD (0.83): tsnd_2_3 ↓ tsnd_3_3
+  H-stitch BAD (0.37): tsnd_3_0 → tsnd_3_1
+  V-stitch BAD (0.24): tsnd_3_0 ↓ tsnd_4_0
+  H-stitch BAD (0.35): tsnd_3_1 → tsnd_3_2
+  V-stitch BAD (0.23): tsnd_3_1 ↓ tsnd_4_1
+  H-stitch BAD (0.39): tsnd_3_2 → tsnd_3_3
+  V-stitch BAD (0.35): tsnd_3_2 ↓ tsnd_4_2
+  V-stitch BAD (0.39): tsnd_3_3 ↓ tsnd_4_3
+  H-stitch BAD (0.25): tsnd_4_0 → tsnd_4_1
+  H-stitch BAD (0.39): tsnd_4_1 → tsnd_4_2
+  H-stitch BAD (0.41): tsnd_4_2 → tsnd_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tsnm  (5×4)
+  H-stitch BAD (0.02): tsnm_0_0 → tsnm_0_1
+  V-stitch BAD (0.70): tsnm_0_0 ↓ tsnm_1_0
+  H-stitch BAD (0.02): tsnm_0_1 → tsnm_0_2
+  V-stitch BAD (0.53): tsnm_0_1 ↓ tsnm_1_1
+  V-stitch BAD (0.60): tsnm_0_2 ↓ tsnm_1_2
+  H-stitch BAD (0.26): tsnm_1_0 → tsnm_1_1
+  V-stitch BAD (0.26): tsnm_1_0 ↓ tsnm_2_0
+  H-stitch BAD (0.25): tsnm_1_1 → tsnm_1_2
+  V-stitch BAD (0.00): tsnm_1_1 ↓ tsnm_2_1
+  H-stitch BAD (0.22): tsnm_1_2 → tsnm_1_3
+  H-stitch BAD (0.03): tsnm_2_0 → tsnm_2_1
+  V-stitch BAD (0.59): tsnm_2_0 ↓ tsnm_3_0
+  V-stitch BAD (0.02): tsnm_2_1 ↓ tsnm_3_1
+  H-stitch BAD (0.23): tsnm_3_0 → tsnm_3_1
+  V-stitch BAD (0.25): tsnm_3_0 ↓ tsnm_4_0
+  V-stitch BAD (0.19): tsnm_3_1 ↓ tsnm_4_1
+  H-stitch BAD (0.01): tsnm_4_0 → tsnm_4_1
+  H-stitch BAD (0.42): tsnm_4_1 → tsnm_4_2
+  H-stitch BAD (0.40): tsnm_4_2 → tsnm_4_3
+  H: 0 good / 10 bad   V: 0 good / 9 bad
+
+## tsns  (5×4)
+  H-stitch BAD (0.17): tsns_0_0 → tsns_0_1
+  V-stitch BAD (0.64): tsns_0_0 ↓ tsns_1_0
+  H-stitch BAD (0.17): tsns_0_1 → tsns_0_2
+  V-stitch BAD (0.54): tsns_0_1 ↓ tsns_1_1
+  H-stitch BAD (0.16): tsns_0_2 → tsns_0_3
+  V-stitch BAD (0.57): tsns_0_2 ↓ tsns_1_2
+  V-stitch BAD (0.54): tsns_0_3 ↓ tsns_1_3
+  H-stitch BAD (0.04): tsns_1_0 → tsns_1_1
+  V-stitch BAD (0.21): tsns_1_0 ↓ tsns_2_0
+  H-stitch BAD (0.00): tsns_1_1 → tsns_1_2
+  V-stitch BAD (0.12): tsns_1_1 ↓ tsns_2_1
+  H-stitch BAD (0.00): tsns_1_2 → tsns_1_3
+  V-stitch BAD (0.26): tsns_1_2 ↓ tsns_2_2
+  V-stitch BAD (0.23): tsns_1_3 ↓ tsns_2_3
+  H-stitch BAD (0.55): tsns_2_0 → tsns_2_1
+  V-stitch BAD (0.78): tsns_2_0 ↓ tsns_3_0
+  H-stitch BAD (0.60): tsns_2_1 → tsns_2_2
+  V-stitch BAD (0.77): tsns_2_1 ↓ tsns_3_1
+  H-stitch BAD (0.53): tsns_2_2 → tsns_2_3
+  V-stitch BAD (0.81): tsns_2_2 ↓ tsns_3_2
+  V-stitch BAD (0.83): tsns_2_3 ↓ tsns_3_3
+  H-stitch BAD (0.37): tsns_3_0 → tsns_3_1
+  V-stitch BAD (0.20): tsns_3_0 ↓ tsns_4_0
+  H-stitch BAD (0.36): tsns_3_1 → tsns_3_2
+  V-stitch BAD (0.19): tsns_3_1 ↓ tsns_4_1
+  H-stitch BAD (0.41): tsns_3_2 → tsns_3_3
+  V-stitch BAD (0.37): tsns_3_2 ↓ tsns_4_2
+  V-stitch BAD (0.33): tsns_3_3 ↓ tsns_4_3
+  H-stitch BAD (0.15): tsns_4_0 → tsns_4_1
+  H-stitch BAD (0.40): tsns_4_1 → tsns_4_2
+  H-stitch BAD (0.35): tsns_4_2 → tsns_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tsub  (1×26)
+  H-stitch BAD (0.73): tsub_0_0 → tsub_0_1
+  H-stitch BAD (0.70): tsub_0_1 → tsub_0_2
+  H-stitch BAD (0.76): tsub_0_2 → tsub_0_3
+  H-stitch BAD (0.62): tsub_0_3 → tsub_0_4
+  H-stitch BAD (0.64): tsub_0_4 → tsub_0_5
+  H-stitch BAD (0.67): tsub_0_5 → tsub_0_6
+  H-stitch BAD (0.67): tsub_0_6 → tsub_0_7
+  H-stitch BAD (0.73): tsub_0_10 → tsub_0_11
+  H-stitch BAD (0.61): tsub_0_11 → tsub_0_12
+  H-stitch BAD (0.68): tsub_0_12 → tsub_0_13
+  H-stitch BAD (0.69): tsub_0_13 → tsub_0_14
+  H-stitch BAD (0.70): tsub_0_14 → tsub_0_15
+  H-stitch BAD (0.72): tsub_0_15 → tsub_0_16
+  H-stitch BAD (0.59): tsub_0_16 → tsub_0_17
+  H-stitch BAD (0.71): tsub_0_17 → tsub_0_18
+  H-stitch BAD (0.74): tsub_0_18 → tsub_0_19
+  H-stitch BAD (0.55): tsub_0_19 → tsub_0_20
+  H-stitch BAD (0.65): tsub_0_20 → tsub_0_21
+  H-stitch BAD (0.72): tsub_0_21 → tsub_0_22
+  H-stitch BAD (0.60): tsub_0_22 → tsub_0_23
+  H-stitch BAD (0.74): tsub_0_23 → tsub_0_24
+  H-stitch BAD (0.70): tsub_0_24 → tsub_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## tsud  (5×4)
+  H-stitch BAD (0.28): tsud_0_0 → tsud_0_1
+  V-stitch BAD (0.57): tsud_0_0 ↓ tsud_1_0
+  H-stitch BAD (0.29): tsud_0_1 → tsud_0_2
+  V-stitch BAD (0.63): tsud_0_1 ↓ tsud_1_1
+  H-stitch BAD (0.36): tsud_0_2 → tsud_0_3
+  V-stitch BAD (0.63): tsud_0_2 ↓ tsud_1_2
+  V-stitch BAD (0.63): tsud_0_3 ↓ tsud_1_3
+  H-stitch BAD (0.05): tsud_1_0 → tsud_1_1
+  V-stitch BAD (0.27): tsud_1_0 ↓ tsud_2_0
+  H-stitch BAD (0.04): tsud_1_1 → tsud_1_2
+  V-stitch BAD (0.35): tsud_1_1 ↓ tsud_2_1
+  H-stitch BAD (0.08): tsud_1_2 → tsud_1_3
+  V-stitch BAD (0.31): tsud_1_2 ↓ tsud_2_2
+  V-stitch BAD (0.32): tsud_1_3 ↓ tsud_2_3
+  H-stitch BAD (0.65): tsud_2_0 → tsud_2_1
+  V-stitch BAD (0.67): tsud_2_0 ↓ tsud_3_0
+  H-stitch BAD (0.61): tsud_2_1 → tsud_2_2
+  V-stitch BAD (0.71): tsud_2_1 ↓ tsud_3_1
+  H-stitch BAD (0.71): tsud_2_2 → tsud_2_3
+  V-stitch BAD (0.57): tsud_2_2 ↓ tsud_3_2
+  V-stitch BAD (0.67): tsud_2_3 ↓ tsud_3_3
+  H-stitch BAD (0.33): tsud_3_0 → tsud_3_1
+  V-stitch BAD (0.35): tsud_3_0 ↓ tsud_4_0
+  H-stitch BAD (0.43): tsud_3_1 → tsud_3_2
+  V-stitch BAD (0.31): tsud_3_1 ↓ tsud_4_1
+  H-stitch BAD (0.28): tsud_3_2 → tsud_3_3
+  V-stitch BAD (0.36): tsud_3_2 ↓ tsud_4_2
+  V-stitch BAD (0.38): tsud_3_3 ↓ tsud_4_3
+  H-stitch BAD (0.26): tsud_4_0 → tsud_4_1
+  H-stitch BAD (0.39): tsud_4_1 → tsud_4_2
+  H-stitch BAD (0.31): tsud_4_2 → tsud_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tsum  (5×4)
+  H-stitch BAD (0.32): tsum_0_0 → tsum_0_1
+  V-stitch BAD (0.56): tsum_0_0 ↓ tsum_1_0
+  H-stitch BAD (0.44): tsum_0_1 → tsum_0_2
+  V-stitch BAD (0.57): tsum_0_1 ↓ tsum_1_1
+  V-stitch BAD (0.62): tsum_0_2 ↓ tsum_1_2
+  H-stitch BAD (0.32): tsum_1_0 → tsum_1_1
+  V-stitch BAD (0.49): tsum_1_0 ↓ tsum_2_0
+  H-stitch BAD (0.48): tsum_1_1 → tsum_1_2
+  V-stitch BAD (0.09): tsum_1_1 ↓ tsum_2_1
+  H-stitch BAD (0.45): tsum_1_2 → tsum_1_3
+  H-stitch BAD (0.09): tsum_2_0 → tsum_2_1
+  V-stitch BAD (0.67): tsum_2_0 ↓ tsum_3_0
+  V-stitch BAD (0.13): tsum_2_1 ↓ tsum_3_1
+  H-stitch BAD (0.45): tsum_3_0 → tsum_3_1
+  V-stitch BAD (0.17): tsum_3_0 ↓ tsum_4_0
+  V-stitch BAD (0.35): tsum_3_1 ↓ tsum_4_1
+  H-stitch BAD (0.08): tsum_4_0 → tsum_4_1
+  H-stitch BAD (0.34): tsum_4_1 → tsum_4_2
+  H-stitch BAD (0.42): tsum_4_2 → tsum_4_3
+  H: 0 good / 10 bad   V: 0 good / 9 bad
+
+## tsus  (5×4)
+  H-stitch BAD (0.22): tsus_0_0 → tsus_0_1
+  V-stitch BAD (0.55): tsus_0_0 ↓ tsus_1_0
+  H-stitch BAD (0.27): tsus_0_1 → tsus_0_2
+  V-stitch BAD (0.44): tsus_0_1 ↓ tsus_1_1
+  H-stitch BAD (0.42): tsus_0_2 → tsus_0_3
+  V-stitch BAD (0.60): tsus_0_2 ↓ tsus_1_2
+  V-stitch BAD (0.58): tsus_0_3 ↓ tsus_1_3
+  H-stitch BAD (0.43): tsus_1_0 → tsus_1_1
+  V-stitch BAD (0.41): tsus_1_0 ↓ tsus_2_0
+  H-stitch BAD (0.47): tsus_1_1 → tsus_1_2
+  V-stitch BAD (0.38): tsus_1_1 ↓ tsus_2_1
+  H-stitch BAD (0.49): tsus_1_2 → tsus_1_3
+  V-stitch BAD (0.33): tsus_1_2 ↓ tsus_2_2
+  V-stitch BAD (0.41): tsus_1_3 ↓ tsus_2_3
+  H-stitch BAD (0.49): tsus_2_0 → tsus_2_1
+  V-stitch BAD (0.72): tsus_2_0 ↓ tsus_3_0
+  H-stitch BAD (0.52): tsus_2_1 → tsus_2_2
+  V-stitch BAD (0.64): tsus_2_1 ↓ tsus_3_1
+  H-stitch BAD (0.58): tsus_2_2 → tsus_2_3
+  V-stitch BAD (0.70): tsus_2_2 ↓ tsus_3_2
+  V-stitch BAD (0.71): tsus_2_3 ↓ tsus_3_3
+  H-stitch BAD (0.44): tsus_3_0 → tsus_3_1
+  V-stitch BAD (0.33): tsus_3_0 ↓ tsus_4_0
+  H-stitch BAD (0.60): tsus_3_1 → tsus_3_2
+  V-stitch BAD (0.37): tsus_3_1 ↓ tsus_4_1
+  H-stitch BAD (0.53): tsus_3_2 → tsus_3_3
+  V-stitch BAD (0.46): tsus_3_2 ↓ tsus_4_2
+  V-stitch BAD (0.52): tsus_3_3 ↓ tsus_4_3
+  H-stitch BAD (0.47): tsus_4_0 → tsus_4_1
+  H-stitch BAD (0.55): tsus_4_1 → tsus_4_2
+  H-stitch BAD (0.53): tsus_4_2 → tsus_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tswb  (1×26)
+  H-stitch BAD (0.67): tswb_0_0 → tswb_0_1
+  H-stitch BAD (0.54): tswb_0_1 → tswb_0_2
+  H-stitch BAD (0.45): tswb_0_2 → tswb_0_3
+  H-stitch BAD (0.71): tswb_0_3 → tswb_0_4
+  H-stitch BAD (0.59): tswb_0_4 → tswb_0_5
+  H-stitch BAD (0.61): tswb_0_5 → tswb_0_6
+  H-stitch BAD (0.56): tswb_0_6 → tswb_0_7
+  H-stitch BAD (0.56): tswb_0_10 → tswb_0_11
+  H-stitch BAD (0.61): tswb_0_11 → tswb_0_12
+  H-stitch BAD (0.63): tswb_0_12 → tswb_0_13
+  H-stitch BAD (0.52): tswb_0_13 → tswb_0_14
+  H-stitch BAD (0.51): tswb_0_14 → tswb_0_15
+  H-stitch BAD (0.56): tswb_0_15 → tswb_0_16
+  H-stitch BAD (0.57): tswb_0_16 → tswb_0_17
+  H-stitch BAD (0.53): tswb_0_17 → tswb_0_18
+  H-stitch BAD (0.61): tswb_0_18 → tswb_0_19
+  H-stitch BAD (0.62): tswb_0_19 → tswb_0_20
+  H-stitch BAD (0.67): tswb_0_20 → tswb_0_21
+  H-stitch BAD (0.58): tswb_0_21 → tswb_0_22
+  H-stitch BAD (0.59): tswb_0_22 → tswb_0_23
+  H-stitch BAD (0.52): tswb_0_23 → tswb_0_24
+  H-stitch BAD (0.57): tswb_0_24 → tswb_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## tswd  (5×4)
+  H-stitch BAD (0.36): tswd_0_0 → tswd_0_1
+  V-stitch BAD (0.61): tswd_0_0 ↓ tswd_1_0
+  H-stitch BAD (0.42): tswd_0_1 → tswd_0_2
+  V-stitch BAD (0.56): tswd_0_1 ↓ tswd_1_1
+  H-stitch BAD (0.41): tswd_0_2 → tswd_0_3
+  V-stitch BAD (0.63): tswd_0_2 ↓ tswd_1_2
+  V-stitch BAD (0.61): tswd_0_3 ↓ tswd_1_3
+  H-stitch BAD (0.27): tswd_1_0 → tswd_1_1
+  V-stitch BAD (0.43): tswd_1_0 ↓ tswd_2_0
+  H-stitch BAD (0.20): tswd_1_1 → tswd_1_2
+  V-stitch BAD (0.32): tswd_1_1 ↓ tswd_2_1
+  H-stitch BAD (0.28): tswd_1_2 → tswd_1_3
+  V-stitch BAD (0.41): tswd_1_2 ↓ tswd_2_2
+  V-stitch BAD (0.39): tswd_1_3 ↓ tswd_2_3
+  H-stitch BAD (0.50): tswd_2_0 → tswd_2_1
+  V-stitch BAD (0.55): tswd_2_0 ↓ tswd_3_0
+  H-stitch BAD (0.59): tswd_2_1 → tswd_2_2
+  V-stitch BAD (0.65): tswd_2_1 ↓ tswd_3_1
+  H-stitch BAD (0.51): tswd_2_2 → tswd_2_3
+  V-stitch BAD (0.62): tswd_2_2 ↓ tswd_3_2
+  V-stitch BAD (0.50): tswd_2_3 ↓ tswd_3_3
+  H-stitch BAD (0.39): tswd_3_0 → tswd_3_1
+  V-stitch BAD (0.30): tswd_3_0 ↓ tswd_4_0
+  H-stitch BAD (0.35): tswd_3_1 → tswd_3_2
+  V-stitch BAD (0.49): tswd_3_1 ↓ tswd_4_1
+  H-stitch BAD (0.37): tswd_3_2 → tswd_3_3
+  V-stitch BAD (0.40): tswd_3_2 ↓ tswd_4_2
+  V-stitch BAD (0.40): tswd_3_3 ↓ tswd_4_3
+  H-stitch BAD (0.44): tswd_4_0 → tswd_4_1
+  H-stitch BAD (0.41): tswd_4_1 → tswd_4_2
+  H-stitch BAD (0.47): tswd_4_2 → tswd_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tswm  (5×4)
+  H-stitch BAD (0.15): tswm_0_0 → tswm_0_1
+  V-stitch BAD (0.51): tswm_0_0 ↓ tswm_1_0
+  H-stitch BAD (0.07): tswm_0_1 → tswm_0_2
+  V-stitch BAD (0.54): tswm_0_1 ↓ tswm_1_1
+  V-stitch BAD (0.50): tswm_0_2 ↓ tswm_1_2
+  H-stitch BAD (0.43): tswm_1_0 → tswm_1_1
+  V-stitch BAD (0.32): tswm_1_0 ↓ tswm_2_0
+  H-stitch BAD (0.24): tswm_1_1 → tswm_1_2
+  V-stitch BAD (0.22): tswm_1_1 ↓ tswm_2_1
+  H-stitch BAD (0.32): tswm_1_2 → tswm_1_3
+  H-stitch BAD (0.09): tswm_2_0 → tswm_2_1
+  V-stitch BAD (0.57): tswm_2_0 ↓ tswm_3_0
+  V-stitch BAD (0.11): tswm_2_1 ↓ tswm_3_1
+  H-stitch BAD (0.28): tswm_3_0 → tswm_3_1
+  V-stitch BAD (0.31): tswm_3_0 ↓ tswm_4_0
+  V-stitch BAD (0.28): tswm_3_1 ↓ tswm_4_1
+  H-stitch BAD (0.02): tswm_4_0 → tswm_4_1
+  H-stitch BAD (0.48): tswm_4_1 → tswm_4_2
+  H-stitch BAD (0.40): tswm_4_2 → tswm_4_3
+  H: 0 good / 10 bad   V: 0 good / 9 bad
+
+## tsws  (5×4)
+  H-stitch BAD (0.28): tsws_0_0 → tsws_0_1
+  V-stitch BAD (0.58): tsws_0_0 ↓ tsws_1_0
+  H-stitch BAD (0.17): tsws_0_1 → tsws_0_2
+  V-stitch BAD (0.54): tsws_0_1 ↓ tsws_1_1
+  H-stitch BAD (0.19): tsws_0_2 → tsws_0_3
+  V-stitch BAD (0.47): tsws_0_2 ↓ tsws_1_2
+  V-stitch BAD (0.51): tsws_0_3 ↓ tsws_1_3
+  H-stitch BAD (0.00): tsws_1_0 → tsws_1_1
+  V-stitch BAD (0.19): tsws_1_0 ↓ tsws_2_0
+  H-stitch BAD (0.00): tsws_1_1 → tsws_1_2
+  V-stitch BAD (0.22): tsws_1_1 ↓ tsws_2_1
+  H-stitch BAD (0.00): tsws_1_2 → tsws_1_3
+  V-stitch BAD (0.24): tsws_1_2 ↓ tsws_2_2
+  V-stitch BAD (0.24): tsws_1_3 ↓ tsws_2_3
+  H-stitch BAD (0.43): tsws_2_0 → tsws_2_1
+  V-stitch BAD (0.51): tsws_2_0 ↓ tsws_3_0
+  H-stitch BAD (0.41): tsws_2_1 → tsws_2_2
+  V-stitch BAD (0.61): tsws_2_1 ↓ tsws_3_1
+  H-stitch BAD (0.57): tsws_2_2 → tsws_2_3
+  V-stitch BAD (0.56): tsws_2_2 ↓ tsws_3_2
+  V-stitch BAD (0.54): tsws_2_3 ↓ tsws_3_3
+  H-stitch BAD (0.32): tsws_3_0 → tsws_3_1
+  V-stitch BAD (0.21): tsws_3_0 ↓ tsws_4_0
+  H-stitch BAD (0.23): tsws_3_1 → tsws_3_2
+  V-stitch BAD (0.18): tsws_3_1 ↓ tsws_4_1
+  H-stitch BAD (0.26): tsws_3_2 → tsws_3_3
+  V-stitch BAD (0.26): tsws_3_2 ↓ tsws_4_2
+  V-stitch BAD (0.22): tsws_3_3 ↓ tsws_4_3
+  H-stitch BAD (0.33): tsws_4_0 → tsws_4_1
+  H-stitch BAD (0.26): tsws_4_1 → tsws_4_2
+  H-stitch BAD (0.23): tsws_4_2 → tsws_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tvlb  (1×26)
+  H-stitch BAD (0.49): tvlb_0_0 → tvlb_0_1
+  H-stitch BAD (0.42): tvlb_0_1 → tvlb_0_2
+  H-stitch BAD (0.52): tvlb_0_2 → tvlb_0_3
+  H-stitch BAD (0.65): tvlb_0_3 → tvlb_0_4
+  H-stitch BAD (0.49): tvlb_0_4 → tvlb_0_5
+  H-stitch BAD (0.58): tvlb_0_5 → tvlb_0_6
+  H-stitch BAD (0.47): tvlb_0_6 → tvlb_0_7
+  H-stitch BAD (0.48): tvlb_0_10 → tvlb_0_11
+  H-stitch BAD (0.50): tvlb_0_11 → tvlb_0_12
+  H-stitch BAD (0.40): tvlb_0_12 → tvlb_0_13
+  H-stitch BAD (0.53): tvlb_0_13 → tvlb_0_14
+  H-stitch BAD (0.47): tvlb_0_14 → tvlb_0_15
+  H-stitch BAD (0.39): tvlb_0_15 → tvlb_0_16
+  H-stitch BAD (0.46): tvlb_0_16 → tvlb_0_17
+  H-stitch BAD (0.40): tvlb_0_17 → tvlb_0_18
+  H-stitch BAD (0.49): tvlb_0_18 → tvlb_0_19
+  H-stitch BAD (0.38): tvlb_0_19 → tvlb_0_20
+  H-stitch BAD (0.54): tvlb_0_20 → tvlb_0_21
+  H-stitch BAD (0.50): tvlb_0_21 → tvlb_0_22
+  H-stitch BAD (0.38): tvlb_0_22 → tvlb_0_23
+  H-stitch BAD (0.38): tvlb_0_23 → tvlb_0_24
+  H-stitch BAD (0.50): tvlb_0_24 → tvlb_0_25
+  H: 0 good / 22 bad   V: 0 good / 0 bad
+
+## tvld  (5×4)
+  H-stitch BAD (0.42): tvld_0_0 → tvld_0_1
+  V-stitch BAD (0.51): tvld_0_0 ↓ tvld_1_0
+  H-stitch BAD (0.41): tvld_0_1 → tvld_0_2
+  V-stitch BAD (0.50): tvld_0_1 ↓ tvld_1_1
+  H-stitch BAD (0.50): tvld_0_2 → tvld_0_3
+  V-stitch BAD (0.55): tvld_0_2 ↓ tvld_1_2
+  V-stitch BAD (0.51): tvld_0_3 ↓ tvld_1_3
+  H-stitch BAD (0.26): tvld_1_0 → tvld_1_1
+  V-stitch BAD (0.38): tvld_1_0 ↓ tvld_2_0
+  H-stitch BAD (0.23): tvld_1_1 → tvld_1_2
+  V-stitch BAD (0.45): tvld_1_1 ↓ tvld_2_1
+  H-stitch BAD (0.21): tvld_1_2 → tvld_1_3
+  V-stitch BAD (0.37): tvld_1_2 ↓ tvld_2_2
+  V-stitch BAD (0.44): tvld_1_3 ↓ tvld_2_3
+  H-stitch BAD (0.51): tvld_2_0 → tvld_2_1
+  V-stitch BAD (0.48): tvld_2_0 ↓ tvld_3_0
+  H-stitch BAD (0.53): tvld_2_1 → tvld_2_2
+  V-stitch BAD (0.57): tvld_2_1 ↓ tvld_3_1
+  H-stitch BAD (0.65): tvld_2_2 → tvld_2_3
+  V-stitch BAD (0.49): tvld_2_2 ↓ tvld_3_2
+  V-stitch BAD (0.46): tvld_2_3 ↓ tvld_3_3
+  H-stitch BAD (0.41): tvld_3_0 → tvld_3_1
+  V-stitch BAD (0.40): tvld_3_0 ↓ tvld_4_0
+  H-stitch BAD (0.34): tvld_3_1 → tvld_3_2
+  V-stitch BAD (0.36): tvld_3_1 ↓ tvld_4_1
+  H-stitch BAD (0.41): tvld_3_2 → tvld_3_3
+  V-stitch BAD (0.43): tvld_3_2 ↓ tvld_4_2
+  V-stitch BAD (0.39): tvld_3_3 ↓ tvld_4_3
+  H-stitch BAD (0.43): tvld_4_0 → tvld_4_1
+  H-stitch BAD (0.34): tvld_4_1 → tvld_4_2
+  H-stitch BAD (0.34): tvld_4_2 → tvld_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## tvlm  (5×4)
+  H-stitch BAD (0.13): tvlm_0_0 → tvlm_0_1
+  V-stitch BAD (0.52): tvlm_0_0 ↓ tvlm_1_0
+  H-stitch BAD (0.10): tvlm_0_1 → tvlm_0_2
+  V-stitch BAD (0.43): tvlm_0_1 ↓ tvlm_1_1
+  V-stitch BAD (0.53): tvlm_0_2 ↓ tvlm_1_2
+  H-stitch BAD (0.41): tvlm_1_0 → tvlm_1_1
+  V-stitch BAD (0.28): tvlm_1_0 ↓ tvlm_2_0
+  H-stitch BAD (0.24): tvlm_1_1 → tvlm_1_2
+  V-stitch BAD (0.29): tvlm_1_1 ↓ tvlm_2_1
+  H-stitch BAD (0.14): tvlm_1_2 → tvlm_1_3
+  H-stitch BAD (0.11): tvlm_2_0 → tvlm_2_1
+  V-stitch BAD (0.41): tvlm_2_0 ↓ tvlm_3_0
+  V-stitch BAD (0.21): tvlm_2_1 ↓ tvlm_3_1
+  H-stitch BAD (0.33): tvlm_3_0 → tvlm_3_1
+  V-stitch BAD (0.26): tvlm_3_0 ↓ tvlm_4_0
+  V-stitch BAD (0.20): tvlm_3_1 ↓ tvlm_4_1
+  H-stitch BAD (0.02): tvlm_4_0 → tvlm_4_1
+  H-stitch BAD (0.39): tvlm_4_1 → tvlm_4_2
+  H-stitch BAD (0.40): tvlm_4_2 → tvlm_4_3
+  H: 0 good / 10 bad   V: 0 good / 9 bad
+
+## tvls  (5×4)
+  H-stitch BAD (0.17): tvls_0_0 → tvls_0_1
+  V-stitch BAD (0.45): tvls_0_0 ↓ tvls_1_0
+  H-stitch BAD (0.21): tvls_0_1 → tvls_0_2
+  V-stitch BAD (0.38): tvls_0_1 ↓ tvls_1_1
+  H-stitch BAD (0.13): tvls_0_2 → tvls_0_3
+  V-stitch BAD (0.41): tvls_0_2 ↓ tvls_1_2
+  V-stitch BAD (0.44): tvls_0_3 ↓ tvls_1_3
+  H-stitch BAD (0.04): tvls_1_0 → tvls_1_1
+  V-stitch BAD (0.20): tvls_1_0 ↓ tvls_2_0
+  H-stitch BAD (0.00): tvls_1_1 → tvls_1_2
+  V-stitch BAD (0.09): tvls_1_1 ↓ tvls_2_1
+  H-stitch BAD (0.00): tvls_1_2 → tvls_1_3
+  V-stitch BAD (0.17): tvls_1_2 ↓ tvls_2_2
+  V-stitch BAD (0.17): tvls_1_3 ↓ tvls_2_3
+  H-stitch BAD (0.38): tvls_2_0 → tvls_2_1
+  V-stitch BAD (0.50): tvls_2_0 ↓ tvls_3_0
+  H-stitch BAD (0.46): tvls_2_1 → tvls_2_2
+  V-stitch BAD (0.56): tvls_2_1 ↓ tvls_3_1
+  H-stitch BAD (0.43): tvls_2_2 → tvls_2_3
+  V-stitch BAD (0.48): tvls_2_2 ↓ tvls_3_2
+  V-stitch BAD (0.46): tvls_2_3 ↓ tvls_3_3
+  H-stitch BAD (0.26): tvls_3_0 → tvls_3_1
+  V-stitch BAD (0.22): tvls_3_0 ↓ tvls_4_0
+  H-stitch BAD (0.24): tvls_3_1 → tvls_3_2
+  V-stitch BAD (0.16): tvls_3_1 ↓ tvls_4_1
+  H-stitch BAD (0.34): tvls_3_2 → tvls_3_3
+  V-stitch BAD (0.25): tvls_3_2 ↓ tvls_4_2
+  V-stitch BAD (0.26): tvls_3_3 ↓ tvls_4_3
+  H-stitch BAD (0.17): tvls_4_0 → tvls_4_1
+  H-stitch BAD (0.24): tvls_4_1 → tvls_4_2
+  H-stitch BAD (0.23): tvls_4_2 → tvls_4_3
+  H: 0 good / 15 bad   V: 0 good / 16 bad
+
+## watrtl  (1×34)
+  H-stitch BAD (0.05): watrtl_0_1 → watrtl_0_2
+  H-stitch BAD (0.03): watrtl_0_2 → watrtl_0_3
+  H-stitch BAD (0.01): watrtl_0_3 → watrtl_0_4
+  H-stitch BAD (0.02): watrtl_0_4 → watrtl_0_5
+  H-stitch BAD (0.00): watrtl_0_5 → watrtl_0_6
+  H-stitch BAD (0.00): watrtl_0_6 → watrtl_0_7
+  H-stitch BAD (0.00): watrtl_0_7 → watrtl_0_8
+  H-stitch BAD (0.55): watrtl_0_8 → watrtl_0_9
+  H-stitch BAD (0.63): watrtl_0_9 → watrtl_0_10
+  H-stitch BAD (0.71): watrtl_0_10 → watrtl_0_11
+  H-stitch BAD (0.63): watrtl_0_11 → watrtl_0_12
+  H-stitch BAD (0.56): watrtl_0_12 → watrtl_0_13
+  H-stitch BAD (0.52): watrtl_0_13 → watrtl_0_14
+  H-stitch BAD (0.61): watrtl_0_14 → watrtl_0_15
+  H-stitch BAD (0.69): watrtl_0_15 → watrtl_0_16
+  H-stitch BAD (0.07): watrtl_0_16 → watrtl_0_17
+  H-stitch BAD (0.08): watrtl_0_17 → watrtl_0_18
+  H-stitch BAD (0.54): watrtl_0_18 → watrtl_0_19
+  H-stitch BAD (0.56): watrtl_0_19 → watrtl_0_20
+  H-stitch BAD (0.57): watrtl_0_20 → watrtl_0_21
+  H-stitch BAD (0.81): watrtl_0_21 → watrtl_0_22
+  H-stitch BAD (0.83): watrtl_0_22 → watrtl_0_23
+  H-stitch BAD (0.85): watrtl_0_23 → watrtl_0_24
+  H-stitch BAD (0.84): watrtl_0_24 → watrtl_0_25
+  H-stitch BAD (0.82): watrtl_0_25 → watrtl_0_26
+  H-stitch BAD (0.76): watrtl_0_26 → watrtl_0_27
+  H-stitch BAD (0.79): watrtl_0_27 → watrtl_0_28
+  H-stitch BAD (0.79): watrtl_0_28 → watrtl_0_29
+  H-stitch BAD (0.84): watrtl_0_29 → watrtl_0_30
+  H-stitch BAD (0.75): watrtl_0_30 → watrtl_0_31
+  H-stitch BAD (0.75): watrtl_0_31 → watrtl_0_32
+  H-stitch BAD (0.80): watrtl_0_32 → watrtl_0_33
+  H: 0 good / 32 bad   V: 0 good / 0 bad
